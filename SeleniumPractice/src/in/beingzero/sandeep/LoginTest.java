@@ -6,7 +6,7 @@ public class LoginTest {
 
 	// Test Case 1
 	@Test
-	void validUserNameAndPasswordLogin() {
+	public void validUserNameAndPasswordLogin() {
 		
 		System.out.println("Running test1");
 		// Open the browser
@@ -24,7 +24,8 @@ public class LoginTest {
 	}
 
 	// Test Case 2
-	void invalidUserNameAndPasswordLogin() {
+	@Test
+	public void invalidUserNameAndPasswordLogin() {
 		// Open the browser
 
 		// Go to site - http://opensource.demo.orangehrmlive.com
@@ -40,7 +41,7 @@ public class LoginTest {
 	}
 
 	// Test Case 3
-	void blankUserNameAndPasswordLogin() {
+	public void blankUserNameAndPasswordLogin() {
 		// Open the browser
 
 		// Go to site - http://opensource.demo.orangehrmlive.com
@@ -56,7 +57,7 @@ public class LoginTest {
 	}
 
 	// Test Case 4
-	void userNameAndBlankPasswordLogin() {
+	public void userNameAndBlankPasswordLogin() {
 		// Open the browser
 
 		// Go to site - http://opensource.demo.orangehrmlive.com

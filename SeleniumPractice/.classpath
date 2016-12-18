@@ -36,6 +36,9 @@
 	<classpathentry kind="lib" path="lib/xalan-2.7.2.jar"/>
 	<classpathentry kind="lib" path="lib/xercesImpl-2.11.0.jar"/>
 	<classpathentry kind="lib" path="lib/xml-apis-1.4.01.jar"/>
-	<classpathentry kind="lib" path="lib/testng-6.9.10.jar"/>
+	<classpathentry kind="lib" path="lib/testng-6.9.9.jar"/>
+	<classpathentry kind="lib" path="lib/jcommander-1.48.jar"/>
+	<classpathentry kind="lib" path="lib/apache-mime4j-0.6.jar"/>
+	<classpathentry kind="lib" path="lib/bsh-2.0b4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
