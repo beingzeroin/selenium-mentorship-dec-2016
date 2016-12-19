@@ -17,15 +17,17 @@ public class Seltest1 {
 	
 	driver.get("http://opensource.demo.orangehrmlive.com");
 	WebElement UserId = driver.findElement(By.id("txtUsername"));
+	UserId.clear();
 	UserId.sendKeys("Admin");
 	
 	WebElement Password = driver.findElement(By.id("txtPassword"));
+	Password.clear();
 	Password.sendKeys("admin");
 	
 	WebElement Login = driver.findElement(By.id("btnLogin"));
 	Login.click();
 	
-	String Actuallogger = driver.findElement(By.id("welcome")).getText();
+	String Actuallogger = driver.findElement(By.xpath("//a[@class='Welcome Admin']/@href)")).getText();
 	
 	String Expectedlogger = "Welcome Admin";
 	
