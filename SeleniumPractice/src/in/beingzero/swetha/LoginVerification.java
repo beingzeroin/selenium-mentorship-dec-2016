@@ -7,123 +7,128 @@ import org.testng.annotations.Test;
 
 public class LoginVerification {
 
+	public String URL = "http://opensource.demo.orangehrmlive.com";
+	public String UserName = "";
+	public String PassWord = "";
+	public String ExpectedPageText = "";
+	public String ActualPageText = "";
+
+	// Constructor
+
+	public LoginVerification(String UserID, String Pass, String Expectedtext) {
+		UserName = UserID;
+		PassWord = Pass;
+		ExpectedPageText = Expectedtext;
+	}
+
+	// valid user name and password
 	@Test
-	//valid user name and password
 	public void Test1() throws InterruptedException {
 
 		FirefoxDriver fd = new FirefoxDriver();
 
-		fd.get("http://opensource.demo.orangehrmlive.com");
+		fd.get(URL);
 		WebElement Username = fd.findElement(By.id("txtUsername"));
-		Username.sendKeys("Admin");
+		Username.sendKeys(UserName);
 
 		WebElement Password = fd.findElement(By.id("txtPassword"));
-		Password.sendKeys("admin");
+		Password.sendKeys(PassWord);
 
 		WebElement Login = fd.findElement(By.id("btnLogin"));
 		Login.click();
 		Thread.sleep(1000);
 
-		String VerifyPageTitle = fd.findElement(By.xpath("//*[@id='welcome']")).getText();
-		System.out.println(VerifyPageTitle);
-		String ActualPageTitle = "Welcome Admin";
+		ActualPageText = fd.findElement(By.xpath("//*[@id='welcome']")).getText();
 
-		if (VerifyPageTitle.equals(ActualPageTitle)) {
-			System.out.println("Verification successful, test case PASS");
+		if (ActualPageText.equals(ExpectedPageText)) {
+			System.out.println("Verification successful, test case1 PASS");
 		} else {
-			System.out.println("Verification failed, test case FAIL");
+			System.out.println("Verification failed, test case1 FAIL");
 
 		}
-		// fd.quit();
+
 	}
-	
+
 	// Incorrect Password
 	public void Test2() throws InterruptedException {
 
 		FirefoxDriver fd = new FirefoxDriver();
 
-		fd.get("http://opensource.demo.orangehrmlive.com");
-	
+		fd.get(URL);
+
 		WebElement Username = fd.findElement(By.id("txtUsername"));
-		Username.sendKeys("Admin");
+		Username.sendKeys(UserName);
 
 		WebElement Password = fd.findElement(By.id("txtPassword"));
-		Password.sendKeys("");
+		Password.sendKeys(PassWord);
 
 		WebElement Login = fd.findElement(By.id("btnLogin"));
 		Login.click();
 		Thread.sleep(1000);
 
-		String VerifyPageTitle = fd.findElement(By.xpath(".//span[contains(text(),'Password cannot be empty')]"))
-				.getText();
-		System.out.println(VerifyPageTitle);
-		String ActualPageTitle = "Password cannot be empty";
+		ActualPageText = fd.findElement(By.xpath(".//span[contains(text(),'Password cannot be empty')]")).getText();
 
-		if (VerifyPageTitle.equals(ActualPageTitle)) {
-			System.out.println("Verification successful, test case PASS");
+		if (ActualPageText.equals(ExpectedPageText)) {
+			System.out.println("Verification successful, test case2 PASS");
 		} else {
-			System.out.println("Verification failed, test case FAIL");
+			System.out.println("Verification failed, test case2 FAIL");
 
 		}
-		// fd.quit();
+
 	}
 
 	// Incorrect User name
 	public void Test3() throws InterruptedException {
 		FirefoxDriver fd = new FirefoxDriver();
 
-		fd.get("http://opensource.demo.orangehrmlive.com");
-		
+		fd.get(URL);
+
 		WebElement Username = fd.findElement(By.id("txtUsername"));
-		Username.sendKeys("");
+		Username.sendKeys(UserName);
 
 		WebElement Password = fd.findElement(By.id("txtPassword"));
-		Password.sendKeys("admin");
+		Password.sendKeys(PassWord);
 
 		WebElement Login = fd.findElement(By.id("btnLogin"));
 		Login.click();
 		Thread.sleep(1000);
 
-		String VerifyPageTitle = fd.findElement(By.xpath("//span[contains(text(),'Username cannot be empty')]"))
-				.getText();
-		System.out.println(VerifyPageTitle);
-		String ActualPageTitle = "Username cannot be empty";
+		ActualPageText = fd.findElement(By.xpath("//span[contains(text(),'Username cannot be empty')]")).getText();
 
-		if (VerifyPageTitle.equals(ActualPageTitle)) {
-			System.out.println("Verification successful, test case PASS");
+		if (ActualPageText.equals(ExpectedPageText)) {
+			System.out.println("Verification successful, test case3 PASS");
 		} else {
-			System.out.println("Verification failed, test case FAIL");
+			System.out.println("Verification failed, test case3 FAIL");
 
 		}
-		// fd.quit();
+
 	}
 
 	// Incorrect User name and Password
 	public void Test4() throws InterruptedException {
 		FirefoxDriver fd = new FirefoxDriver();
 
-		fd.get("http://opensource.demo.orangehrmlive.com");
-	
+		fd.get(URL);
+
 		WebElement Username = fd.findElement(By.id("txtUsername"));
-		Username.sendKeys(" ");
+		Username.sendKeys(UserName);
 
 		WebElement Password = fd.findElement(By.id("txtPassword"));
-		Password.sendKeys(" ");
+		Password.sendKeys(PassWord);
 
 		WebElement Login = fd.findElement(By.id("btnLogin"));
 		Login.click();
 		Thread.sleep(1000);
 
-		String VerifyPageTitle = fd.findElement(By.xpath("//span[contains(text(),'Invalid credentials')]")).getText();
-		System.out.println(VerifyPageTitle);
-		String ActualPageTitle = "Invalid credentials";
+		ActualPageText = fd.findElement(By.xpath("//span[contains(text(),'Invalid credentials')]")).getText();
 
-		if (VerifyPageTitle.equals(ActualPageTitle)) {
-			System.out.println("Verification successful, test case PASS");
+		if (ActualPageText.equals(ExpectedPageText)) {
+			System.out.println("Verification successful, test case4 PASS");
 		} else {
-			System.out.println("Verification failed, test case FAIL");
+			System.out.println("Verification failed, test case4 FAIL");
 
 		}
-		// fd.quit();
+		
+
 	}
 }
