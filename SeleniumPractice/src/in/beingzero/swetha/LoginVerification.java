@@ -1,6 +1,7 @@
 package in.beingzero.swetha;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
@@ -12,8 +13,11 @@ public class LoginVerification {
 	public String PassWord = "";
 	public String ExpectedPageText = "";
 	public String ActualPageText = "";
-
-	// Constructor
+	public String ID1 = "txtUsername";
+	public String ID2 = "txtPassword";
+	public String ID3 = "btnLogin";
+	
+	// Constructor to pass the test credentials and expected value text
 
 	public LoginVerification(String UserID, String Pass, String Expectedtext) {
 		UserName = UserID;
@@ -28,17 +32,17 @@ public class LoginVerification {
 		FirefoxDriver fd = new FirefoxDriver();
 
 		fd.get(URL);
-		WebElement Username = fd.findElement(By.id("txtUsername"));
+		WebElement Username = fd.findElement(By.id(ID1));
 		Username.sendKeys(UserName);
 
-		WebElement Password = fd.findElement(By.id("txtPassword"));
+		WebElement Password = fd.findElement(By.id(ID2));
 		Password.sendKeys(PassWord);
 
-		WebElement Login = fd.findElement(By.id("btnLogin"));
+		WebElement Login = fd.findElement(By.id(ID3));
 		Login.click();
 		Thread.sleep(1000);
 
-		ActualPageText = fd.findElement(By.xpath("//*[@id='welcome']")).getText();
+		ActualPageText = fd.findElement(By.id("welcome")).getText();
 
 		if (ActualPageText.equals(ExpectedPageText)) {
 			System.out.println("Verification successful, test case1 PASS");
@@ -56,13 +60,13 @@ public class LoginVerification {
 
 		fd.get(URL);
 
-		WebElement Username = fd.findElement(By.id("txtUsername"));
+		WebElement Username = fd.findElement(By.id(ID1));
 		Username.sendKeys(UserName);
 
-		WebElement Password = fd.findElement(By.id("txtPassword"));
+		WebElement Password = fd.findElement(By.id(ID2));
 		Password.sendKeys(PassWord);
 
-		WebElement Login = fd.findElement(By.id("btnLogin"));
+		WebElement Login = fd.findElement(By.id(ID3));
 		Login.click();
 		Thread.sleep(1000);
 
@@ -83,13 +87,13 @@ public class LoginVerification {
 
 		fd.get(URL);
 
-		WebElement Username = fd.findElement(By.id("txtUsername"));
+		WebElement Username = fd.findElement(By.id(ID1));
 		Username.sendKeys(UserName);
 
-		WebElement Password = fd.findElement(By.id("txtPassword"));
+		WebElement Password = fd.findElement(By.id(ID2));
 		Password.sendKeys(PassWord);
 
-		WebElement Login = fd.findElement(By.id("btnLogin"));
+		WebElement Login = fd.findElement(By.id(ID3));
 		Login.click();
 		Thread.sleep(1000);
 
@@ -110,13 +114,13 @@ public class LoginVerification {
 
 		fd.get(URL);
 
-		WebElement Username = fd.findElement(By.id("txtUsername"));
+		WebElement Username = fd.findElement(By.id(ID1));
 		Username.sendKeys(UserName);
 
-		WebElement Password = fd.findElement(By.id("txtPassword"));
+		WebElement Password = fd.findElement(By.id(ID2));
 		Password.sendKeys(PassWord);
 
-		WebElement Login = fd.findElement(By.id("btnLogin"));
+		WebElement Login = fd.findElement(By.id(ID3));
 		Login.click();
 		Thread.sleep(1000);
 
@@ -128,7 +132,5 @@ public class LoginVerification {
 			System.out.println("Verification failed, test case4 FAIL");
 
 		}
-		
-
 	}
 }
