@@ -25,13 +25,14 @@ public class FirstClass {
 		System.out.println(VerifyPageTitle);
 		String ActualPageTitle = "Welcome Admin";
 		
-		if(VerifyPageTitle == ActualPageTitle)
+		if(VerifyPageTitle.equals(ActualPageTitle))
 		{
 			System.out.println("Verification successful, test case PASS");
 		}
 		else
 		{
 			System.out.println("Verification failed, test case FAIL");
+
 		}	
 		//fd.quit();
 
