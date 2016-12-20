@@ -33,6 +33,7 @@ public class LoginVerification {
 
 		fd.get(URL);
 		WebElement Username = fd.findElement(By.id(ID1));
+		Username.clear();
 		Username.sendKeys(UserName);
 
 		WebElement Password = fd.findElement(By.id(ID2));
