@@ -21,7 +21,7 @@ public class TestCase1 {
 		Login.click();
 		Thread.sleep(1000);
 		
-		String VerifyPageTitle = fd.findElement(By.xpath("//*[@id='welcome']")).getText();
+		String VerifyPageTitle = fd.findElement(By.xpath("//a[@id='welcome']")).getText();
 		System.out.println(VerifyPageTitle);
 		String ActualPageTitle = "Welcome Admin";
 		
