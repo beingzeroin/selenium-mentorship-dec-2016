@@ -5,8 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class TestCase1 {
-	public static void main(String[] args) throws InterruptedException {
 
+	public static void main(String[] args) throws InterruptedException {
 		FirefoxDriver fd = new FirefoxDriver();
 
 		fd.get("http://opensource.demo.orangehrmlive.com");
