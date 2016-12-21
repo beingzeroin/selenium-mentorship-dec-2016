@@ -7,7 +7,7 @@ public class TestRuns {
 
 		LogInOhrm login = new LogInOhrm();
 		login.VuserAndVpwd();
-
+		System.out.print("Log in successful");
 	}
 
 }
