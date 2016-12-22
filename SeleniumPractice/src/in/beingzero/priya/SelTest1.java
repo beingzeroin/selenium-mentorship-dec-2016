@@ -11,7 +11,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
-public class selTest1 
+public class SelTest1 
 {
 	//Test Case 1 with Valid UserId and Valid Password
 	@Test
