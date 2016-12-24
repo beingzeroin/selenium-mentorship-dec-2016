@@ -17,6 +17,7 @@ public class LoginOrangeHRM {
 	@Test
 	public void validUservalidPassword()
 	{
+		System.setProperty("webdriver.gecko.driver","E:\\SeleniumProject\\geckodriver.exe");
 		FirefoxDriver fd=new FirefoxDriver();
 		fd.get(strURL);
 		fd.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
