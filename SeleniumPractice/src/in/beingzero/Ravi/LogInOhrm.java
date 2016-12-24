@@ -18,7 +18,7 @@ public class LogInOhrm {
 		browser.get("http://opensource.demo.orangehrmlive.com");
 		browser.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		// browser.close();
-		//String handle = browser.getWindowHandle();
+		// String handle = browser.getWindowHandle();
 		WebElement username = browser.findElement(By.id("txtUsername"));
 		username.sendKeys("Admin");
 
@@ -37,7 +37,79 @@ public class LogInOhrm {
 		WebElement wlcm = browser.findElement(By.id("welcome"));
 		String Message = wlcm.getText();
 		System.out.println(Message);
+		browser.quit();
 
+	}
+
+	public void InuserVpwd() {
+		System.out.println("\nTest - Log in with InValid username but valid password");
+
+		WebDriver browser = new ChromeDriver();
+		browser.get("http://opensource.demo.orangehrmlive.com");
+		browser.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
+		WebElement username = browser.findElement(By.id("txtUsername"));
+		username.sendKeys("Admin123");
+
+		WebElement password = browser.findElement(By.id("txtPassword"));
+		password.clear();
+		password.sendKeys("admin");
+
+		WebElement login = browser.findElement(By.id("btnLogin"));
+		login.click();
+
+		WebElement wlcm = browser.findElement(By.id("spanMessage"));
+		String Message = wlcm.getText();
+		System.out.println(Message);
+		browser.quit();
+
+	}
+
+	public void blankUserVpwd() {
+		System.out.println("\nTest - Log in with blank username but valid password");
+
+		WebDriver browser = new ChromeDriver();
+		browser.get("http://opensource.demo.orangehrmlive.com");
+		browser.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
+		WebElement username = browser.findElement(By.id("txtUsername"));
+		username.sendKeys("");
+
+		WebElement password = browser.findElement(By.id("txtPassword"));
+		password.clear();
+		password.sendKeys("admin");
+
+		WebElement login = browser.findElement(By.id("btnLogin"));
+		login.click();
+
+		WebElement wlcm = browser.findElement(By.id("spanMessage"));
+		String Message = wlcm.getText();
+		System.out.println(Message);
+		browser.quit();
+
+	}
+
+	public void VuserBlankpwd() {
+		System.out.println("\nTest - Log in with Valid username but blank password");
+
+		WebDriver browser = new ChromeDriver();
+		browser.get("http://opensource.demo.orangehrmlive.com");
+		browser.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
+		WebElement username = browser.findElement(By.id("txtUsername"));
+		username.sendKeys("Admin");
+
+		WebElement password = browser.findElement(By.id("txtPassword"));
+		password.clear();
+		password.sendKeys("");
+
+		WebElement login = browser.findElement(By.id("btnLogin"));
+		login.click();
+
+		WebElement wlcm = browser.findElement(By.id("spanMessage"));
+		String Message = wlcm.getText();
+		System.out.println(Message);
+		browser.quit();
 	}
 
 }
