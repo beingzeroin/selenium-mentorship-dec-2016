@@ -3,7 +3,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry exported="true" kind="lib" path="lib/cglib-nodep-3.2.4.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/client-combined-3.0.1-nodeps.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/client-combined-3.0.1-nodeps.jar" sourcepath="lib"/>
 	<classpathentry exported="true" kind="lib" path="lib/commons-codec-1.10.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/commons-exec-1.3.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/commons-io-2.5.jar"/>
