@@ -1,9 +1,9 @@
 package in.beingzero.swetha;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
 public class LoginVerification {
@@ -16,7 +16,7 @@ public class LoginVerification {
 	public String ID1 = "txtUsername";
 	public String ID2 = "txtPassword";
 	public String ID3 = "btnLogin";
-	
+
 	// Constructor to pass the test credentials and expected value text
 
 	public LoginVerification(String UserID, String Pass, String Expectedtext) {
@@ -33,7 +33,7 @@ public class LoginVerification {
 
 		fd.get(URL);
 		WebElement Username = fd.findElement(By.id(ID1));
-		Username.clear();
+	    Username.clear();
 		Username.sendKeys(UserName);
 
 		WebElement Password = fd.findElement(By.id(ID2));
