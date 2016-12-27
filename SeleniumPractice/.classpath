@@ -40,5 +40,6 @@
 	<classpathentry exported="true" kind="lib" path="lib/apache-mime4j-0.6.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/bsh-2.0b4.jar"/>
 	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/sisuk/Downloads/selenium-java-3.0.1.zip"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
