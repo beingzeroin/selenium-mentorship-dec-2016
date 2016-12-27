@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver.Navigation;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class NavigationCommands {
-	////public static String getCurrentUrl = null;
+	//public static String getCurrentUrl = null;
 	//public static String getTitle = null;
 	public static String getCurrentUrl = null; 
 	public static String getPageTitle = null;
