@@ -76,6 +76,6 @@
 	<classpathentry kind="lib" path="C:/Selenium/selenium-java-3.0.1/lib/xercesImpl-2.11.0.jar"/>
 	<classpathentry kind="lib" path="C:/Selenium/selenium-java-3.0.1/lib/xml-apis-1.4.01.jar"/>
 	<classpathentry kind="lib" path="C:/Selenium/client-combined-3.0.1-nodeps.jar"/>
-	<classpathentry kind="lib" path="C:/Selenium/Selenium 28-Dec/lib/client-combined-3.0.1-nodeps.jar"/>
+	<classpathentry kind="lib" path="C:/Selenium/Selenium 28-Dec/client-combined-3.0.1-nodeps.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
