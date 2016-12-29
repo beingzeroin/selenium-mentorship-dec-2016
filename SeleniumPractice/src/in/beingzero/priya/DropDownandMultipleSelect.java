@@ -90,12 +90,12 @@ public class DropDownandMultipleSelect {
 		
 		langsmulc.deselectAll();
 		
-		langsmulc.selectByIndex(0);
-		langsmulc.selectByVisibleText("French");
+		langsmulc.selectByIndex(4);
+		langsmulc.selectByVisibleText("Spanish");
 		
 		System.out.println("English and French Languages are selected");
 		
-		driver.quit();
+		//driver.quit();
 		
 
 	}
