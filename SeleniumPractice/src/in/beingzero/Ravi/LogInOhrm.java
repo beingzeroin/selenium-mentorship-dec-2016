@@ -16,7 +16,7 @@ public class LogInOhrm {
 	public void VuserAndVpwd() {
 		System.out.println("Test - Log in with Valid Credentials");
 
-		WebDriver browser = new InternetExplorerDriver();
+		WebDriver browser = new FirefoxDriver();
 		browser.get("http://opensource.demo.orangehrmlive.com");
 		browser.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		// browser.close();
@@ -39,7 +39,7 @@ public class LogInOhrm {
 		WebElement wlcm = browser.findElement(By.id("welcome"));
 		String Message = wlcm.getText();
 		System.out.println(Message);
-		browser.quit();
+		//browser.quit();
 
 	}
 
