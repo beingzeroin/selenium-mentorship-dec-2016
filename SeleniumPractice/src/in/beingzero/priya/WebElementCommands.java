@@ -56,7 +56,7 @@ public class WebElementCommands {
 		System.out.println("Birthdate located");
 		Select birthdaydate = new Select(Birthdate);
 		System.out.println("Birthdate is going to Select");
-		birthdaydate.selectByValue("1");
+		birthdaydate.selectByValue("29");
 		System.out.println("Birthdate is Selected");
 		
 		WebElement BirthMonth = driver.findElement(By.name("birthday_month"));
@@ -70,7 +70,7 @@ public class WebElementCommands {
 		System.out.println("BirthYear located");
 		Select birthdayyear = new Select(BirthYear);
 		System.out.println("BirthYear is going to Select");
-		birthdayyear.selectByValue("2010");
+		birthdayyear.selectByValue("1905");
 		System.out.println("BirthYear is Selected");
 		
 		WebElement createaccount = driver.findElement(By.id("u_0_e"));
