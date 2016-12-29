@@ -5,18 +5,19 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class Week2Tests {
-
-	//public void verifyAboutCompanyNameContainsOrangeHRM() {
+		//public void verifyAboutCompanyNameContainsOrangeHRM() {
 
 	//}
 
+	
 	public void verifyLogoutWorks() {
 		System.out.println("Test - Log in with Valid Credentials");
 
-		WebDriver browser = new FirefoxDriver();
+		WebDriver browser = new ChromeDriver();
 		browser.get("http://opensource.demo.orangehrmlive.com");
 		browser.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		// browser.close();
@@ -37,7 +38,7 @@ public class Week2Tests {
 		login.click();
 		WebElement wlcm = browser.findElement(By.id("welcome"));
 		wlcm.click();
-
-
+		WebElement logout = browser.findElement(By.xpath("/index.php/auth/logout"));
+		logout.click();
 	}
-}
+	}
