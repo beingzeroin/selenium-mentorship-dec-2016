@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 
 public class LogInOhrm {
 
@@ -14,7 +15,7 @@ public class LogInOhrm {
 	public void VuserAndVpwd() {
 		System.out.println("Test - Log in with Valid Credentials");
 
-		WebDriver browser = new ChromeDriver();
+		WebDriver browser = new InternetExplorerDriver();
 		browser.get("http://opensource.demo.orangehrmlive.com");
 		browser.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		// browser.close();
