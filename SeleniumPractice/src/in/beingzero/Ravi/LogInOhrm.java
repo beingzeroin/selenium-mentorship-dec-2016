@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
 public class LogInOhrm {
@@ -45,7 +46,7 @@ public class LogInOhrm {
 	public void InuserVpwd() {
 		System.out.println("\nTest - Log in with InValid username but valid password");
 
-		WebDriver browser = new ChromeDriver();
+		WebDriver browser = new FirefoxDriver();
 		browser.get("http://opensource.demo.orangehrmlive.com");
 		browser.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
