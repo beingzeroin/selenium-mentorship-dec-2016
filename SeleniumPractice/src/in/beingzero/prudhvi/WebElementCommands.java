@@ -1,7 +1,10 @@
 package in.beingzero.prudhvi;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 //import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -92,8 +95,11 @@ public void PrintLocationofImage()
 {
 FirefoxDriver driver=new FirefoxDriver();
 	
+	//System.setProperty("webdriver.chrome.driver","E:\\SeleniumProject\\chromedriver.exe");
+	//ChromeDriver driver=new ChromeDriver();
+	
 	driver.get("http://beingzero.in");
-
+	driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	WebElement imgBeingZerp=driver.findElementByXPath("//*[@id=’branding’]//img");
 	System.out.println("Location of the Image : " + imgBeingZerp.getLocation());
 	System.out.println("Size of the Image : " + imgBeingZerp.getSize());
