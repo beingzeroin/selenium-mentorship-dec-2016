@@ -11,13 +11,13 @@ public class WebElementCommands {
 	public static void main(String[] args) throws InterruptedException {
 		
 	//Exercise 1
-	//FacebookSignUp();
+	FacebookSignUp();
 	
 	//Exercise 3
 	BeingZeroLogo();
 	
 	//Exercise 2
-	//GoogleBeingZero();
+	GoogleBeingZero();
 	
 	}
 
@@ -113,8 +113,6 @@ public class WebElementCommands {
         else
         {
             System.out.println("Image not displayed.");
-            System.out.println("Image Location: " +ImageFile.getLocation());
-            System.out.println("Image Size: " +ImageFile.getSize());		
         }
 	}
 }
