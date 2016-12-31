@@ -68,7 +68,7 @@ public class WebElementCommands
 		BirthYear.selectByValue("2012");
 
 
-		WebElement Gender=driver.findElementByName("u_0_i");
+		WebElement Gender=driver.findElement(By.id("u_0_i"));
 		
 		Gender.click();
 		
@@ -100,7 +100,7 @@ FirefoxDriver driver=new FirefoxDriver();
 	
 	driver.get("http://beingzero.in");
 	driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-	WebElement imgBeingZerp=driver.findElementByXPath("//*[@id=’branding’]//img");
+	WebElement imgBeingZerp=driver.findElementByXPath("//*[@id='branding']/a/img");
 	System.out.println("Location of the Image : " + imgBeingZerp.getLocation());
 	System.out.println("Size of the Image : " + imgBeingZerp.getSize());
 	driver.quit();
