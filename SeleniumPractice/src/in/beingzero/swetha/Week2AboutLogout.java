@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class Week2AboutLogout {
 
@@ -17,7 +18,7 @@ public class Week2AboutLogout {
 	
 	public static void verifyAboutCompanyNameContainsOrangeHRM() throws InterruptedException
 	{
-		WebDriver fd = new ChromeDriver();
+		WebDriver fd = new FirefoxDriver();
 
 		fd.get("http://opensource.demo.orangehrmlive.com");
 		
