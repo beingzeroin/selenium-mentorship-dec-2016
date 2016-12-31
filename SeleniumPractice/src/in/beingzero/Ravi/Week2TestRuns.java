@@ -6,6 +6,7 @@ public class Week2TestRuns {
 		// TODO Auto-generated method stub
 		Week2Tests runs = new Week2Tests();
 		runs.verifyLogoutWorks();
+		runs.verifyAboutCompanyNameContainsOrangeHRM();
 	}
 
 }
