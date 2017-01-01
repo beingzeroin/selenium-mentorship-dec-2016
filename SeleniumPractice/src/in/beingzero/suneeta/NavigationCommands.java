@@ -39,10 +39,10 @@ public class NavigationCommands {
 	        navigator.forward();
 	        Thread.sleep(2000); 
 	        
-	        CurrentUrl= browser.getCurrentUrl();
+	        String CurrentUrl= browser.getCurrentUrl();
 	        System.out.println(CurrentUrl);
 	        
-	        GetPageTitle = browser.getPageTitle();
+	        String GetPageTitle = browser.getTitle();
 	        System.out.println(GetPageTitle);
 		}
 
