@@ -6,8 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class AboutLogOutOrangeHRM {
@@ -56,7 +54,7 @@ public class AboutLogOutOrangeHRM {
 			System.out.println("Not expected");
 		}
 		
-		
+		FFdriver.close();
 	
 	
 	}
@@ -68,7 +66,7 @@ public class AboutLogOutOrangeHRM {
 		System.setProperty("webdriver.chrome.driver","E:\\SeleniumProject\\chromedriver.exe");
 		WebDriver FFdriver=new ChromeDriver();
 		FFdriver.get("http://opensource.demo.orangehrmlive.com");
-		FFdriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		FFdriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		
 		WebElement edtBoxUserName=FFdriver.findElement(By.id("txtUsername"));
 		edtBoxUserName.clear();
@@ -88,9 +86,15 @@ public class AboutLogOutOrangeHRM {
 		
 		
 		WebElement linkLogout=FFdriver.findElement(By.xpath("//*[@id='welcome-menu']/ul/li[2]/a"));
+		System.out.println(linkLogout.getText());
 		linkLogout.click();
-		FFdriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		if(edtBoxUserName.isDisplayed())
+		
+		//Thread.sleep(3000);
+		
+		WebElement edtBoxUserName1=FFdriver.findElement(By.id("txtUsername"));
+		//System.out.println(edtBoxUserName1.isDisplayed());
+		
+		if(edtBoxUserName1.isDisplayed())
 		{
 			System.out.println("Logout is succeeded");
 		}
@@ -99,7 +103,7 @@ public class AboutLogOutOrangeHRM {
 			System.out.println("Logout is Failed");
 		}
 		
-		
+		FFdriver.close();
 		
 	}
 
