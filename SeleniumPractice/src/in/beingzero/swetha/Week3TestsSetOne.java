@@ -12,39 +12,21 @@ import org.openqa.selenium.support.ui.Select;
 
 public class Week3TestsSetOne {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		
 		verifyReset();
-		//verifyJobTitleSearchResults();
-		// Open OrageHRM
-		
-		// Click Directory Menu
-		
-		// Test 1
-		// Fill SEarch Term
-		// Select any item from dropdown of Job Title
-		// Select any item from dropwdown of locaton
-		// Click Reset
-		// Verify that Textbox is clear and dropdown selection are back to original
-		
-		
-		// Test 2
-		// Select a job title from dropdown
-		// Verify that all the table resutls are having seleced job title
-		
+		verifyJobTitleSearchResults();
 
 	}
 
-	private static void verifyJobTitleSearchResults() {
-		WebDriver fd = new FirefoxDriver();
+	private static void verifyReset() throws InterruptedException {
+		WebDriver fd = new ChromeDriver();
 		fd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		fd.manage().window().maximize();
 		
 		
 		fd.get("http://opensource.demo.orangehrmlive.com");
 		
-
-
 		WebElement Username = fd.findElement(By.id("txtUsername"));
 		Username.sendKeys("Admin");
 
@@ -54,9 +36,87 @@ public class Week3TestsSetOne {
 		WebElement Login = fd.findElement(By.id("btnLogin"));
 		Login.click();
 		
+		WebElement directoryTab = fd.findElement(By.id("menu_directory_viewDirectory"));
+		directoryTab.click();
+		
+		// Fill Search textbox
+		WebElement empName = fd.findElement(By.id("searchDirectory_emp_name_empName"));
+		empName.sendKeys("Hannah");
+				
+		//Select a value from "Job Title" dropdown
+		
+		WebElement jobTitle = fd.findElement(By.id("searchDirectory_job_title"));
+				
+		Select jobTitleSelect = new Select(jobTitle);
+
+		jobTitleSelect.selectByVisibleText("IT Executive");
+		
+		System.out.println( "The Job Title dropdown '" + jobTitleSelect.getFirstSelectedOption().getText() + "' is selected");
+		
+		
+		// Select a value from "Location" dropdown
+		
+		WebElement location = fd.findElement(By.id("searchDirectory_location"));
+				
+		Select locationSelect = new Select(location);
+
+		locationSelect.selectByVisibleText("    Canadian Development Center");
+		
+		System.out.println( "The Location dropdown '" + locationSelect.getFirstSelectedOption().getText() + "' is selected" );
+		
+		//Click on Search Button
+		
+		WebElement searchBtn = fd.findElement(By.id("searchBtn"));
+		searchBtn.click();
+				
+		//Verify search results
+		
+		WebElement tblElement = fd.findElement(By.id("resultTable"));
+				
+		WebElement tbodyElement = tblElement.findElement(By.tagName("tbody"));
+				
+		List<WebElement> trList = tbodyElement.findElements(By.tagName("tr"));
+				
+		System.out.println("Total Search Results: " + (trList.size()-1));		
+		
+		//Verify Reset functionality
+		
+		WebElement resetBtn = fd.findElement(By.id("resetBtn"));
+		resetBtn.click();
+		
+		//Verify the default value of "Job Title" dropdown
+		
+		jobTitle = fd.findElement(By.id("searchDirectory_job_title"));
+		Select jobTitleResetSelect = new Select(jobTitle);
+		String jobTitleDefault = jobTitleResetSelect.getFirstSelectedOption().getText(); 
+		
+		if(jobTitleDefault.equals("All")){
+			System.out.println("The 'Job Title dropdown' is resetted to default value: " + jobTitleDefault);
+		}
+		
+		//Verify the default value of "Location" dropdown
+		
+		location = fd.findElement(By.id("searchDirectory_job_title"));
+		Select locationResetSelect = new Select(location);
+		String locationDefault = locationResetSelect.getFirstSelectedOption().getText(); 
+		
+		if(locationDefault.equals("All")){
+			System.out.println("The 'Location dropdown' is resetted to default value: " + locationDefault);
+		}
+				
+		// Check whether input field is blank
+		
+		empName = fd.findElement(By.id("searchDirectory_emp_name_empName"));
+		empName.click();
+		String textInsideEmpName = empName.getAttribute("value");
+		if(textInsideEmpName.isEmpty())
+		{
+		  System.out.println("The 'Name' input field is empty");
+		}
+		
 	}
 
-	private static void verifyReset() {
+	private static void verifyJobTitleSearchResults() {
 		
 		WebDriver fd = new ChromeDriver();
 		fd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -77,7 +137,7 @@ public class Week3TestsSetOne {
 		directoryTab.click();
 		
 		WebElement empName = fd.findElement(By.id("searchDirectory_emp_name_empName"));
-		//empName.sendKeys("Hannah");
+		empName.sendKeys("Hannah");
 		
 		// Find WebElement "Job Title"
 		WebElement jobTitle = fd.findElement(By.id("searchDirectory_job_title"));
@@ -85,7 +145,9 @@ public class Week3TestsSetOne {
 		//Select for "Job Title"
 		Select jobTitleSelect = new Select(jobTitle);
 
-		//jobTitleSelect.selectByVisibleText("IT Executive");
+		jobTitleSelect.selectByVisibleText("IT Executive");
+		
+		String selectedJobTitle = jobTitleSelect.getFirstSelectedOption().getText();
 		
 		// Find WebElement "Location"
 		WebElement location = fd.findElement(By.id("searchDirectory_location"));
@@ -106,39 +168,28 @@ public class Week3TestsSetOne {
 		
 		List<WebElement> trList = tbodyElement.findElements(By.tagName("tr"));
 		
-		System.out.println("No of Rows = " + trList.size());
-		
-		//WebElement firstRow = trList.get(1);
-		//List<WebElement> tdList = firstRow.findElements(By.tagName("td"));
-		//System.out.println("No of Cols = " +tdList.size());
-		
+		System.out.println("No of Rows = " + (trList.size()-1));
+				
 		for(int i=0;i<trList.size();i++){
 			
 			List<WebElement> tdList = trList.get(i).findElements(By.tagName("td"));
 			
-			//WebElement secondCol = tdList.get(i);
-			 
-			//List<WebElement> liList = secondCol.findElements(By.tagName("li"));
 			for( int j=1;j<tdList.size();j++){
 				
 				List<WebElement> liList = tdList.get(j).findElements(By.tagName("li"));
 				
-				//for (int k=0;k<liList.size();k++){
-				
-				if(liList.get(j).getText(). equals ("IT Executive"))
+				if(liList.get(j).getText(). equals (selectedJobTitle))
 				{
-				System.out.println(liList.get(j).getText());
+					System.out.println("The job title is validated");
 				}
 				else{
-					System.out.println("Print false" + j);
+					System.out.println("The search results contains incorrect data");
 				}
 			 }
 		 }
 	}
-	
 }	
-//if(tdList.get(i).getText(). equals ("IT Executive")){
-//System.out.println(tdList.get(i).getText());
+
 
 		
 
