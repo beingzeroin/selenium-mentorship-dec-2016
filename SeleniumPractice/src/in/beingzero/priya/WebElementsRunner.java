@@ -6,8 +6,8 @@ public class WebElementsRunner {
 		
 		WebElementCommands gobj = new WebElementCommands();
 		
-		gobj.googlequery();
-		gobj.BeingZeroImage();
+		//gobj.googlequery();
+		//gobj.BeingZeroImage();
 		gobj.FacebookAccCreation();
 
 	}

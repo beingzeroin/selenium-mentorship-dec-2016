@@ -1,7 +1,6 @@
 package in.beingzero.swetha;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -103,14 +102,16 @@ public class WebElementCommands {
 		Thread.sleep(1000);
 		
 		WebElement ImageFile = fd.findElement(By.xpath("//div[@id='branding']//img[@class='preload-me']"));
-		boolean ImagePresent = (Boolean) ((JavascriptExecutor)fd).executeScript("return arguments[0].complete && typeof arguments[0].naturalWidth != \"undefined\" && arguments[0].naturalWidth > 0", ImageFile);
-		if (!ImagePresent)
+		
+		if (ImageFile.isDisplayed() == true)
         {
-             System.out.println("Image not displayed.");
+             System.out.println("Image displayed.");
+             System.out.println("Image Location: " +ImageFile.getLocation());
+             System.out.println("Image Size: " +ImageFile.getSize());
         }
         else
         {
-            System.out.println("Image displayed.");
+            System.out.println("Image not displayed.");
         }
 	}
 }

@@ -6,6 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
 
 public class LogInOhrm {
 
@@ -14,7 +16,7 @@ public class LogInOhrm {
 	public void VuserAndVpwd() {
 		System.out.println("Test - Log in with Valid Credentials");
 
-		WebDriver browser = new ChromeDriver();
+		WebDriver browser = new FirefoxDriver();
 		browser.get("http://opensource.demo.orangehrmlive.com");
 		browser.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		// browser.close();
@@ -37,14 +39,14 @@ public class LogInOhrm {
 		WebElement wlcm = browser.findElement(By.id("welcome"));
 		String Message = wlcm.getText();
 		System.out.println(Message);
-		browser.quit();
+		//browser.quit();
 
 	}
 
 	public void InuserVpwd() {
 		System.out.println("\nTest - Log in with InValid username but valid password");
 
-		WebDriver browser = new ChromeDriver();
+		WebDriver browser = new FirefoxDriver();
 		browser.get("http://opensource.demo.orangehrmlive.com");
 		browser.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 

@@ -12,13 +12,16 @@ public class LoginOrangeHRM {
 	String strPwd="admin";
 	String strWelcomeMsg="Welcome "+strUserName;
 	String strActualMsg="";
-	//FirefoxDriver fd=new FirefoxDriver();
+	FirefoxDriver fd=new FirefoxDriver();
+	
+	
 	//fd.get(strURL); --What is the reason for error at this statement?
+	
+	
 	@Test
 	public void validUservalidPassword()
 	{
 		System.setProperty("webdriver.gecko.driver","E:\\SeleniumProject\\geckodriver.exe");
-		FirefoxDriver fd=new FirefoxDriver();
 		fd.get(strURL);
 		fd.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 		fd.findElementById("txtUsername").sendKeys(strUserName);
