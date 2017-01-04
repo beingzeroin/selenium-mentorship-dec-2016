@@ -12,7 +12,7 @@ public class Week2Tests {
 	public void verifyAboutCompanyNameContainsOrangeHRM() {
 		WebDriver browser = new ChromeDriver();
 		browser.get("http://opensource.demo.orangehrmlive.com");
-		browser.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		browser.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		WebElement username = browser.findElement(By.id("txtUsername"));
 		username.sendKeys("Admin");
 
@@ -35,7 +35,7 @@ public class Week2Tests {
 
 		WebDriver browser = new ChromeDriver();
 		browser.get("http://opensource.demo.orangehrmlive.com");
-		browser.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		browser.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		WebElement username = browser.findElement(By.id("txtUsername"));
 		username.sendKeys("Admin");
 
@@ -46,7 +46,7 @@ public class Week2Tests {
 		login.click();
 		WebElement wlcm = browser.findElement(By.id("welcome"));
 		wlcm.click();
-		WebElement logout = browser.findElement(By.xpath("//*[@id='welcome-menu']/ul/li[2]/a"));
+		WebElement logout = browser.findElement(By.xpath(".//div[@id='welcome-menu']//a[contains(text(),'Logout')]"));
 		logout.click();
 		browser.quit();
 	}
