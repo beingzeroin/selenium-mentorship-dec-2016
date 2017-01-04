@@ -46,7 +46,7 @@ public class Week2Tests {
 		login.click();
 		WebElement wlcm = browser.findElement(By.id("welcome"));
 		wlcm.click();
-		WebElement logout = browser.findElement(By.xpath(".//*[@id='welcome-menu']/ul/li[2]/a"));
+		WebElement logout = browser.findElement(By.xpath("//*[@id='welcome-menu']/ul/li[2]/a"));
 		logout.click();
 		browser.quit();
 	}
