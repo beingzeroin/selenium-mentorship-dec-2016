@@ -81,10 +81,15 @@ public class AlertHandlingExercises {
 		
 		// Switch to Alert
 		Alert al = driver.switchTo().alert();
+		
+		// SANDEEP:
+		System.out.println("MESSAGE TEXT BOX: "+ al.getText());
 				
 		al.dismiss();
 		
-		String dismissMessage = driver.findElement(By.id("confim_response")).getAttribute("value");
+		//String dismissMessage = driver.findElement(By.id("confim_response")).getAttribute("value");
+		
+		String dismissMessage = driver.findElement(By.id("confim_response")).getText();
 		
 		System.out.println("Confirm Alert Dismiss message is: "+dismissMessage);
 		
@@ -92,9 +97,11 @@ public class AlertHandlingExercises {
 		
 		confirmAlertButton.click();
 		
+		driver.switchTo().alert();
+		
 		al.accept();
 		
-		dismissMessage = driver.findElement(By.id("confim_response")).getAttribute("value");
+		dismissMessage = driver.findElement(By.id("confim_response")).getText();
 		
 		System.out.println("Confirm Alert Accept message is: "+dismissMessage);
 		
@@ -124,7 +131,7 @@ public class AlertHandlingExercises {
 		driver.switchTo().alert().accept();
 		
 		Thread.sleep(1000);
-		String promptMessage = driver.findElement(By.id("prompt_response")).getAttribute("value");
+		String promptMessage = driver.findElement(By.id("prompt_response")).getText();
 		
 		System.out.println("Prompt Alert Accept message is: "+promptMessage);
 		
@@ -138,8 +145,8 @@ public class AlertHandlingExercises {
 		
 		//alObj.alertHandlingExercise2();
 		
-		//alObj.alertHandlingExercise3();
+		alObj.alertHandlingExercise3();
 		
-		alObj.alertHandlingExercise4();
+		//alObj.alertHandlingExercise4();
 	}
 }
