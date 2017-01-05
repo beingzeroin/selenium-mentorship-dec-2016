@@ -7,7 +7,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
 public class Week3TestsSetOne {
@@ -137,7 +136,8 @@ public class Week3TestsSetOne {
 		directoryTab.click();
 		
 		WebElement empName = fd.findElement(By.id("searchDirectory_emp_name_empName"));
-		empName.sendKeys("Hannah");
+		//empName.sendKeys("Hannah");
+		empName.sendKeys("dina");
 		
 		// Find WebElement "Job Title"
 		WebElement jobTitle = fd.findElement(By.id("searchDirectory_job_title"));
@@ -146,7 +146,7 @@ public class Week3TestsSetOne {
 		Select jobTitleSelect = new Select(jobTitle);
 
 		jobTitleSelect.selectByVisibleText("IT Executive");
-		
+				
 		String selectedJobTitle = jobTitleSelect.getFirstSelectedOption().getText();
 		
 		// Find WebElement "Location"
