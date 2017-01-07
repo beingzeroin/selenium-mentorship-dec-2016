@@ -2,8 +2,8 @@ package in.beingzero.swetha;
 
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -54,7 +54,7 @@ public class Week3EmployeeTests {
 
 			System.out.println("Print PIM -> Add Employee URL : " + driver.getCurrentUrl());
 
-			String newEmpFirstName = "Jeff";
+			String newEmpFirstName = "Ruby";
 			WebElement firstName = driver.findElement(By.id("firstName"));
 			firstName.sendKeys(newEmpFirstName);
 
@@ -62,7 +62,7 @@ public class Week3EmployeeTests {
 			WebElement middleName = driver.findElement(By.id("middleName"));
 			middleName.sendKeys(newEmpMiddleName);
 
-			String newEmpLastName = "Boyle";
+			String newEmpLastName = "Pumba";
 			WebElement lastName = driver.findElement(By.id("lastName"));
 			lastName.sendKeys(newEmpLastName);
 
@@ -73,7 +73,7 @@ public class Week3EmployeeTests {
 			clickLoginDetails.click();
 
 			WebElement newEmpUserName = driver.findElement(By.id("user_name"));
-			newEmpUserName.sendKeys("JeffBoyle");
+			newEmpUserName.sendKeys("RubyPumba");
 
 			WebElement newEmpPassword = driver.findElement(By.id("user_password"));
 			newEmpPassword.sendKeys("HRM65SJ17");
@@ -120,22 +120,20 @@ public class Week3EmployeeTests {
 				System.out.println("Employee ID is verified : " + verifyEmpId);
 			}
 
-		} 
-		
+		}
+
 		else {
 			System.out.println("Logon Failed");
 		}
 	}
-	
-	public void editEmployeeDOBTest()
-	{
+
+	public void editEmployeeDOBTest() {
 		/*
-		1.   Launch Browser.
-		2.   Open http://opensource.demo.orangehrmlive.com/
-		3.   Enter username - Admin
-		4.   Enter password - admin
-		5.   Click Login Button */
-		
+		 * 1.   Launch Browser. 2.   Open
+		 * http://opensource.demo.orangehrmlive.com/ 3.   Enter username - Admin
+		 * 4.   Enter password - admin 5.   Click Login Button
+		 */
+
 		WebDriver driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
@@ -150,8 +148,8 @@ public class Week3EmployeeTests {
 
 		WebElement Login = driver.findElement(By.id(ID3));
 		Login.click();
-//		6.   Verify that login succeeds and we then go to the PIM Page.
-		
+		// 6.   Verify that login succeeds and we then go to the PIM Page.
+
 		actualHomePageText = driver.findElement(By.id("welcome")).getText();
 
 		if (actualHomePageText.equals(expectedHomePageText)) {
@@ -160,96 +158,210 @@ public class Week3EmployeeTests {
 
 			WebElement tabPIM = driver.findElement(By.linkText("PIM"));
 			tabPIM.click();
-			
-//			7.   Click on the Employee List SubMenu and Print out the URL
-			
+
+			// 7.   Click on the Employee List SubMenu and Print out the URL
+
 			WebElement subMenuEmployeeList = driver.findElement(By.id("menu_pim_viewEmployeeList"));
 			subMenuEmployeeList.click();
 
 			System.out.println("Print PIM -> Employee List URL : " + driver.getCurrentUrl());
 
-//			8.   Enter Employee Id in Id Box and Click Search Button
-						
+			// 8.   Enter Employee Id in Id Box and Click Search Button
+
 			WebElement empId = driver.findElement(By.id("empsearch_id"));
 			empId.sendKeys(verifyEmpId);
-			
+
 			WebElement clickSearch = driver.findElement(By.id("searchBtn"));
 			clickSearch.click();
-			
-//			9.   Click on Employee Id field in the Result Table to open Emp Details
-			
+
+			// 9.   Click on Employee Id field in the Result Table to open Emp
+			// Details
+
 			WebElement resultClick = driver.findElement(By.linkText(verifyEmpId));
 			resultClick.click();
-			
-//			10.  Click Edit Button
-			
+
+			// 10. Click Edit Button
+
 			WebElement editClick = driver.findElement(By.id("btnSave"));
 			editClick.click();
-			
-//			11.  Enter Date Of Birth as 5th December 1998
-//			12.  Click Save Button
-			
-			//Click calendar icon
-			
+
+			// 11. Enter Date Of Birth as 5th December 1998
+			// 12.  Click Save Button
+
+			// Click calendar icon
+
 			WebElement calendarBtn = driver.findElement(By.id("personal_DOB"));
 			calendarBtn.click();
-			
-			//Select Birth Month
-			
-			Select selectMonth = new Select(driver.findElement(By.xpath(".//div[@id='ui-datepicker-div']//select[@class='ui-datepicker-month']")));
+
+			// Select Birth Month
+
+			Select selectMonth = new Select(driver
+					.findElement(By.xpath(".//div[@id='ui-datepicker-div']//select[@class='ui-datepicker-month']")));
 			selectMonth.selectByVisibleText("Dec");
-			
-			//Select Birth Year
-			
-			Select selectYear = new Select(driver.findElement(By.xpath(".//div[@id='ui-datepicker-div']//select[@class='ui-datepicker-year']")));
+
+			// Select Birth Year
+
+			Select selectYear = new Select(driver
+					.findElement(By.xpath(".//div[@id='ui-datepicker-div']//select[@class='ui-datepicker-year']")));
 			selectYear.selectByVisibleText("1998");
-			
-			//Select Birth Date
-			
-			WebElement selectDate = driver.findElement(By.xpath(".//div[@id='ui-datepicker-div']//a[contains(text(),'5')]"));
+
+			// Select Birth Date
+
+			WebElement selectDate = driver
+					.findElement(By.xpath(".//div[@id='ui-datepicker-div']//a[contains(text(),'5')]"));
 			selectDate.click();
-			
+
 			WebElement clickSave = driver.findElement(By.id("btnSave"));
 			clickSave.click();
-			
-//			13.  Verify that Confirmation Popup was shown (through automation)
-//			14.  Wait for Success popup message to disappear
-//			15.  Click Save Button
-			
+
+			// 13. Verify that Confirmation Popup was shown (through automation)
+			// 14. Wait for Success popup message to disappear
+			// 15. Click Save Button
+
 			WebDriverWait wait = new WebDriverWait(driver, 10);
-			WebElement locatePopup = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[contains(@class, 'message success fadable')]")));   
-			
-			System.out.println("Popup Message : "+locatePopup.getText());
-			
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[contains(@class, 'message success fadable')]")));
-			
-			//			16.  Verify DOB is updated, by printing 
-			
+			WebElement locatePopup = wait.until(ExpectedConditions
+					.presenceOfElementLocated(By.xpath("//div[contains(@class, 'message success fadable')]")));
+
+			System.out.println("Popup Message : " + locatePopup.getText());
+
+			wait.until(ExpectedConditions
+					.invisibilityOfElementLocated(By.xpath("//div[contains(@class, 'message success fadable')]")));
+
+			// 16. Verify DOB is updated, by printing
+
 			WebElement verifyDOB = driver.findElement(By.id("personal_DOB"));
 			String actualDOB = verifyDOB.getAttribute("value");
-			
-			if(actualDOB.equals("1998-12-05")){
-				System.out.println("DOB has been verified : "+actualDOB);
+
+			if (actualDOB.equals("1998-12-05")) {
+				System.out.println("DOB has been verified : " + actualDOB);
+			} else {
+				System.out.println("DOB is incorrectly saved : " + actualDOB);
 			}
-			else {
-				System.out.println("DOB is incorrectly saved : " +actualDOB);
-			}
-			
-		}	
-			
+
+		}
+
 		else {
 			System.out.println("Logon Failed");
 		}
-		
+
+	}
+
+	public void uploadEmployeeImage() {
+
+		// 1.   Launch Browser.
+		// 2.   Open http://opensource.demo.orangehrmlive.com/
+		// 3.   Enter username - Admin
+		// 4.   Enter password - admin
+		// 5.   Click Login Button
+
+		WebDriver driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+
+		driver.get(url);
+		WebElement Username = driver.findElement(By.id(ID1));
+		Username.clear();
+		Username.sendKeys(userName);
+
+		WebElement Password = driver.findElement(By.id(ID2));
+		Password.sendKeys(passWord);
+
+		WebElement Login = driver.findElement(By.id(ID3));
+		Login.click();
+
+		// 6.   Verify that login succeeds and we then go to the PIM Page.
+
+		actualHomePageText = driver.findElement(By.id("welcome")).getText();
+
+		if (actualHomePageText.equals(expectedHomePageText)) {
+
+			System.out.println("Logon Successful");
+
+			WebElement tabPIM = driver.findElement(By.linkText("PIM"));
+			tabPIM.click();
+
+			// 7.   Click on the Employee List SubMenu and Print out the URL
+
+			WebElement subMenuEmployeeList = driver.findElement(By.id("menu_pim_viewEmployeeList"));
+			subMenuEmployeeList.click();
+
+			System.out.println("Print PIM -> Employee List URL : " + driver.getCurrentUrl());
+
+			// 8.   Enter Employee Id in Id Box and Click Search Button
+
+			WebElement empId = driver.findElement(By.id("empsearch_id"));
+			empId.sendKeys(verifyEmpId);
+
+			WebElement clickSearch = driver.findElement(By.id("searchBtn"));
+			clickSearch.click();
+
+			// 9.   Click on Employee Name field in the Result Table to open Emp
+			// Details
+
+			WebElement resultClick = driver.findElement(By.linkText("Ruby S"));
+			resultClick.click();
+
+			// 10. Click Edit Button
+
+			WebElement editClick = driver.findElement(By.id("btnSave"));
+			editClick.click();
+
+			// 11. Click Employee Photo Icon
+
+			WebElement clickPhotoIcon = driver.findElement(By.id("empPic"));
+
+			Boolean imagePresent = (Boolean) ((JavascriptExecutor) driver).executeScript(
+					"return arguments[0].complete && typeof arguments[0].naturalWidth != \"undefined\" && arguments[0].naturalWidth > 0",
+					clickPhotoIcon);
+			
+			if (!imagePresent) {
+				System.out.println("Before upload - if");
+			} else {
+				System.out.println("Before upload - else");
+			}
+
+			clickPhotoIcon = driver.findElement(By.id("empPic"));
+
+			clickPhotoIcon.click();
+
+			// 12.  Upload any image from your pc to site using Choose File and
+			// upload
+
+			WebElement browseFile = driver.findElement(By.id("photofile"));
+			browseFile.sendKeys("C:\\Users\\Abishek\\Desktop\\Employee Pic\\jeffrosejpg.jpg");
+
+			WebElement uploadClick = driver.findElement(By.id("btnSave"));
+			uploadClick.click();
+
+			// 13. Verify that image is uploaded and shown - to verify this with Sandeep??.
+			clickPhotoIcon = driver.findElement(By.id("empPic"));
+
+			imagePresent = (Boolean) ((JavascriptExecutor) driver).executeScript(
+					"return arguments[0].complete && typeof arguments[0].naturalWidth != \"undefined\" && arguments[0].naturalWidth > 0",
+					clickPhotoIcon);
+
+			if (imagePresent) {
+				System.out.println("The image is uploaded and shown");
+			} else {
+				System.out.println("The image is uploaded but not shown");
+			}
+
+		} else {
+			System.out.println("Logon Failed");
+		}
+
 	}
 
 	public static void main(String[] args) throws InterruptedException {
 
 		Week3EmployeeTests empTest = new Week3EmployeeTests();
 
-		empTest.addEmployeeTest();
-		
-		empTest.editEmployeeDOBTest();
+		//empTest.addEmployeeTest();
+
+		// empTest.editEmployeeDOBTest();
+
+		empTest.uploadEmployeeImage();
 
 	}
+
 }
