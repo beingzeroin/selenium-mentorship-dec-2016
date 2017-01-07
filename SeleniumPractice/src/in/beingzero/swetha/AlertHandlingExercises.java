@@ -103,8 +103,16 @@ public class AlertHandlingExercises {
 		
 		dismissMessage = driver.findElement(By.id("confim_response")).getText();
 		
-		System.out.println("Confirm Alert Accept message is: "+dismissMessage);
+		String verifyMessage = "Welcome Intelligent!";
 		
+		if(dismissMessage.contentEquals(verifyMessage)){
+		
+		System.out.println("Verified confirm Alert Accept message is: "+dismissMessage);
+		
+		}
+		else{
+			System.out.println("Verification of confirm Alert Accept message failed");
+		}	
 	}
 	
 
