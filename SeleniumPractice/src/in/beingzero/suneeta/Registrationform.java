@@ -83,7 +83,7 @@ public class Registrationform {
 			public void actionPerformed(ActionEvent arg0) {
 				String pwd = pfPassword.getText();
 				String repwd = psConfirmpassword.getText();
-				
+				//
 				if(pwd.equals(repwd))
 				{
 					lblResult.setText("ACCEPTED ");
