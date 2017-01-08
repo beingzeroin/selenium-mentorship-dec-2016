@@ -25,9 +25,9 @@ public class ETSol {
 		ETSol sol = new ETSol();
 		// Looks like someone else deleted this emp
 		// Id that addEmployee Creates should be used by editEmp
-		// sol.addEmployeeTest();
+		sol.addEmployeeTest();
 		// sol.editEmployeeDOBTest();
-		sol.uploadEmployeeImage();
+		// sol.uploadEmployeeImage();
 		// sol.deleteEmployeeTest();
 		// sol.downloadEmpImportFile();
 	}
@@ -79,16 +79,17 @@ public class ETSol {
 
 	}
 
+	
 	void addEmployeeTest() {
 		if (doLogin("admin", "admin")) {
 
-			// 7.   Click on the Add Employee SubMenu and Print out the URL
+			// 7.ï¿½ï¿½ Click on the Add Employeeï¿½SubMenu and Print out the URL
 			driver.findElement(By.linkText("PIM")).click();
 			driver.findElement(By.id("menu_pim_addEmployee")).click();
 			System.out.println("Current URL is : " + driver.getCurrentUrl());
 
 			/*
-			 * 8.   Click and enter First Name 9.   Click and enter Middle Name
+			 * 8.ï¿½ï¿½ Click and enter First Name 9.ï¿½ï¿½ Click and enter Middle Name
 			 * 10. Click and enter Last Name 11. Print Employee ID (which is
 			 * auto generated field)
 			 */
@@ -107,7 +108,7 @@ public class ETSol {
 			System.out.println("Employee ID: " + empId);
 
 			/*
-			 * 12.  Check 'Create Login Details' 13. Enter username, password,
+			 * 12.ï¿½ Check 'Create Login Details' 13. Enter username, password,
 			 * confirm password
 			 */
 			driver.findElement(By.id("chkLogin")).click();
@@ -232,14 +233,14 @@ public class ETSol {
 
 		}
 		/*
-		 * 1.   Launch Browser. 2.   Open
-		 * http://opensource.demo.orangehrmlive.com/ 3.   Enter username - Admin
-		 * 4.   Enter password - admin 5.   Click Login Button 6.   Verify that
-		 * login succeeds and we then go to the PIM Page. 7.   Click on the
-		 * Employee List SubMenu and Print out the URL 8.   Enter Employee Id in
-		 * Id Box and Click Search Button 9.   Click on Employee Name field in
+		 * 1.ï¿½ï¿½ Launch Browser. 2.ï¿½ï¿½ Open
+		 * http://opensource.demo.orangehrmlive.com/ 3.ï¿½ï¿½ Enter username - Admin
+		 * 4.ï¿½ï¿½ Enter password - admin 5.ï¿½ï¿½ Click Login Button 6.ï¿½ï¿½ Verify that
+		 * login succeeds and we then go to the PIM Page. 7.ï¿½ï¿½ Click on the
+		 * Employee Listï¿½SubMenu and Print out the URL 8.ï¿½ï¿½ Enter Employee Id in
+		 * Id Box and Click Search Button 9.ï¿½ï¿½ Click on Employee Name field in
 		 * the Result Table to open Emp Details 10. Click Edit Button 11. Click
-		 * Employee Photo Icon 12.  Upload any image from your pc to site using
+		 * Employee Photo Icon 12.ï¿½ Upload any image from your pc to site using
 		 * Choose File and upload 13. Verify that image is uploaded and shown.
 		 */
 	}
@@ -283,11 +284,11 @@ public class ETSol {
 			
 		}
 		/*
-		 * 1.   Launch Browser. 2.   Open
-		 * http://opensource.demo.orangehrmlive.com/ 3.   Enter username - Admin
-		 * 4.   Enter password - admin 5.   Click Login Button 6.   Verify that
-		 * login succeeds and we then go to the PIM Page. 7.   Click on the
-		 * Employee List SubMenu and Print out the URL 8.   Get count of total
+		 * 1.ï¿½ï¿½ Launch Browser. 2.ï¿½ï¿½ Open
+		 * http://opensource.demo.orangehrmlive.com/ 3.ï¿½ï¿½ Enter username - Admin
+		 * 4.ï¿½ï¿½ Enter password - admin 5.ï¿½ï¿½ Click Login Button 6.ï¿½ï¿½ Verify that
+		 * login succeeds and we then go to the PIM Page. 7.ï¿½ï¿½ Click on the
+		 * Employee Listï¿½SubMenu and Print out the URL 8.ï¿½ï¿½ Get count of total
 		 * employees shown in the table and store in variable originalCount 9.
 		 * Print the Count. 10. Using an employee ID, click on checkbox in the
 		 * result table in front of empid row 11. Click Delete button 12. On
@@ -333,11 +334,11 @@ public class ETSol {
 
 		}
 		/*
-		 * 1.   Launch Browser. 2.   Open
-		 * http://opensource.demo.orangehrmlive.com/ 3.   Enter username - Admin
-		 * 4.   Enter password - admin 5.   Click Login Button 6.   Verify that
-		 * login succeeds and we then go to the PIM Page. 7.   Hover mouse over
-		 * Configuration SubMenu and Click Data Import 8.   Click Download Link
+		 * 1.ï¿½ï¿½ Launch Browser. 2.ï¿½ï¿½ Open
+		 * http://opensource.demo.orangehrmlive.com/ 3.ï¿½ï¿½ Enter username - Admin
+		 * 4.ï¿½ï¿½ Enter password - admin 5.ï¿½ï¿½ Click Login Button 6.ï¿½ï¿½ Verify that
+		 * login succeeds and we then go to the PIM Page. 7.ï¿½ï¿½ Hover mouse over
+		 * Configuration SubMenu and Click Data Import 8.ï¿½ï¿½ Click Download Link
 		 * on CSV Data Import Page 9. Verify that file has been downloaded to
 		 * the computer. 10. Click upload to upload the same file again. 11.
 		 * Quit the browser

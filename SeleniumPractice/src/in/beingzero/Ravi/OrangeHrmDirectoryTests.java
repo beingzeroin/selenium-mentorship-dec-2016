@@ -50,9 +50,10 @@ public class OrangeHrmDirectoryTests {
 		ch.findElement(By.id("resetBtn")).click();
 		System.out.println("After Reset");
 		// Thread.sleep(10000);
-		// System.out.println("Job Title: " +
-		// sjt.getFirstSelectedOption().getText() + "\n" + "Location: "+
-		// slct.getFirstSelectedOption().getText());
+		// TODO:  SANDEEP ToDebug
+		System.out.println("Job Title: " +
+				sjt.getFirstSelectedOption().getText() + "\n" + "Location: "+
+				slct.getFirstSelectedOption().getText());
 		ch.quit();
 	}
 
@@ -89,21 +90,36 @@ public class OrangeHrmDirectoryTests {
 		List<WebElement> tdvals = firstrow.findElements(By.tagName("td"));
 		System.out.println("# of columns: " + tdvals.size());
 
+		boolean result = true;
 		// Print table data
 		for (int i = 1; i < trvals.size(); i++) {
+			String rowText = trvals.get(i).getText();
+			if(!rowText.contains("CEO")){
+				result = false;
+				break;
+			}
+			/*
 			List<WebElement> tdlist = trvals.get(i).findElements(By.tagName("td"));
 			for (int j = 0; j < tdlist.size(); j++) {
-				System.out.print(tdlist.get(j).getText() + " ");
-			}
-			System.out.println();
+				if(tdlist.get(j).getText().contains("CEO")){
+					System.out.println("Test Passed");
+				}
+				else{
+					System.out.println("Test Failed");
+				}
+			}*/
+			
 		}
+		
+		// if result is false - -MARK TEST FAILED here.
+		
 		ch.quit();
 	}
 
 	public static void main(String[] args) throws InterruptedException {
 		OrangeHrmDirectoryTests runs = new OrangeHrmDirectoryTests();
 		runs.searchOptionsDirectory();
-		runs.verifyResultSet();
+		//runs.verifyResultSet();
 	}
 
 }

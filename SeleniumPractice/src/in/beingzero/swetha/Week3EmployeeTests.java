@@ -132,9 +132,9 @@ public class Week3EmployeeTests {
 
 	public void editEmployeeDOBTest() {
 		/*
-		 * 1.   Launch Browser. 2.   Open
-		 * http://opensource.demo.orangehrmlive.com/ 3.   Enter username - Admin
-		 * 4.   Enter password - admin 5.   Click Login Button
+		 * 1.ï¿½ï¿½ Launch Browser. 2.ï¿½ï¿½ Open
+		 * http://opensource.demo.orangehrmlive.com/ 3.ï¿½ï¿½ Enter username - Admin
+		 * 4.ï¿½ï¿½ Enter password - admin 5.ï¿½ï¿½ Click Login Button
 		 */
 
 		WebDriver driver = new ChromeDriver();
@@ -151,7 +151,7 @@ public class Week3EmployeeTests {
 
 		WebElement Login = driver.findElement(By.id(ID3));
 		Login.click();
-		// 6.   Verify that login succeeds and we then go to the PIM Page.
+		// 6.ï¿½ï¿½ Verify that login succeeds and we then go to the PIM Page.
 
 		actualHomePageText = driver.findElement(By.id("welcome")).getText();
 
@@ -162,14 +162,14 @@ public class Week3EmployeeTests {
 			WebElement tabPIM = driver.findElement(By.linkText("PIM"));
 			tabPIM.click();
 
-			// 7.   Click on the Employee List SubMenu and Print out the URL
+			// 7.ï¿½ï¿½ Click on the Employee Listï¿½SubMenu and Print out the URL
 
 			WebElement subMenuEmployeeList = driver.findElement(By.id("menu_pim_viewEmployeeList"));
 			subMenuEmployeeList.click();
 
 			System.out.println("Print PIM -> Employee List URL : " + driver.getCurrentUrl());
 
-			// 8.   Enter Employee Id in Id Box and Click Search Button
+			// 8.ï¿½ï¿½ Enter Employee Id in Id Box and Click Search Button
 
 			WebElement empId = driver.findElement(By.id("empsearch_id"));
 			empId.sendKeys(verifyEmpId);
@@ -177,7 +177,7 @@ public class Week3EmployeeTests {
 			WebElement clickSearch = driver.findElement(By.id("searchBtn"));
 			clickSearch.click();
 
-			// 9.   Click on Employee Id field in the Result Table to open Emp
+			// 9.ï¿½ï¿½ Click on Employee Id field in the Result Table to open Emp
 			// Details
 
 			WebElement resultClick = driver.findElement(By.linkText(verifyEmpId));
@@ -189,7 +189,7 @@ public class Week3EmployeeTests {
 			editClick.click();
 
 			// 11. Enter Date Of Birth as 5th December 1998
-			// 12.  Click Save Button
+			// 12.ï¿½ Click Save Button
 
 			// Click calendar icon
 
@@ -251,11 +251,11 @@ public class Week3EmployeeTests {
 
 	public void uploadEmployeeImage() {
 
-		// 1.   Launch Browser.
-		// 2.   Open http://opensource.demo.orangehrmlive.com/
-		// 3.   Enter username - Admin
-		// 4.   Enter password - admin
-		// 5.   Click Login Button
+		// 1.ï¿½ï¿½ Launch Browser.
+		// 2.ï¿½ï¿½ Open http://opensource.demo.orangehrmlive.com/
+		// 3.ï¿½ï¿½ Enter username - Admin
+		// 4.ï¿½ï¿½ Enter password - admin
+		// 5.ï¿½ï¿½ Click Login Button
 
 		WebDriver driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -272,7 +272,7 @@ public class Week3EmployeeTests {
 		WebElement Login = driver.findElement(By.id(ID3));
 		Login.click();
 
-		// 6.   Verify that login succeeds and we then go to the PIM Page.
+		// 6.ï¿½ï¿½ Verify that login succeeds and we then go to the PIM Page.
 
 		actualHomePageText = driver.findElement(By.id("welcome")).getText();
 
@@ -283,14 +283,14 @@ public class Week3EmployeeTests {
 			WebElement tabPIM = driver.findElement(By.linkText("PIM"));
 			tabPIM.click();
 
-			// 7.   Click on the Employee List SubMenu and Print out the URL
+			// 7.ï¿½ï¿½ Click on the Employee Listï¿½SubMenu and Print out the URL
 
 			WebElement subMenuEmployeeList = driver.findElement(By.id("menu_pim_viewEmployeeList"));
 			subMenuEmployeeList.click();
 
 			System.out.println("Print PIM -> Employee List URL : " + driver.getCurrentUrl());
 
-			// 8.   Enter Employee Id in Id Box and Click Search Button
+			// 8.ï¿½ï¿½ Enter Employee Id in Id Box and Click Search Button
 
 			WebElement empId = driver.findElement(By.id("empsearch_id"));
 			empId.sendKeys(verifyEmpId);
@@ -298,7 +298,7 @@ public class Week3EmployeeTests {
 			WebElement clickSearch = driver.findElement(By.id("searchBtn"));
 			clickSearch.click();
 
-			// 9.   Click on Employee Name field in the Result Table to open Emp
+			// 9.ï¿½ï¿½ Click on Employee Name field in the Result Table to open Emp
 			// Details
 
 			WebElement resultClick = driver.findElement(By.linkText("Ruby S"));
@@ -327,7 +327,7 @@ public class Week3EmployeeTests {
 
 			clickPhotoIcon.click();
 
-			// 12.  Upload any image from your pc to site using Choose File and
+			// 12.ï¿½ Upload any image from your pc to site using Choose File and
 			// upload
 
 			WebElement browseFile = driver.findElement(By.id("photofile"));
@@ -358,11 +358,11 @@ public class Week3EmployeeTests {
 
 	public void deleteEmployeeTest() {
 
-		// 1.   Launch Browser.
-		// 2.   Open http://opensource.demo.orangehrmlive.com/
-		// 3.   Enter username - Admin
-		// 4.   Enter password - admin
-		// 5.   Click Login Button
+		// 1.ï¿½ï¿½ Launch Browser.
+		// 2.ï¿½ï¿½ Open http://opensource.demo.orangehrmlive.com/
+		// 3.ï¿½ï¿½ Enter username - Admin
+		// 4.ï¿½ï¿½ Enter password - admin
+		// 5.ï¿½ï¿½ Click Login Button
 
 		WebDriver driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -379,7 +379,7 @@ public class Week3EmployeeTests {
 		WebElement Login = driver.findElement(By.id(ID3));
 		Login.click();
 
-		// 6.   Verify that login succeeds and we then go to the PIM Page.
+		// 6.ï¿½ï¿½ Verify that login succeeds and we then go to the PIM Page.
 
 		actualHomePageText = driver.findElement(By.id("welcome")).getText();
 
@@ -390,14 +390,14 @@ public class Week3EmployeeTests {
 			WebElement tabPIM = driver.findElement(By.linkText("PIM"));
 			tabPIM.click();
 
-			// 7.   Click on the Employee List SubMenu and Print out the URL
+			// 7.ï¿½ï¿½ Click on the Employee Listï¿½SubMenu and Print out the URL
 
 			WebElement subMenuEmployeeList = driver.findElement(By.id("menu_pim_viewEmployeeList"));
 			subMenuEmployeeList.click();
 
 			System.out.println("Print PIM -> Employee List URL : " + driver.getCurrentUrl());
 
-			// 8.   Get count of total employees shown in the table and store in
+			// 8.ï¿½ï¿½ Get count of total employees shown in the table and store in
 			// variable originalCount
 
 			WebElement clickSearch = driver.findElement(By.id("searchBtn"));
@@ -502,11 +502,11 @@ public class Week3EmployeeTests {
 
 	public void downloadEmpImportFile() throws InterruptedException {
 
-		// 1.   Launch Browser.
-		// 2.   Open http://opensource.demo.orangehrmlive.com/
-		// 3.   Enter username - Admin
-		// 4.   Enter password - admin
-		// 5.   Click Login Button
+		// 1.ï¿½ï¿½ Launch Browser.
+		// 2.ï¿½ï¿½ Open http://opensource.demo.orangehrmlive.com/
+		// 3.ï¿½ï¿½ Enter username - Admin
+		// 4.ï¿½ï¿½ Enter password - admin
+		// 5.ï¿½ï¿½ Click Login Button
 		//
 		// WebDriver driver = new FirefoxDriver(profile);
 		WebDriver driver = new ChromeDriver();
@@ -524,7 +524,7 @@ public class Week3EmployeeTests {
 		WebElement Login = driver.findElement(By.id(ID3));
 		Login.click();
 
-		// 6.   Verify that login succeeds and we then go to the PIM Page.
+		// 6.ï¿½ï¿½ Verify that login succeeds and we then go to the PIM Page.
 
 		actualHomePageText = driver.findElement(By.id("welcome")).getText();
 
@@ -535,7 +535,7 @@ public class Week3EmployeeTests {
 			WebElement tabPIM = driver.findElement(By.linkText("PIM"));
 			tabPIM.click();
 
-			// 7.   Hover mouse over Configuration SubMenu and Click Data Import
+			// 7.ï¿½ï¿½ Hover mouse over Configuration SubMenu and Click Data Import
 
 			WebElement subMenuConfiguration = driver.findElement(By.id("menu_pim_Configuration"));
 
@@ -545,7 +545,7 @@ public class Week3EmployeeTests {
 
 			driver.findElement(By.linkText("Data Import")).click();
 
-			// 8.   Click Download Link on CSV Data Import Page
+			// 8.ï¿½ï¿½ Click Download Link on CSV Data Import Page
 			// 9. Verify that file has been downloaded to the computer.
 
 			// Click to download
@@ -586,13 +586,13 @@ public class Week3EmployeeTests {
 
 		Week3EmployeeTests empTest = new Week3EmployeeTests();
 
-		// empTest.addEmployeeTest();
+		empTest.addEmployeeTest();
 
-		// empTest.editEmployeeDOBTest();
+		empTest.editEmployeeDOBTest();
 
-		// empTest.uploadEmployeeImage();
+		empTest.uploadEmployeeImage();
 
-		// empTest.deleteEmployeeTest();
+		empTest.deleteEmployeeTest();
 
 		empTest.downloadEmpImportFile();
 
