@@ -8,6 +8,9 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -490,22 +493,103 @@ public class Week3EmployeeTests {
 			 }
 	
 		} else {
+			
 			System.out.println("Logon Failed");
+			
 		}
 	}
 
+	public void downloadEmpImportFile() {
+		
+
+//		10.  Click upload to upload the same file again.
+//		11.  Quit the browser
+	    //Create FireFox Profile object
+		FirefoxProfile profile = new FirefoxProfile();
+        
+        //Set Location to store files after downloading.
+		profile.setPreference("browser.download.dir", "C:\\Users\\Abishek\\Documents");
+		profile.setPreference("browser.download.folderList", 2);
+        
+		profile.setPreference("browser.helperApps.neverAsk.saveToDisk", 
+			    " text/csv;"); 
+		
+		profile.setPreference( "browser.download.manager.showWhenStarting", false );
+		profile.setPreference( "pdfjs.disabled", true );
+
+//1.   	Launch Browser.
+//2.   	Open http://opensource.demo.orangehrmlive.com/
+//3.   	Enter username - Admin
+//4.   	Enter password - admin
+//5.   	Click Login Button
+				
+			WebDriver driver = new FirefoxDriver(profile);
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			driver.manage().window().maximize();
+	
+			driver.get(url);
+			WebElement Username = driver.findElement(By.id(ID1));
+			Username.clear();
+			Username.sendKeys(userName);
+	
+			WebElement Password = driver.findElement(By.id(ID2));
+			Password.sendKeys(passWord);
+	
+			WebElement Login = driver.findElement(By.id(ID3));
+			Login.click();
+	
+// 6.   Verify that login succeeds and we then go to the PIM Page.
+	
+			actualHomePageText = driver.findElement(By.id("welcome")).getText();
+	
+			if (actualHomePageText.equals(expectedHomePageText)) {
+	
+				System.out.println("Logon Successful");
+	
+				WebElement tabPIM = driver.findElement(By.linkText("PIM"));
+				tabPIM.click();
+				
+//7.   Hover mouse over Configuration SubMenu and Click Data Import		
+				
+				WebElement subMenuConfiguration = driver.findElement(By.id("menu_pim_Configuration"));
+				
+				Actions action = new Actions(driver);
+				 
+			    action.moveToElement(subMenuConfiguration).build().perform();
+			 
+		        driver.findElement(By.linkText("Data Import")).click();
+			 
+//8.   Click Download Link on CSV Data Import Page
+//9.   Verify that file has been downloaded to the computer.
+		 		 
+				// Click to download 
+				
+		        driver.findElement(By.linkText("Download")).click();				
+				
+			} else {
+				
+				System.out.println("Logon Failed");
+				
+			}
+		
+	}
+	
 	public static void main(String[] args) throws InterruptedException {
 
 		Week3EmployeeTests empTest = new Week3EmployeeTests();
 
 		//empTest.addEmployeeTest();
 
-		// empTest.editEmployeeDOBTest();
+		//empTest.editEmployeeDOBTest();
 
 		//empTest.uploadEmployeeImage();
 
-		empTest.deleteEmployeeTest();
+		//empTest.deleteEmployeeTest();
+		
+		empTest.downloadEmpImportFile();
 
 	}
+
+
 
 }
