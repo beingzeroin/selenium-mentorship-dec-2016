@@ -1,5 +1,6 @@
 package in.beingzero.prudhvi;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -120,5 +121,73 @@ public class Week3EmployeeTests {
 			System.out.println("Login is Failed");
 		}
 	}
+	
+	public void editEmployeeDOBTest()
+	{
+		System.setProperty("webdriver.chrome.driver","E:\\SeleniumProject\\chromedriver.exe");
+		WebDriver fd=new ChromeDriver();
+		fd.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		fd.manage().window().maximize();
+		fd.get(strURL);
+		fd.findElement(By.id("txtUsername")).sendKeys(strUserName);
+		fd.findElement(By.id("txtPassword")).sendKeys(strPwd);
+		fd.findElement(By.id("btnLogin")).click();
+		strActualMsg=fd.findElement(By.id("welcome")).getText();
+		if (strActualMsg.equalsIgnoreCase(strActualMsg))
+		{
+			System.out.println("Login  is successfull");
+			WebElement tabPIMLink=fd.findElement(By.id("menu_pim_viewPimModule"));
+			tabPIMLink.click();
+			
+			WebElement linkEmployeeList=fd.findElement(By.id("menu_pim_viewEmployeeList"));
+			linkEmployeeList.click();
+			
+			System.out.println("Eployee List web Page URL: "+fd.getCurrentUrl());
+			
+			String strEmployeeId="0004";
+			fd.findElement(By.id("empsearch_id")).sendKeys(strEmployeeId);
+			fd.findElement(By.id("searchBtn")).click();
+			
+			WebElement tblSearchResult=fd.findElement(By.id("resultTable"));
+			WebElement tbodySearchResult=tblSearchResult.findElement(By.tagName("tbody"));
+			List <WebElement> trList=tbodySearchResult.findElements(By.tagName("tr"));
+			List <WebElement> tdList=trList.get(0).findElements(By.tagName("td"));
+			WebElement employeeIdLink=tdList.get(1).findElement(By.tagName("a"));
+			employeeIdLink.click();
+			fd.findElement(By.id("btnSave")).click();
+			WebElement dateEditBox=fd.findElement(By.id("personal_DOB"));
+			dateEditBox.click();
+			
+			Select selectMonth=new Select(fd.findElement(By.className("ui-datepicker-month")));
+			selectMonth.selectByVisibleText("Oct");
+			
 
+			Select selectYear=new Select(fd.findElement(By.className("ui-datepicker-year")));
+			selectYear.selectByVisibleText("1965");
+
+			WebElement selectDate = fd.findElement(By.xpath(".//div[@id='ui-datepicker-div']//a[contains(text(),'5')]"));
+			selectDate.click();
+			fd.findElement(By.id("btnSave")).click();
+			WebElement popupMessage=fd.findElement(By.xpath("//*[@id='pdMainContainer']/div[2]/div"));
+			
+			System.out.println("Popup Message : " + popupMessage.getText());
+			
+			WebElement verifyDOB = fd.findElement(By.id("personal_DOB"));
+			String strverifyDOB = verifyDOB.getAttribute("value");
+
+			if (strverifyDOB.equals("1965-10-05")) {
+				System.out.println("DOB has been verified : " + strverifyDOB);
+			} else {
+				System.out.println("DOB is incorrectly saved : " + strverifyDOB);
+			}
+			
+		}
+	
+		else
+		{
+			System.out.println("Login is Failed");
+		}
+
+		
+	}
 }
