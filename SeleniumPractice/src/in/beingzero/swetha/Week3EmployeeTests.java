@@ -1,5 +1,6 @@
 package in.beingzero.swetha;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -54,7 +55,7 @@ public class Week3EmployeeTests {
 
 			System.out.println("Print PIM -> Add Employee URL : " + driver.getCurrentUrl());
 
-			String newEmpFirstName = "Ruby";
+			String newEmpFirstName = "Java";
 			WebElement firstName = driver.findElement(By.id("firstName"));
 			firstName.sendKeys(newEmpFirstName);
 
@@ -62,7 +63,7 @@ public class Week3EmployeeTests {
 			WebElement middleName = driver.findElement(By.id("middleName"));
 			middleName.sendKeys(newEmpMiddleName);
 
-			String newEmpLastName = "Pumba";
+			String newEmpLastName = "Ruby";
 			WebElement lastName = driver.findElement(By.id("lastName"));
 			lastName.sendKeys(newEmpLastName);
 
@@ -73,7 +74,7 @@ public class Week3EmployeeTests {
 			clickLoginDetails.click();
 
 			WebElement newEmpUserName = driver.findElement(By.id("user_name"));
-			newEmpUserName.sendKeys("RubyPumba");
+			newEmpUserName.sendKeys("JavaRuby");
 
 			WebElement newEmpPassword = driver.findElement(By.id("user_password"));
 			newEmpPassword.sendKeys("HRM65SJ17");
@@ -313,11 +314,11 @@ public class Week3EmployeeTests {
 			Boolean imagePresent = (Boolean) ((JavascriptExecutor) driver).executeScript(
 					"return arguments[0].complete && typeof arguments[0].naturalWidth != \"undefined\" && arguments[0].naturalWidth > 0",
 					clickPhotoIcon);
-			
-			if (!imagePresent) {
-				System.out.println("Before upload - if");
+
+			if (imagePresent) {
+				System.out.println("Before upload - if" + clickPhotoIcon.getSize());
 			} else {
-				System.out.println("Before upload - else");
+				System.out.println("Before upload - else" + clickPhotoIcon.getSize());
 			}
 
 			clickPhotoIcon = driver.findElement(By.id("empPic"));
@@ -333,7 +334,8 @@ public class Week3EmployeeTests {
 			WebElement uploadClick = driver.findElement(By.id("btnSave"));
 			uploadClick.click();
 
-			// 13. Verify that image is uploaded and shown - to verify this with Sandeep??.
+			// 13. Verify that image is uploaded and shown - to verify this with
+			// Sandeep??.
 			clickPhotoIcon = driver.findElement(By.id("empPic"));
 
 			imagePresent = (Boolean) ((JavascriptExecutor) driver).executeScript(
@@ -341,7 +343,7 @@ public class Week3EmployeeTests {
 					clickPhotoIcon);
 
 			if (imagePresent) {
-				System.out.println("The image is uploaded and shown");
+				System.out.println("The image is uploaded and shown" + clickPhotoIcon.getSize());
 			} else {
 				System.out.println("The image is uploaded but not shown");
 			}
@@ -352,6 +354,146 @@ public class Week3EmployeeTests {
 
 	}
 
+	public void deleteEmployeeTest() {
+
+//1.   Launch Browser.
+//2.   Open http://opensource.demo.orangehrmlive.com/
+//3.   Enter username - Admin
+//4.   Enter password - admin
+//5.   Click Login Button
+		
+		WebDriver driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+
+		driver.get(url);
+		WebElement Username = driver.findElement(By.id(ID1));
+		Username.clear();
+		Username.sendKeys(userName);
+
+		WebElement Password = driver.findElement(By.id(ID2));
+		Password.sendKeys(passWord);
+
+		WebElement Login = driver.findElement(By.id(ID3));
+		Login.click();
+
+// 6.   Verify that login succeeds and we then go to the PIM Page.
+
+		actualHomePageText = driver.findElement(By.id("welcome")).getText();
+
+		if (actualHomePageText.equals(expectedHomePageText)) {
+
+			System.out.println("Logon Successful");
+
+			WebElement tabPIM = driver.findElement(By.linkText("PIM"));
+			tabPIM.click();
+
+// 7.   Click on the Employee List SubMenu and Print out the URL
+
+			WebElement subMenuEmployeeList = driver.findElement(By.id("menu_pim_viewEmployeeList"));
+			subMenuEmployeeList.click();
+
+			System.out.println("Print PIM -> Employee List URL : " + driver.getCurrentUrl());
+
+			
+//	8.   Get count of total employees shown in the table and store in variable originalCount
+			
+			WebElement clickSearch = driver.findElement(By.id("searchBtn"));
+			clickSearch.click();
+			
+			//Verify search results
+			
+			WebElement tblElement = driver.findElement(By.id("resultTable"));
+					
+			WebElement tbodyElement = tblElement.findElement(By.tagName("tbody"));
+					
+			List<WebElement> trList = tbodyElement.findElements(By.tagName("tr"));
+					
+			int originalCount = trList.size();
+
+//	9.   Print the Count.
+			
+			System.out.println("Total original search Results: " + originalCount);		
+			
+//	10.  Using an employee ID, click on checkbox in the result table in front of empid row
+//	11.  Click Delete button	
+			
+			WebElement clickCheckBox = driver.findElement(By.id("ohrmList_chkSelectRecord_11"));
+			clickCheckBox.click();
+			
+			WebElement deleteBtn = driver.findElement(By.id("btnDelete"));
+			deleteBtn.click();
+
+//	12.  On confirmation dialog (Note:  This isn't an ALERT, you can inspect it) click OK button.
+//	13.  Verify that Successfully Deleted momentary popup appears.
+//	14.  Wait for popup to disappear.
+			
+			WebElement dialogDeleteBtn = driver.findElement(By.id("dialogDeleteBtn"));
+			dialogDeleteBtn.click();
+
+			WebDriverWait wait = new WebDriverWait(driver, 10);
+			WebElement locatePopup = wait.until(ExpectedConditions
+					.presenceOfElementLocated(By.xpath("//div[contains(@class, 'message success fadable')]")));
+
+			System.out.println("Popup Message : " + locatePopup.getText());
+
+			wait.until(ExpectedConditions
+					.invisibilityOfElementLocated(By.xpath("//div[contains(@class, 'message success fadable')]")));
+			
+//	15.  Get count of rows in the results table and store in finalCount variable (int)
+			
+			//Verify search results
+			
+			tblElement = driver.findElement(By.id("resultTable"));
+					
+			tbodyElement = tblElement.findElement(By.tagName("tbody"));
+					
+			trList = tbodyElement.findElements(By.tagName("tr"));
+					
+			int finalCount = trList.size();
+
+//16.   Print finalCount.
+			
+			System.out.println("Total final search Results: " + finalCount);	
+			
+//17.  If finalCount+1 is equal to originalCount, print Passed, otherwise print failed.	
+			
+			if((finalCount+1)== originalCount){
+				
+				System.out.println("Delete Employee Test Passed");
+				
+			} else {
+				
+				System.out.println("Delete Employee Test Failed");
+				
+			}
+
+//18.  Also verify that employee id deleted just now isn't shown in the table anymore.	
+			
+			for(int i=0;i<trList.size();i++){
+				
+				List<WebElement> tdList = trList.get(i).findElements(By.tagName("td"));
+				
+				for( int j=1;j<tdList.size();j++){
+					
+										
+					if(tdList.get(j).getText(). equals ("0011"))
+					{
+						System.out.println("The Employee deletion failed");
+						
+					}
+					else{
+						System.out.println("The Employee is deleted successfully");
+						break;
+					}
+				 }
+			 }
+	
+		} else {
+			System.out.println("Logon Failed");
+		}
+	}
+
 	public static void main(String[] args) throws InterruptedException {
 
 		Week3EmployeeTests empTest = new Week3EmployeeTests();
@@ -360,7 +502,9 @@ public class Week3EmployeeTests {
 
 		// empTest.editEmployeeDOBTest();
 
-		empTest.uploadEmployeeImage();
+		//empTest.uploadEmployeeImage();
+
+		empTest.deleteEmployeeTest();
 
 	}
 
