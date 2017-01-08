@@ -52,10 +52,13 @@ public class DirectoryTests {
 		browser.findElement(By.id("searchBtn")).click();
 		browser.findElement(By.id("resetBtn")).click();
 		System.out.println("After Reset");
+		// TODO:  SANDEEP ToDebug
 		System.out.println(
 				"Name: " + nm.getAttribute("value") + "\n" + "Job Title: " + sjt.getFirstSelectedOption().getText()
-						+ "\n" + "Location: " + slct.getFirstSelectedOption().getText());		
+						+ "\n" + "Location: " + slct.getFirstSelectedOption().getText());
 		}
+	
+	
 	}
 			
 	
