@@ -6,15 +6,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 
 public class LogInTests {
 	WebDriver browser;
 
-	@BeforeClass
+	@BeforeTest
 	public void logInSetUp() {
 		browser = new ChromeDriver();
 		browser.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -22,19 +22,11 @@ public class LogInTests {
 		browser.get("http://opensource.demo.orangehrmlive.com");
 	}
 
-	@AfterClass
+	@AfterTest
 	public void cleanUp() {
 		browser.quit();
 	}
 
-	@Test
-	public void vUserAndvPwd() {
-		browser.findElement(By.id("txtUsername")).sendKeys("Admin");
-		browser.findElement(By.id("txtPassword")).sendKeys("admin");
-		browser.findElement(By.id("btnLogin")).click();
-		String wlcmsg = browser.findElement(By.id("welcome")).getText();
-		Assert.assertTrue(wlcmsg.contains("Welcome Admin"));		
-	}
 	
 	@Test
 	public void invUserVpwd(){
@@ -42,6 +34,7 @@ public class LogInTests {
 		browser.findElement(By.id("txtPassword")).sendKeys("admin");
 		browser.findElement(By.id("btnLogin")).click();
 		String msg = browser.findElement(By.id("spanMessage")).getText();
+		System.out.println(msg);
 		Assert.assertTrue(msg.contains("Invalid credentials"));
 	}
 	
@@ -51,6 +44,7 @@ public class LogInTests {
 		browser.findElement(By.id("txtPassword")).sendKeys("admin");
 		browser.findElement(By.id("btnLogin")).click();
 		String msg = browser.findElement(By.id("spanMessage")).getText();
+		System.out.println(msg);
 		Assert.assertTrue(msg.contains("Username cannot be empty"));
 	}
 	
@@ -60,6 +54,17 @@ public class LogInTests {
 		browser.findElement(By.id("txtPassword")).sendKeys("");
 		browser.findElement(By.id("btnLogin")).click();
 		String msg = browser.findElement(By.id("spanMessage")).getText();
+		System.out.println(msg);
 		Assert.assertTrue(msg.contains("Password cannot be empty"));
+	}
+	
+	@Test
+	public void vUserAndvPwd() {
+		browser.findElement(By.id("txtUsername")).sendKeys("Admin");
+		browser.findElement(By.id("txtPassword")).sendKeys("admin");
+		browser.findElement(By.id("btnLogin")).click();
+		String wlcmsg = browser.findElement(By.id("welcome")).getText();
+		System.out.println(wlcmsg);
+		Assert.assertTrue(wlcmsg.contains("Welcome Admin"));		
 	}
 }
