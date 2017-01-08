@@ -1,5 +1,6 @@
 package in.beingzero.Ravi.OHRMTests;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -27,6 +28,7 @@ public class DirectoryTests {
 		browser.quit();
 	}
 	
+	@Test
 	public void directoryFilterTests(){
 		browser.findElement(By.id("txtUsername")).sendKeys("Admin");
 		browser.findElement(By.id("txtPassword")).sendKeys("admin");
@@ -35,8 +37,6 @@ public class DirectoryTests {
 		System.out.println(wlcm.getText());
 		WebElement directory = browser.findElement(By.id("menu_directory_viewDirectory"));
 		directory.click();
-		// WebElement srchoptions = browser.findElement(By.id("tiptip_holder"));
-		// System.out.println(srchoptions.getText());
 		WebElement nm = browser.findElement(By.id("searchDirectory_emp_name_empName"));
 		WebElement jt = browser.findElement(By.id("searchDirectory_job_title"));
 		Select sjt = new Select(jt);
@@ -62,11 +62,66 @@ public class DirectoryTests {
 				sjt.getFirstSelectedOption().getText() + "\n" + "Location: "+
 				slct.getFirstSelectedOption().getText());
 	}
-	
-	@Test
-	public void verifyResultSet(){
 		
-	}
+	
+	//@Test
+	public void verifyResultSet(){
+		System.out.println("Currently on " + ch.getTitle());
+		WebElement username = browser.findElement(By.id("txtUsername"));
+		username.clear();
+		username.sendKeys("Admin");
+		WebElement password = browser.findElement(By.id("txtPassword"));
+		password.clear();
+		password.sendKeys("admin");
+		WebElement login = browser.findElement(By.id("btnLogin"));
+		login.click();
+		WebElement wlcm = browser.findElement(By.id("welcome"));
+		System.out.println(wlcm.getText());
+		WebElement directory = browser.findElement(By.id("menu_directory_viewDirectory"));
+		directory.click();
+		WebElement username = browser.findElement(By.id("txtUsername"));
+		username.clear();
+		username.sendKeys("Admin");
+		WebElement password = browser.findElement(By.id("txtPassword"));
+		password.clear();
+		password.sendKeys("admin");
+		WebElement login = browser.findElement(By.id("btnLogin"));
+		login.click();
+		WebElement wlcm = browser.findElement(By.id("welcome"));
+		System.out.println(wlcm.getText());
+		WebElement directory = browser.findElement(By.id("menu_directory_viewDirectory"));
+		directory.click();
+		WebElement username = browser.findElement(By.id("txtUsername"));
+		username.clear();
+		username.sendKeys("Admin");
+		WebElement password = browser.findElement(By.id("txtPassword"));
+		password.clear();
+		password.sendKeys("admin");
+		WebElement login = browser.findElement(By.id("btnLogin"));
+		login.click();
+		WebElement wlcm = browser.findElement(By.id("welcome"));
+		System.out.println(wlcm.getText());
+		WebElement directory = browser.findElement(By.id("menu_directory_viewDirectory"));
+		directory.click();
+		WebElement jt = browser.findElement(By.id("searchDirectory_job_title"));
+		Select sjt = new Select(jt);
+		sjt.selectByVisibleText("CEO");
+		browser.findElement(By.id("searchBtn")).click();
+		WebElement table = browser.findElement(By.id("resultTable"));
+		WebElement talbody = table.findElement(By.tagName("tbody"));
+		List<WebElement> trvals = talbody.findElements(By.tagName("tr"));
+		int rows = trvals.size() - 1;
+		System.out.println("# of Rows: " + rows);
+		WebElement firstrow = trvals.get(1);
+		List<WebElement> tdvals = firstrow.findElements(By.tagName("td"));
+		System.out.println("# of columns: " + tdvals.size());
 
-
-}
+		boolean result = true;
+		// Print table data
+		for (int i = 1; i < trvals.size(); i++) {
+			String rowText = trvals.get(i).getText();
+			if(!rowText.contains("CEO")){
+				result = false;
+				break;
+			}
+			
