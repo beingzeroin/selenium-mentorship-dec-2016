@@ -27,12 +27,13 @@ public class ETSol {
 		// Id that addEmployee Creates should be used by editEmp
 		// sol.addEmployeeTest();
 		// sol.editEmployeeDOBTest();
-		sol.downloadEmpImportFile();
+		sol.deleteEmployeeTest();
+		// sol.downloadEmpImportFile();
 	}
 
 	WebDriver driver;
 	String adminUserName = "Admin", adminPassword = "admin";
-	String empId = "0016";
+	String empId = "0005";
 	String ohrmURL = "http://opensource.demo.orangehrmlive.com";
 	String userNameId = "txtUsername";
 	String passwdId = "txtPassword";
@@ -217,6 +218,43 @@ public class ETSol {
 	}
 
 	void deleteEmployeeTest() {
+		if(doLogin(adminUserName, adminPassword)){
+			driver.findElement(By.linkText("PIM")).click();
+			driver.findElement(By.id("menu_pim_viewEmployeeList")).click();
+
+			driver.findElement(By.id("empsearch_id")).sendKeys(empId);
+
+			driver.findElement(By.id("searchBtn")).click();
+			
+			WebElement tblElement = driver.findElement(By.id("resultTable"));
+			WebElement tbodyElement = tblElement.findElement(By.tagName("tbody"));
+
+			List<WebElement> rows = tbodyElement.findElements(By.tagName("tr"));
+			System.out.println("Total Rows " + rows.size());
+			
+			WebElement firstRow = rows.get(0);
+			WebElement chkBoxColumn = firstRow.findElements(By.tagName("td")).get(0);
+			
+			chkBoxColumn.click();
+			
+			driver.findElement(By.id("btnDelete")).click();
+			
+			driver.findElement(By.id("dialogDeleteBtn")).click();
+			
+			WebDriverWait wdv = new WebDriverWait(driver, 30);
+			WebElement deleteSuccessWE = wdv.until(
+					ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='message success fadable']")));
+			System.out.println("Found Success Message");
+			System.out.println(deleteSuccessWE.getText());
+			wdv.until(ExpectedConditions
+					.invisibilityOfElementLocated(By.xpath("//div[@class='message success fadable']")));
+			tblElement = driver.findElement(By.id("resultTable"));
+			tbodyElement = tblElement.findElement(By.tagName("tbody"));
+			
+			String noRecord = tbodyElement.getText();
+			System.out.println(noRecord);
+			
+		}
 		/*
 		 * 1.   Launch Browser. 2.   Open
 		 * http://opensource.demo.orangehrmlive.com/ 3.   Enter username - Admin
