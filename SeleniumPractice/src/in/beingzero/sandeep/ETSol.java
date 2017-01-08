@@ -27,17 +27,19 @@ public class ETSol {
 		// Id that addEmployee Creates should be used by editEmp
 		// sol.addEmployeeTest();
 		// sol.editEmployeeDOBTest();
-		sol.deleteEmployeeTest();
+		sol.uploadEmployeeImage();
+		// sol.deleteEmployeeTest();
 		// sol.downloadEmpImportFile();
 	}
 
 	WebDriver driver;
 	String adminUserName = "Admin", adminPassword = "admin";
-	String empId = "0005";
+	String empId = "0010";
 	String ohrmURL = "http://opensource.demo.orangehrmlive.com";
 	String userNameId = "txtUsername";
 	String passwdId = "txtPassword";
 	String loginButtonId = "btnLogin";
+	String profilePicPath = System.getProperty("user.dir").concat("/testData/profilePic.png");
 
 	// SINCE EVERY TEST NEEDS LOGIN, LET;s MAKE THAT A SEPARATE FUNCTION
 
@@ -204,6 +206,31 @@ public class ETSol {
 	}
 
 	void uploadEmployeeImage() {
+		
+		if (doLogin("admin", "admin")) {
+			driver.findElement(By.linkText("PIM")).click();
+			driver.findElement(By.id("menu_pim_viewEmployeeList")).click();
+
+			driver.findElement(By.id("empsearch_id")).sendKeys(empId);
+
+			driver.findElement(By.id("searchBtn")).click();
+
+			WebElement tblElement = driver.findElement(By.id("resultTable"));
+			WebElement tbodyElement = tblElement.findElement(By.tagName("tbody"));
+
+			List<WebElement> rows = tbodyElement.findElements(By.tagName("tr"));
+			System.out.println("Total Rows " + rows.size());
+			tbodyElement.findElement(By.linkText(empId)).click();
+
+			driver.findElement(By.id("btnSave")).click();
+			
+			driver.findElement(By.id("empPic")).click();
+			
+			driver.findElement(By.id("photofile")).sendKeys(profilePicPath);
+			
+			driver.findElement(By.id("btnSave")).click();
+
+		}
 		/*
 		 * 1.   Launch Browser. 2.   Open
 		 * http://opensource.demo.orangehrmlive.com/ 3.   Enter username - Admin
