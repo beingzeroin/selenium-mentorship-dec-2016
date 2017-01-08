@@ -1,5 +1,7 @@
 package in.beingzero.sandeep;
 
+import java.io.File;
+import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -7,10 +9,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.Test;
 
 public class ETSol {
 
@@ -18,11 +25,13 @@ public class ETSol {
 		ETSol sol = new ETSol();
 		// Looks like someone else deleted this emp
 		// Id that addEmployee Creates should be used by editEmp
-		//sol.addEmployeeTest();
-		sol.editEmployeeDOBTest();
+		// sol.addEmployeeTest();
+		// sol.editEmployeeDOBTest();
+		sol.downloadEmpImportFile();
 	}
 
 	WebDriver driver;
+	String adminUserName = "Admin", adminPassword = "admin";
 	String empId = "0016";
 	String ohrmURL = "http://opensource.demo.orangehrmlive.com";
 	String userNameId = "txtUsername";
@@ -35,7 +44,7 @@ public class ETSol {
 	boolean doLogin(String userName, String password) {
 
 		if (driver == null) {
-			driver = new ChromeDriver();
+			driver = chromeDownloadSettings();
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			driver.manage().window().maximize();
 
@@ -179,10 +188,12 @@ public class ETSol {
 			// "Successfully Saved "
 
 			WebDriverWait wdv = new WebDriverWait(driver, 30);
-			WebElement savedSuccessMsgWE = wdv.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='message success fadable']")));
+			WebElement savedSuccessMsgWE = wdv.until(
+					ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='message success fadable']")));
 			System.out.println("Found Success Message");
 			System.out.println(savedSuccessMsgWE.getText());
-			wdv.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='message success fadable']")));
+			wdv.until(ExpectedConditions
+					.invisibilityOfElementLocated(By.xpath("//div[@class='message success fadable']")));
 		}
 
 		System.out.println(driver.findElement(By.id("personal_DOB")).getAttribute("value"));
@@ -226,6 +237,36 @@ public class ETSol {
 	}
 
 	void downloadEmpImportFile() {
+		if (doLogin(adminUserName, adminPassword)) {
+
+			File f = new File(downloadDirectory);
+			int originalCount = f.list().length;
+			System.out.println("File Count " + originalCount);
+
+			driver.findElement(By.linkText("PIM")).click();
+			Actions act = new Actions(driver);
+			act.moveToElement(driver.findElement(By.id("menu_pim_Configuration"))).perform();
+			driver.findElement(By.linkText("Data Import")).click();
+			driver.findElement(By.linkText("Download")).click();
+
+			try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			int finalCount = f.list().length;
+			System.out.println("File Count " + finalCount);
+
+			if (finalCount - 1 == originalCount) {
+				System.out.println("Test Passed");
+			} else {
+				System.out.println("Test Failed");
+			}
+
+			deleteEverythingInFolder(new File(downloadDirectory));
+
+		}
 		/*
 		 * 1.   Launch Browser. 2.   Open
 		 * http://opensource.demo.orangehrmlive.com/ 3.   Enter username - Admin
@@ -238,4 +279,64 @@ public class ETSol {
 		 */
 	}
 
+	String downloadDirectory = System.getProperty("user.dir") + "/sandeep_download";
+
+	void ensureDownloadDirectoryExistance(){
+		
+		File f = new File(downloadDirectory);
+		if(!f.exists()){
+			boolean result = f.mkdirs();
+			if(!result){
+				System.out.println("FAILED TO CREATE DOWNLOAD DIRECTORY");
+			}
+			else{
+				System.out.println("Created Download Directory");
+			}
+		}
+		else{
+			System.out.println("Download directory already exists");
+		}
+		
+	}
+	WebDriver chromeDownloadSettings() {
+		
+		HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
+		// chromePrefs.put("profile.default_content_settings.popups", 0);
+		chromePrefs.put("download.default_directory", downloadDirectory);
+		ensureDownloadDirectoryExistance();
+		ChromeOptions options = new ChromeOptions();
+		HashMap<String, Object> chromeOptionsMap = new HashMap<String, Object>();
+		options.setExperimentalOption("prefs", chromePrefs);
+		options.addArguments("--test-type");
+		DesiredCapabilities cap = DesiredCapabilities.chrome();
+		cap.setCapability(ChromeOptions.CAPABILITY, chromeOptionsMap);
+		cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+		cap.setCapability(ChromeOptions.CAPABILITY, options);
+		WebDriver driver = new ChromeDriver(cap);
+
+		return driver;
+	}
+
+	WebDriver firefoxDownloadSettings() {
+		FirefoxProfile fp = new FirefoxProfile();
+		fp.setPreference("browser.download.folderList", 2);
+		fp.setPreference("browser.download.manager.showWhenStarting", false);
+		ensureDownloadDirectoryExistance();
+		fp.setPreference("browser.download.dir", downloadDirectory);
+		fp.setPreference("browser.helperApps.neverAsk.saveToDisk", "application/octet-stream");
+
+		return new FirefoxDriver(fp);
+	}
+
+	public void deleteEverythingInFolder(File folderPath) {
+		File[] files = folderPath.listFiles();
+		if (files != null) {
+			for (File f : files) {
+				if (f.isDirectory()) {
+					deleteEverythingInFolder(f);
+				}
+				f.delete();
+			}
+		}
+	}
 }
