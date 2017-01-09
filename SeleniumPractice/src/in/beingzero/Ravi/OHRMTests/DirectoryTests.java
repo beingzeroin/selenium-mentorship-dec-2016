@@ -8,28 +8,28 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class DirectoryTests {
 	WebDriver browser;
-	
-	@BeforeTest
+
+	@BeforeMethod
 	public void logInSetUp() {
 		browser = new ChromeDriver();
 		browser.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		browser.manage().window().maximize();
 		browser.get("http://opensource.demo.orangehrmlive.com");
 	}
-	
-	@AfterTest
+
+	@AfterMethod
 	public void cleanUp() {
 		browser.quit();
 	}
-	
+
 	@Test
-	public void directoryFilterTests(){
+	public void directoryFilterTests() {
 		browser.findElement(By.id("txtUsername")).sendKeys("Admin");
 		browser.findElement(By.id("txtPassword")).sendKeys("admin");
 		browser.findElement(By.id("btnLogin")).click();
@@ -53,14 +53,14 @@ public class DirectoryTests {
 		browser.findElement(By.id("searchBtn")).click();
 		browser.findElement(By.id("resetBtn")).click();
 		System.out.println("After Reset");
-		// TODO:  SANDEEP ToDebug
-		System.out.println(
+		// TODO: SANDEEP ToDebug
+		/*System.out.println(
 				"Name: " + nm.getAttribute("value") + "\n" + "Job Title: " + sjt.getFirstSelectedOption().getText()
-						+ "\n" + "Location: " + slct.getFirstSelectedOption().getText());
-		}
-	
+						+ "\n" + "Location: " + slct.getFirstSelectedOption().getText());*/
+	}
+
 	@Test
-	public void verifyResultSet(){
+	public void verifyResultSet() {
 		System.out.println("Currently on " + browser.getTitle());
 		browser.findElement(By.id("txtUsername")).sendKeys("Admin");
 		browser.findElement(By.id("txtPassword")).sendKeys("admin");
@@ -73,19 +73,19 @@ public class DirectoryTests {
 		WebElement table = browser.findElement(By.id("resultTable"));
 		WebElement talbody = table.findElement(By.tagName("tbody"));
 		List<WebElement> trvals = talbody.findElements(By.tagName("tr"));
-		int rows = trvals.size()-1;
-		System.out.println("# of rows: "+rows);
+		int rows = trvals.size() - 1;
+		System.out.println("# of rows: " + rows);
 		WebElement firstrow = trvals.get(1);
 		List<WebElement> tdvals = firstrow.findElements(By.tagName("td"));
 		System.out.println("# of columns: " + tdvals.size());
-        boolean result = true;
+		boolean result = true;
 		for (int i = 1; i < trvals.size(); i++) {
 			String rowText = trvals.get(i).getText();
-			if(!rowText.contains("CEO")){
+			if (!rowText.contains("CEO")) {
 				result = false;
 				break;
 			}
+		System.out.println(result);
 		}
-	}}
-			
-	
+	}
+}

@@ -8,13 +8,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class AboutAndLogOut {
 	WebDriver browser;
-	@BeforeTest
+	
+	@BeforeMethod
 	public void logInSetUp() {
 		browser = new ChromeDriver();
 		browser.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -22,12 +23,12 @@ public class AboutAndLogOut {
 		browser.get("http://opensource.demo.orangehrmlive.com");
 	}
 	
-	@AfterTest
+	@AfterMethod
 	public void cleanUp() {
 		browser.quit();
 	}
 	
-	//@Test
+	@Test
 	public void verifyAboutCompanyNameContainsOrangeHRM(){
 		browser.findElement(By.id("txtUsername")).sendKeys("Admin");
 		browser.findElement(By.id("txtPassword")).sendKeys("admin");

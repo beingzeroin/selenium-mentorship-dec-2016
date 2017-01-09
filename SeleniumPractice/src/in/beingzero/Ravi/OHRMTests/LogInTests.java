@@ -6,15 +6,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 
 public class LogInTests {
 	WebDriver browser;
 
-	@BeforeTest
+	@BeforeMethod
 	public void logInSetUp() {
 		browser = new ChromeDriver();
 		browser.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -22,7 +22,7 @@ public class LogInTests {
 		browser.get("http://opensource.demo.orangehrmlive.com");
 	}
 
-	@AfterTest
+	@AfterMethod
 	public void cleanUp() {
 		browser.quit();
 	}
