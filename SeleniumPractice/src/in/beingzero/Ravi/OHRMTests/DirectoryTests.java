@@ -1,5 +1,6 @@
 package in.beingzero.Ravi.OHRMTests;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -58,7 +59,33 @@ public class DirectoryTests {
 						+ "\n" + "Location: " + slct.getFirstSelectedOption().getText());
 		}
 	
-	
-	}
+	@Test
+	public void verifyResultSet(){
+		System.out.println("Currently on " + browser.getTitle());
+		browser.findElement(By.id("txtUsername")).sendKeys("Admin");
+		browser.findElement(By.id("txtPassword")).sendKeys("admin");
+		browser.findElement(By.id("btnLogin")).click();
+		System.out.println(browser.findElement(By.id("welcome")).getText());
+		browser.findElement(By.id("menu_directory_viewDirectory")).click();
+		Select jt = new Select(browser.findElement(By.id("searchDirectory_job_title")));
+		jt.selectByVisibleText("CEO");
+		browser.findElement(By.id("searchBtn")).click();
+		WebElement table = browser.findElement(By.id("resultTable"));
+		WebElement talbody = table.findElement(By.tagName("tbody"));
+		List<WebElement> trvals = talbody.findElements(By.tagName("tr"));
+		int rows = trvals.size()-1;
+		System.out.println("# of rows: "+rows);
+		WebElement firstrow = trvals.get(1);
+		List<WebElement> tdvals = firstrow.findElements(By.tagName("td"));
+		System.out.println("# of columns: " + tdvals.size());
+        boolean result = true;
+		for (int i = 1; i < trvals.size(); i++) {
+			String rowText = trvals.get(i).getText();
+			if(!rowText.contains("CEO")){
+				result = false;
+				break;
+			}
+		}
+	}}
 			
 	
