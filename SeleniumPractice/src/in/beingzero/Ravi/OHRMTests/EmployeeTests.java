@@ -6,7 +6,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -21,6 +23,12 @@ public class EmployeeTests {
 		browser.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		browser.manage().window().maximize();
 		browser.get("http://opensource.demo.orangehrmlive.com");
+		browser.findElement(By.id("txtUsername")).sendKeys("Admin");
+		browser.findElement(By.id("txtPassword")).sendKeys("admin");
+		browser.findElement(By.id("btnLogin")).click();
+		String wlcmsg = browser.findElement(By.id("welcome")).getText();
+		System.out.println(wlcmsg);
+		Assert.assertTrue(wlcmsg.contains("Welcome Admin"));
 	}
 
 	@AfterMethod
@@ -30,21 +38,16 @@ public class EmployeeTests {
 
 	@Test
 	void addEmployeeTest() {
-		browser.findElement(By.id("txtUsername")).sendKeys("Admin");
-		browser.findElement(By.id("txtPassword")).sendKeys("admin");
-		browser.findElement(By.id("btnLogin")).click();
-		String wlcmsg = browser.findElement(By.id("welcome")).getText();
-		System.out.println(wlcmsg);
-		Assert.assertTrue(wlcmsg.contains("Welcome Admin"));
 		browser.findElement(By.id("menu_pim_viewPimModule")).click();
 		browser.findElement(By.name("btnAdd")).click();
 		System.out.println("Currently on URL: " + browser.getCurrentUrl());
-		browser.findElement(By.id("firstName")).sendKeys("RDTest1");
-		browser.findElement(By.id("middleName")).sendKeys("RDTest2");
-		browser.findElement(By.id("lastName")).sendKeys("RDTest3");
-		System.out.println(browser.findElement(By.id("employeeId")).getText());
+		browser.findElement(By.id("firstName")).sendKeys("RDTest7");
+		browser.findElement(By.id("middleName")).sendKeys("RDTest8");
+		browser.findElement(By.id("lastName")).sendKeys("RDTest9");
+		String empid = browser.findElement(By.id("employeeId")).getAttribute("value");
+		System.out.println(empid);
 		browser.findElement(By.id("chkLogin")).click();
-		browser.findElement(By.id("user_name")).sendKeys("RDTest1");
+		browser.findElement(By.id("user_name")).sendKeys("RDTest7");
 		browser.findElement(By.id("user_password")).sendKeys("test");
 		browser.findElement(By.id("re_password")).sendKeys("test");
 		WebElement st = browser.findElement(By.id("status"));
@@ -55,41 +58,57 @@ public class EmployeeTests {
 		}
 		browser.findElement(By.id("btnSave")).click();
 		Assert.assertTrue(
-				browser.findElement(By.id("personal_txtEmpFirstName")).getAttribute("Value").equals("RDTest1"));
+				browser.findElement(By.id("personal_txtEmpFirstName")).getAttribute("Value").equals("RDTest7"));
 		Assert.assertTrue(
-				browser.findElement(By.id("personal_txtEmpMiddleName")).getAttribute("Value").equals("RDTest2"));
+				browser.findElement(By.id("personal_txtEmpMiddleName")).getAttribute("Value").equals("RDTest8"));
 		Assert.assertTrue(
-				browser.findElement(By.id("personal_txtEmpLastName")).getAttribute("Value").equals("RDTest3"));
+				browser.findElement(By.id("personal_txtEmpLastName")).getAttribute("Value").equals("RDTest9"));
+		Assert.assertTrue(browser.findElement(By.id("personal_txtEmployeeId")).getAttribute("Value").equals(empid));
 	}
 
+	@Test
 	void editEmployeeDOBTest() {
-		/*
-		 * 1.   Launch Browser. 2.   Open
-		 * http://opensource.demo.orangehrmlive.com/ 3.   Enter username - Admin
-		 * 4.   Enter password - admin 5.   Click Login Button 6.   Verify that
-		 * login succeeds and we then go to the PIM Page. 7.   Click on the
-		 * Employee List SubMenu and Print out the URL 8.   Enter Employee Id in
-		 * Id Box and Click Search Button 9.   Click on Employee Id field in the
-		 * Result Table to open Emp Details 10. Click Edit Button 11. Enter Date
-		 * Of Birth as 5th December 1998 12.  Click Save Button 13. Verify that
-		 * Confirmation Popup was shown (through automation) 14. Wait for
-		 * Success popup message to disappear 15. Click Save Button 16. Verify
-		 * DOB is updated, by printing
-		 */
+		String empid = "0001";
+		browser.findElement(By.id("menu_pim_viewPimModule")).click();
+		browser.findElement(By.id("menu_pim_viewEmployeeList")).click();
+		System.out.println(browser.getCurrentUrl());
+		browser.findElement(By.id("empsearch_id")).sendKeys(empid);
+		browser.findElement(By.id("searchBtn")).click();
+		browser.findElement(By.linkText(empid)).click();
+		;
+		browser.findElement(By.id("btnSave")).click();
+		browser.findElement(By.id("personal_DOB")).click();
+		Select month = new Select(browser.findElement(By.className("ui-datepicker-month")));
+		month.selectByVisibleText("Dec");
+		Select year = new Select(browser.findElement(By.className("ui-datepicker-year")));
+		year.selectByVisibleText("1998");
+		WebElement day = browser.findElement(By.className("ui-datepicker-calendar"));
+		day.findElement(By.linkText("5")).click();
+		browser.findElement(By.id("btnSave")).click();
+		WebDriverWait wdv = new WebDriverWait(browser, 30);
+		WebElement savedSuccessMsgWE = wdv.until(
+				ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='message success fadable']")));
+		System.out.println("Found Success Message");
+		System.out.println(savedSuccessMsgWE.getText());
+		wdv.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='message success fadable']")));
+		System.out.println(browser.findElement(By.id("personal_DOB")).getAttribute("value"));
 	}
 
 	void uploadEmployeeImage() {
-		/*
-		 * 1.   Launch Browser. 2.   Open
-		 * http://opensource.demo.orangehrmlive.com/ 3.   Enter username - Admin
-		 * 4.   Enter password - admin 5.   Click Login Button 6.   Verify that
-		 * login succeeds and we then go to the PIM Page. 7.   Click on the
-		 * Employee List SubMenu and Print out the URL 8.   Enter Employee Id in
-		 * Id Box and Click Search Button 9.   Click on Employee Name field in
-		 * the Result Table to open Emp Details 10. Click Edit Button 11. Click
-		 * Employee Photo Icon 12.  Upload any image from your pc to site using
-		 * Choose File and upload 13. Verify that image is uploaded and shown.
-		 */
+		String empid = "0001";
+		browser.findElement(By.id("menu_pim_viewPimModule")).click();
+		browser.findElement(By.id("menu_pim_viewEmployeeList")).click();
+		System.out.println(browser.getCurrentUrl());
+		browser.findElement(By.id("empsearch_id")).sendKeys(empid);
+		browser.findElement(By.id("searchBtn")).click();
+		browser.findElement(By.linkText("Linda")).click();
+		;
+		browser.findElement(By.id("btnSave")).click();
+		browser.findElement(By.id("empPic")).click();
+		String profilePicPath = System.getProperty("user.dir").concat("/testData/profilePic.png");
+		browser.findElement(By.id("photofile")).click();
+		browser.findElement(By.id("photofile")).sendKeys(profilePicPath);
+		browser.findElement(By.id("btnSave")).click();
 	}
 
 	void deleteEmployeeTest() {
