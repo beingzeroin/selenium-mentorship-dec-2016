@@ -7,7 +7,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Week3EmployeeTests {
 	String strURL="http://opensource.demo.orangehrmlive.com";
@@ -123,6 +126,7 @@ public class Week3EmployeeTests {
 	}
 	
 	public void editEmployeeDOBTest()
+
 	{
 		System.setProperty("webdriver.chrome.driver","E:\\SeleniumProject\\chromedriver.exe");
 		WebDriver fd=new ChromeDriver();
@@ -190,4 +194,90 @@ public class Week3EmployeeTests {
 
 		
 	}
+	
+	public void deleteEmployeeTest()
+	{
+		System.setProperty("webdriver.chrome.driver","E:\\SeleniumProject\\chromedriver.exe");
+		WebDriver fd=new ChromeDriver();
+		fd.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		fd.manage().window().maximize();
+		fd.get(strURL);
+		fd.findElement(By.id("txtUsername")).sendKeys(strUserName);
+		fd.findElement(By.id("txtPassword")).sendKeys(strPwd);
+		fd.findElement(By.id("btnLogin")).click();
+		strActualMsg=fd.findElement(By.id("welcome")).getText();
+		
+		if (strActualMsg.equalsIgnoreCase(strActualMsg))
+		{
+			System.out.println("Login  is successfull");
+			WebElement tabPIMLink=fd.findElement(By.id("menu_pim_viewPimModule"));
+			tabPIMLink.click();
+			
+			WebElement linkEmployeeList=fd.findElement(By.id("menu_pim_viewEmployeeList"));
+			linkEmployeeList.click();
+			
+			System.out.println("Employee List web Page URL: "+fd.getCurrentUrl());
+			
+			WebElement tblSearchResult=fd.findElement(By.id("resultTable"));
+			WebElement tbody=tblSearchResult.findElement(By.tagName("tbody"));
+			List<WebElement> trList=tbody.findElements(By.tagName("tr"));
+			int intOriginalCount=trList.size();
+			String strEmpoyeeIdToDelete="0012";
+			
+			System.out.println(intOriginalCount);
+			
+			for(int rowIndex=0;rowIndex<intOriginalCount;rowIndex++)
+			{
+				List<WebElement> tdList=trList.get(rowIndex).findElements(By.tagName("td"));
+				if(tdList.get(1).findElement(By.tagName("a")).getText().equals(strEmpoyeeIdToDelete))
+				{
+					tdList.get(0).findElement(By.tagName("input")).click();
+					break;
+				}			
+				
+			}
+			fd.findElement(By.id("btnDelete")).click();
+			
+			fd.findElement(By.id("dialogDeleteBtn")).click();
+			
+			WebDriverWait objWait=new WebDriverWait(fd,30);
+			WebElement deleteSuccess=objWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='message success fadable']")));
+			System.out.println(deleteSuccess.getText());
+			objWait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='message success fadable']")));
+			boolean isRecordExist=false;
+			 tblSearchResult=fd.findElement(By.id("resultTable"));
+			 tbody=tblSearchResult.findElement(By.tagName("tbody"));
+			 trList=tbody.findElements(By.tagName("tr"));
+			for(int rowIndex=0;rowIndex<trList.size();rowIndex++)
+			{	
+				List<WebElement> tdList=trList.get(rowIndex).findElements(By.tagName("td"));
+				if(tdList.get(1).findElement(By.tagName("a")).getText().equals(strEmpoyeeIdToDelete))
+				{
+					isRecordExist=true;
+					System.out.println("Record with employee id:"+tdList.get(1).findElement(By.tagName("a")).getText() +"found");
+					break;
+				}			
+				
+			}
+			
+			if(isRecordExist)
+			{
+				System.out.println("Record with employee Id: "+strEmpoyeeIdToDelete+"is not deleted");
+			}
+			else
+			{
+				System.out.println("Record with employee Id: "+strEmpoyeeIdToDelete+"is succeefully deleted");
+			}
+			
+		}
+		
+		
+		else
+		{
+			System.out.println("Login Failed");
+			
+		}
+		
+	}
+
 }
