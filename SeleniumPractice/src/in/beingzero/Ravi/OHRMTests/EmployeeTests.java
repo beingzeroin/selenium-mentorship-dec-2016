@@ -94,18 +94,18 @@ public class EmployeeTests {
 		System.out.println(browser.findElement(By.id("personal_DOB")).getAttribute("value"));
 	}
 
+	@Test
 	void uploadEmployeeImage() {
-		String empid = "0001";
+		String empid = "0013";
+		String profilePicPath = System.getProperty("user.dir").concat("/testData/girl.jpg");
 		browser.findElement(By.id("menu_pim_viewPimModule")).click();
 		browser.findElement(By.id("menu_pim_viewEmployeeList")).click();
 		System.out.println(browser.getCurrentUrl());
 		browser.findElement(By.id("empsearch_id")).sendKeys(empid);
 		browser.findElement(By.id("searchBtn")).click();
-		browser.findElement(By.linkText("Linda")).click();
-		;
+		browser.findElement(By.linkText("Demo")).click();
 		browser.findElement(By.id("btnSave")).click();
 		browser.findElement(By.id("empPic")).click();
-		String profilePicPath = System.getProperty("user.dir").concat("/testData/profilePic.png");
 		browser.findElement(By.id("photofile")).click();
 		browser.findElement(By.id("photofile")).sendKeys(profilePicPath);
 		browser.findElement(By.id("btnSave")).click();
