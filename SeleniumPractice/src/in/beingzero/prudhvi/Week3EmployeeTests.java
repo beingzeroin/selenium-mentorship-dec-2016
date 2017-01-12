@@ -18,7 +18,30 @@ public class Week3EmployeeTests {
 	String strPwd="admin";
 	String strWelcomeMsg="Welcome "+strUserName;
 	String strActualMsg="";
+	WebDriver fd;
 	
+	public Boolean isLoginSucceed()
+	{
+		System.setProperty("webdriver.chrome.driver","E:\\SeleniumProject\\chromedriver.exe");
+		fd=new ChromeDriver();
+		fd.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		fd.manage().window().maximize();
+		fd.get(strURL);
+		fd.findElement(By.id("txtUsername")).sendKeys(strUserName);
+		fd.findElement(By.id("txtPassword")).sendKeys(strPwd);
+		fd.findElement(By.id("btnLogin")).click();
+		strActualMsg=fd.findElement(By.id("welcome")).getText();
+		if (strActualMsg.equalsIgnoreCase(strActualMsg))
+		{
+			return true;
+		}
+		else
+		{	
+			System.out.println("Login is Failed");
+			return false;
+			
+		}
+	}
 	public void addEmployeeTest()
 	{
 		System.setProperty("webdriver.chrome.driver","E:\\SeleniumProject\\chromedriver.exe");
@@ -196,9 +219,10 @@ public class Week3EmployeeTests {
 	}
 	
 	public void deleteEmployeeTest()
+
 	{
 		System.setProperty("webdriver.chrome.driver","E:\\SeleniumProject\\chromedriver.exe");
-		WebDriver fd=new ChromeDriver();
+		fd=new ChromeDriver();
 		fd.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		fd.manage().window().maximize();
 		fd.get(strURL);
@@ -254,7 +278,7 @@ public class Week3EmployeeTests {
 				if(tdList.get(1).findElement(By.tagName("a")).getText().equals(strEmpoyeeIdToDelete))
 				{
 					isRecordExist=true;
-					System.out.println("Record with employee id:"+tdList.get(1).findElement(By.tagName("a")).getText() +"found");
+					System.out.println("Record with employee id:"+tdList.get(1).findElement(By.tagName("a")).getText() +" is found");
 					break;
 				}			
 				
@@ -279,5 +303,51 @@ public class Week3EmployeeTests {
 		}
 		
 	}
+	public void UploadEmployeeImage()
+	{
 
+		/*
+		1.   Launch Browser.
+		2.   Open http://opensource.demo.orangehrmlive.com/
+		3.   Enter username - Admin
+		4.   Enter password - admin
+		5.   Click Login Button
+		6.   Verify that login succeeds and we then go to the PIM Page.
+		7.   Click on the Employee List SubMenu and Print out the URL
+		8.   Enter Employee Id in Id Box and Click Search Button
+		9.   Click on Employee Name field in the Result Table to open Emp Details
+		10.  Click Edit Button
+		11.  Click Employee Photo Icon
+		12.  Upload any image from your pc to site using Choose File and upload
+		13.  Verify that image is uploaded and shown. 
+		*/
+	
+		if(isLoginSucceed())
+		{
+			fd.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+			WebElement tabPIMLink=fd.findElement(By.id("menu_pim_viewPimModule"));
+			tabPIMLink.click();
+
+			WebElement linkEmployeeList=fd.findElement(By.id("menu_pim_viewEmployeeList"));
+			linkEmployeeList.click();
+			
+			System.out.println("Employee List web Page URL: "+fd.getCurrentUrl());
+			String strEmpoyeeIdToDelete="0006";
+			fd.findElement(By.id("empsearch_id")).sendKeys(strEmpoyeeIdToDelete);
+			fd.findElement(By.id("searchBtn")).click();
+			
+			WebElement tblSearchResult=fd.findElement(By.id("resultTable"));
+			WebElement tbody=tblSearchResult.findElement(By.tagName("tbody"));
+			List<WebElement> trList=tbody.findElements(By.tagName("tr"));			
+			List<WebElement> tdList=trList.get(0).findElements(By.tagName("td"));
+			tdList.get(1).findElement(By.tagName("a")).click();
+			fd.findElement(By.id("btnSave")).click();	
+			fd.findElement(By.id("empPic")).click();
+			String profilePicPath = System.getProperty("user.dir").concat("/testData/profilePic.png");
+			fd.findElement(By.id("photofile")).sendKeys(profilePicPath);
+			fd.findElement(By.id("btnSave")).click();
+
+			
+		}
+	}
 }
