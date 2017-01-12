@@ -1,5 +1,6 @@
 package in.beingzero.Ravi.OHRMTests;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -111,24 +112,34 @@ public class EmployeeTests {
 		browser.findElement(By.id("btnSave")).click();
 	}
 
+	@Test
 	void deleteEmployeeTest() {
-		/*
-		 * 1.   Launch Browser. 2.   Open
-		 * http://opensource.demo.orangehrmlive.com/ 3.   Enter username - Admin
-		 * 4.   Enter password - admin 5.   Click Login Button 6.   Verify that
-		 * login succeeds and we then go to the PIM Page. 7.   Click on the
-		 * Employee List SubMenu and Print out the URL 8.   Get count of total
-		 * employees shown in the table and store in variable originalCount 9.
-		 * Print the Count. 10. Using an employee ID, click on checkbox in the
-		 * result table in front of empid row 11. Click Delete button 12. On
-		 * confirmation dialog (Note: This isn't an ALERT, you can inspect it)
-		 * click OK button. 13. Verify that Successfully Deleted momentary popup
-		 * appears. 14. Wait for popup to disappear. 15. Get count of rows in
-		 * the results table and store in finalCount variable (int) 16. Print
-		 * finalCount. 17. If finalCount+1 is equal to originalCount, print
-		 * Passed, otherwise print failed. 18. Also verify that employee id
-		 * deleted just now isn't shown in the table anymore.
-		 */
+		browser.findElement(By.id("menu_pim_viewPimModule")).click();
+		browser.findElement(By.id("menu_pim_viewEmployeeList")).click();
+		System.out.println(browser.getCurrentUrl());
+		browser.findElement(By.id("searchBtn")).click();
+		WebElement table = browser.findElement(By.id("resultTable"));
+		WebElement talbody = table.findElement(By.tagName("tbody"));
+		List<WebElement> trvals = talbody.findElements(By.tagName("tr"));
+		int rows = trvals.size();
+		System.out.println("# of Rows: "+rows);
+		WebElement secrow = trvals.get(1);
+		WebElement chkbox = secrow.findElements(By.tagName("td")).get(0);
+		chkbox.click();
+		browser.findElement(By.id("btnDelete")).click();
+		browser.findElement(By.id("dialogDeleteBtn")).click();
+		WebDriverWait wdv = new WebDriverWait(browser, 30);
+		WebElement deleteSuccessWE = wdv.until(
+				ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='message success fadable']")));
+		System.out.println("Found Success Message");
+		System.out.println(deleteSuccessWE.getText());
+		wdv.until(ExpectedConditions
+				.invisibilityOfElementLocated(By.xpath("//div[@class='message success fadable']")));
+		table = browser.findElement(By.id("resultTable"));
+		talbody = table.findElement(By.tagName("tbody"));
+		String noRecord = talbody.getText();
+		System.out.println(noRecord);		
+		
 	}
 
 	void downloadEmpImportFile() {
