@@ -1,5 +1,6 @@
 package in.beingzero.Ravi.OHRMTests;
 
+import java.io.File;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -7,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -37,7 +39,7 @@ public class EmployeeTests {
 		browser.quit();
 	}
 
-	@Test
+	// @Test
 	void addEmployeeTest() {
 		browser.findElement(By.id("menu_pim_viewPimModule")).click();
 		browser.findElement(By.name("btnAdd")).click();
@@ -67,7 +69,7 @@ public class EmployeeTests {
 		Assert.assertTrue(browser.findElement(By.id("personal_txtEmployeeId")).getAttribute("Value").equals(empid));
 	}
 
-	@Test
+	// @Test
 	void editEmployeeDOBTest() {
 		String empid = "0001";
 		browser.findElement(By.id("menu_pim_viewPimModule")).click();
@@ -95,16 +97,17 @@ public class EmployeeTests {
 		System.out.println(browser.findElement(By.id("personal_DOB")).getAttribute("value"));
 	}
 
-	@Test
+	// @Test
 	void uploadEmployeeImage() {
-		String empid = "0013";
-		String profilePicPath = System.getProperty("user.dir").concat("/testData/girl.jpg");
+		String empid = "0005";
+		String profilePicPath = System.getProperty("user.dir")
+				.concat("C:/Users/Public/Pictures/Sample Pictures/Koala.jpg");
 		browser.findElement(By.id("menu_pim_viewPimModule")).click();
 		browser.findElement(By.id("menu_pim_viewEmployeeList")).click();
 		System.out.println(browser.getCurrentUrl());
 		browser.findElement(By.id("empsearch_id")).sendKeys(empid);
 		browser.findElement(By.id("searchBtn")).click();
-		browser.findElement(By.linkText("Demo")).click();
+		browser.findElement(By.linkText("Thomas")).click();
 		browser.findElement(By.id("btnSave")).click();
 		browser.findElement(By.id("empPic")).click();
 		browser.findElement(By.id("photofile")).click();
@@ -112,7 +115,7 @@ public class EmployeeTests {
 		browser.findElement(By.id("btnSave")).click();
 	}
 
-	@Test
+	// @Test
 	void deleteEmployeeTest() {
 		browser.findElement(By.id("menu_pim_viewPimModule")).click();
 		browser.findElement(By.id("menu_pim_viewEmployeeList")).click();
@@ -122,7 +125,7 @@ public class EmployeeTests {
 		WebElement talbody = table.findElement(By.tagName("tbody"));
 		List<WebElement> trvals = talbody.findElements(By.tagName("tr"));
 		int rows = trvals.size();
-		System.out.println("# of Rows: "+rows);
+		System.out.println("# of Rows: " + rows);
 		WebElement secrow = trvals.get(1);
 		WebElement chkbox = secrow.findElements(By.tagName("td")).get(0);
 		chkbox.click();
@@ -133,26 +136,58 @@ public class EmployeeTests {
 				ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='message success fadable']")));
 		System.out.println("Found Success Message");
 		System.out.println(deleteSuccessWE.getText());
-		wdv.until(ExpectedConditions
-				.invisibilityOfElementLocated(By.xpath("//div[@class='message success fadable']")));
+		wdv.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='message success fadable']")));
 		table = browser.findElement(By.id("resultTable"));
 		talbody = table.findElement(By.tagName("tbody"));
 		String noRecord = talbody.getText();
-		System.out.println(noRecord);		
-		
+		System.out.println(noRecord);
+
 	}
 
-	void downloadEmpImportFile() {
-		/*
-		 * 1.   Launch Browser. 2.   Open
-		 * http://opensource.demo.orangehrmlive.com/ 3.   Enter username - Admin
-		 * 4.   Enter password - admin 5.   Click Login Button 6.   Verify that
-		 * login succeeds and we then go to the PIM Page. 7.   Hover mouse over
-		 * Configuration SubMenu and Click Data Import 8.   Click Download Link
-		 * on CSV Data Import Page 9. Verify that file has been downloaded to
-		 * the computer. 10. Click upload to upload the same file again. 11.
-		 * Quit the browser
-		 */
+	@Test
+	void downloadEmpImportFile() throws Exception {
+		WebElement tabPIM = browser.findElement(By.linkText("PIM"));
+		tabPIM.click();
+
+		// 7.ï¿½ï¿½ Hover mouse over Configuration SubMenu and Click Data Import
+
+		WebElement subMenuConfiguration = browser.findElement(By.id("menu_pim_Configuration"));
+
+		Actions action = new Actions(browser);
+
+		action.moveToElement(subMenuConfiguration).build().perform();
+
+		browser.findElement(By.linkText("Data Import")).click();
+
+		// 8.ï¿½ï¿½ Click Download Link on CSV Data Import Page
+		// 9. Verify that file has been downloaded to the computer.
+
+		// Click to download
+
+		browser.findElement(By.linkText("Download")).click();
+		Thread.sleep(1000);
+
+		// Verify file download
+		String downloadPath = "C:/Users/Public/Pictures/Sample Pictures";
+		File dir = new File(downloadPath);
+		File[] dirContents = dir.listFiles();
+
+		for (int i = 0; i < dirContents.length; i++) {
+			if (dirContents[i].getName().equals("importData.csv"))
+				System.out.println("File downloaded successfully");
+		}
+
+		// 10. Click upload to upload the same file again.
+		// 11. Quit the browser
+
+		WebElement browseFile = browser.findElement(By.id("pimCsvImport_csvFile"));
+		Thread.sleep(1000);
+		browseFile.sendKeys("C:/Users/Public/Pictures/Sample Pictures/importData.csv");
+		Thread.sleep(1000);
+
+		WebElement uploadClick = browser.findElement(By.id("btnSave"));
+		uploadClick.click();
+
 	}
 
 }
