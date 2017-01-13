@@ -1,5 +1,6 @@
 package in.beingzero.prudhvi;
 
+import java.io.File;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -7,6 +8,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -19,7 +22,7 @@ public class Week3EmployeeTests {
 	String strWelcomeMsg="Welcome "+strUserName;
 	String strActualMsg="";
 	WebDriver fd;
-	
+	String downloadPath ="C:\\Users\\admin\\Downloads";
 	public Boolean isLoginSucceed()
 	{
 		System.setProperty("webdriver.chrome.driver","E:\\SeleniumProject\\chromedriver.exe");
@@ -350,4 +353,56 @@ public class Week3EmployeeTests {
 			
 		}
 	}
+	public void downloadEmpImportFile() throws InterruptedException
+	{
+		if(isLoginSucceed())
+		{
+			fd.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+			fd.findElement(By.id("menu_pim_viewPimModule")).click();
+			Actions objAct=new Actions(fd);
+			objAct.moveToElement(fd.findElement(By.id("menu_pim_Configuration"))).perform();
+			int originalCountFiles=verifyDownLoadPathExistenceAndFiles(downloadPath);
+			fd.findElement(By.linkText("Data Import")).click();;
+			fd.findElement(By.linkText("Download")).click();
+			Thread.sleep(5000);
+			int FinalCountFiles=verifyDownLoadPathExistenceAndFiles(downloadPath);
+			
+			if(originalCountFiles==FinalCountFiles-1)
+			{
+				System.out.println("Download of File is done successfully");
+			}
+			
+			WebElement browseFile = fd.findElement(By.id("pimCsvImport_csvFile"));
+			browseFile.sendKeys(downloadPath+"\\importData.csv");
+			Thread.sleep(3000);
+
+			WebElement uploadButton = fd.findElement(By.id("btnSave"));
+			uploadButton.click();
+		}
+		else
+		{
+			System.out.println("Login Action Failed");
+		}
+		
+	}
+	
+	 int verifyDownLoadPathExistenceAndFiles(String FilePath)
+	 {
+	 File objFile= new File(FilePath);
+	 if(!objFile.exists())
+	 {
+		 System.out.println("Folder does not exist");
+	 	if(objFile.mkdirs())
+	 	{
+	 		System.out.println("Folder created successfully");
+	 		return objFile.listFiles().length;
+	 	}
+	 	else
+	 		System.out.println("Folder creation failed");
+	 		return 0;
+	 }
+	 else
+		System.out.println("Folder  exists");
+	 	return objFile.listFiles().length;
+	 }
 }
