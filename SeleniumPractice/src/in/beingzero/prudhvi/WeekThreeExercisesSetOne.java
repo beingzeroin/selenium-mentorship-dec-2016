@@ -11,6 +11,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
+//TODO:  PRUDHVI Make it TestNG Compliant and separate setup and cleanup
 public class WeekThreeExercisesSetOne {
 
 	String strURL="http://opensource.demo.orangehrmlive.com";
@@ -38,6 +39,7 @@ public class WeekThreeExercisesSetOne {
 	{
 		
 		//LoginHRM();
+		//TODO:  PRUDHVI Portability Issue.  This won't run on other's machine. How to fix it?
 		System.setProperty("webdriver.chrome.driver","E:\\SeleniumProject\\chromedriver.exe");
 		WebDriver fd=new ChromeDriver();
 		fd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -84,6 +86,7 @@ public class WeekThreeExercisesSetOne {
 	@Test
 	public void verifyTableResultsShownAsPerFilter() throws InterruptedException
 	{
+		//TODO:  PRUDHVI Portability Issue.  This won't run on other's machine. How to fix it?
 		System.setProperty("webdriver.chrome.driver","E:\\SeleniumProject\\chromedriver.exe");
 		WebDriver fd=new ChromeDriver();
 		fd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);

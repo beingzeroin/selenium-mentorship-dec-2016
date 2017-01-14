@@ -12,6 +12,7 @@ public class AboutLogOutOrangeHRM {
 	@Test
 	public void AboutCompanyName()
 	{
+		//TODO:  PRUDHVI Portability Issue.  This won't run on other's machine. How to fix it?
 		System.setProperty("webdriver.chrome.driver","E:\\SeleniumProject\\chromedriver.exe");
 		WebDriver FFdriver=new ChromeDriver();
 		FFdriver.get("http://opensource.demo.orangehrmlive.com");
