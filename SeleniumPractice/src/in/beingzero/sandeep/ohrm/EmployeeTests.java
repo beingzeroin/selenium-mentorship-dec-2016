@@ -1,4 +1,4 @@
-package in.beingzero.sandeep;
+package in.beingzero.sandeep.ohrm;
 
 import java.io.File;
 import java.util.HashMap;
@@ -18,19 +18,11 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
-public class ETSol {
-
-	public static void main(String[] args) {
-		ETSol sol = new ETSol();
-		// Looks like someone else deleted this emp
-		// Id that addEmployee Creates should be used by editEmp
-		sol.addEmployeeTest();
-		// sol.editEmployeeDOBTest();
-		// sol.uploadEmployeeImage();
-		// sol.deleteEmployeeTest();
-		// sol.downloadEmpImportFile();
-	}
+public class EmployeeTests {
 
 	WebDriver driver;
 	String adminUserName = "Admin", adminPassword = "admin";
@@ -43,6 +35,13 @@ public class ETSol {
 
 	// SINCE EVERY TEST NEEDS LOGIN, LET;s MAKE THAT A SEPARATE FUNCTION
 
+	@BeforeMethod
+	public void setup() {
+		driver = chromeDownloadSettings();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+	}
+
 	// This will tell if login was successful or not.
 	boolean doLogin(String userName, String password) {
 
@@ -50,37 +49,35 @@ public class ETSol {
 			driver = chromeDownloadSettings();
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			driver.manage().window().maximize();
-
-			driver.get(ohrmURL);
-			WebElement Username = driver.findElement(By.id(userNameId));
-			Username.clear();
-			Username.sendKeys(userName);
-
-			WebElement Password = driver.findElement(By.id(passwdId));
-			Password.sendKeys(password);
-
-			WebElement Login = driver.findElement(By.id(loginButtonId));
-			Login.click();
-
-			String actualHomePageText = driver.findElement(By.id("welcome")).getText();
-
-			// Verify Welcome User is displayed
-			// Convert to lowercase before comparing
-			if (actualHomePageText.contains("Welcome")
-					&& actualHomePageText.toLowerCase().contains(userName.toLowerCase())) {
-				System.out.println("Login Succeeded for user " + userName);
-				return true;
-			} else {
-				System.out.println("Login Failed for user " + userName);
-				return false;
-			}
 		}
-		return true;
 
+		driver.get(ohrmURL);
+		WebElement Username = driver.findElement(By.id(userNameId));
+		Username.clear();
+		Username.sendKeys(userName);
+
+		WebElement Password = driver.findElement(By.id(passwdId));
+		Password.sendKeys(password);
+
+		WebElement Login = driver.findElement(By.id(loginButtonId));
+		Login.click();
+
+		String actualHomePageText = driver.findElement(By.id("welcome")).getText();
+
+		// Verify Welcome User is displayed
+		// Convert to lowercase before comparing
+		if (actualHomePageText.contains("Welcome")
+				&& actualHomePageText.toLowerCase().contains(userName.toLowerCase())) {
+			System.out.println("Login Succeeded for user " + userName);
+			return true;
+		} else {
+			System.out.println("Login Failed for user " + userName);
+			return false;
+		}
 	}
 
-	
-	void addEmployeeTest() {
+	@Test
+	public void addEmployeeTest() {
 		if (doLogin("admin", "admin")) {
 
 			// 7.�� Click on the Add Employee�SubMenu and Print out the URL
@@ -151,7 +148,8 @@ public class ETSol {
 
 	}
 
-	void editEmployeeDOBTest() {
+	@Test
+	public void editEmployeeDOBTest() {
 		if (doLogin("admin", "admin")) {
 			driver.findElement(By.linkText("PIM")).click();
 			driver.findElement(By.id("menu_pim_viewEmployeeList")).click();
@@ -206,8 +204,9 @@ public class ETSol {
 
 	}
 
-	void uploadEmployeeImage() {
-		
+	@Test
+	public void uploadEmployeeImage() {
+
 		if (doLogin("admin", "admin")) {
 			driver.findElement(By.linkText("PIM")).click();
 			driver.findElement(By.id("menu_pim_viewEmployeeList")).click();
@@ -224,11 +223,11 @@ public class ETSol {
 			tbodyElement.findElement(By.linkText(empId)).click();
 
 			driver.findElement(By.id("btnSave")).click();
-			
+
 			driver.findElement(By.id("empPic")).click();
-			
+
 			driver.findElement(By.id("photofile")).sendKeys(profilePicPath);
-			
+
 			driver.findElement(By.id("btnSave")).click();
 
 		}
@@ -245,30 +244,31 @@ public class ETSol {
 		 */
 	}
 
-	void deleteEmployeeTest() {
-		if(doLogin(adminUserName, adminPassword)){
+	@Test(dependsOnMethods = { "editEmployeeDOBTest", "uploadEmployeeImage" })
+	public void deleteEmployeeTest() {
+		if (doLogin(adminUserName, adminPassword)) {
 			driver.findElement(By.linkText("PIM")).click();
 			driver.findElement(By.id("menu_pim_viewEmployeeList")).click();
 
 			driver.findElement(By.id("empsearch_id")).sendKeys(empId);
 
 			driver.findElement(By.id("searchBtn")).click();
-			
+
 			WebElement tblElement = driver.findElement(By.id("resultTable"));
 			WebElement tbodyElement = tblElement.findElement(By.tagName("tbody"));
 
 			List<WebElement> rows = tbodyElement.findElements(By.tagName("tr"));
 			System.out.println("Total Rows " + rows.size());
-			
+
 			WebElement firstRow = rows.get(0);
 			WebElement chkBoxColumn = firstRow.findElements(By.tagName("td")).get(0);
-			
+
 			chkBoxColumn.click();
-			
+
 			driver.findElement(By.id("btnDelete")).click();
-			
+
 			driver.findElement(By.id("dialogDeleteBtn")).click();
-			
+
 			WebDriverWait wdv = new WebDriverWait(driver, 30);
 			WebElement deleteSuccessWE = wdv.until(
 					ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='message success fadable']")));
@@ -278,10 +278,10 @@ public class ETSol {
 					.invisibilityOfElementLocated(By.xpath("//div[@class='message success fadable']")));
 			tblElement = driver.findElement(By.id("resultTable"));
 			tbodyElement = tblElement.findElement(By.tagName("tbody"));
-			
+
 			String noRecord = tbodyElement.getText();
 			System.out.println(noRecord);
-			
+
 		}
 		/*
 		 * 1.�� Launch Browser. 2.�� Open
@@ -302,7 +302,8 @@ public class ETSol {
 		 */
 	}
 
-	void downloadEmpImportFile() {
+	@Test
+	public void downloadEmpImportFile() {
 		if (doLogin(adminUserName, adminPassword)) {
 
 			File f = new File(downloadDirectory);
@@ -346,25 +347,24 @@ public class ETSol {
 
 	String downloadDirectory = System.getProperty("user.dir") + "/sandeep_download";
 
-	void ensureDownloadDirectoryExistance(){
-		
+	void ensureDownloadDirectoryExistance() {
+
 		File f = new File(downloadDirectory);
-		if(!f.exists()){
+		if (!f.exists()) {
 			boolean result = f.mkdirs();
-			if(!result){
+			if (!result) {
 				System.out.println("FAILED TO CREATE DOWNLOAD DIRECTORY");
-			}
-			else{
+			} else {
 				System.out.println("Created Download Directory");
 			}
-		}
-		else{
+		} else {
 			System.out.println("Download directory already exists");
 		}
-		
+
 	}
+
 	WebDriver chromeDownloadSettings() {
-		
+
 		HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
 		// chromePrefs.put("profile.default_content_settings.popups", 0);
 		chromePrefs.put("download.default_directory", downloadDirectory);
@@ -391,6 +391,13 @@ public class ETSol {
 		fp.setPreference("browser.helperApps.neverAsk.saveToDisk", "application/octet-stream");
 
 		return new FirefoxDriver(fp);
+	}
+
+	@AfterMethod
+	public void cleanup() {
+		if (driver != null)
+			driver.quit();
+		driver = null;
 	}
 
 	public void deleteEverythingInFolder(File folderPath) {

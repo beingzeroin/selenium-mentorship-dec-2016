@@ -19,4 +19,9 @@
 		<classes>
 		</classes>
 	</test>
+	<test verbose="2" name="Orange HRM All Tests from SANDEEP">
+		<packages>
+			<package name="in.beingzero.sandeep.ohrm"></package>
+		</packages>
+	</test>
 </suite>
