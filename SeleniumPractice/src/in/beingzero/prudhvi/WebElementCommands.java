@@ -16,8 +16,7 @@ public class WebElementCommands
 @Test
 	public void SignupFacebook()
 	{
-	    //TODO:  PRUDHVI Portability Issue.  This won't run on other's machine. How to fix it?
-		System.setProperty("webdriver.chrome.driver","E:\\SeleniumProject\\chromedriver.exe");
+	    
 		//ChromeDriver driver=new ChromeDriver();
 		FirefoxDriver driver =new FirefoxDriver();
 		driver.get("https://www.facebook.com/");

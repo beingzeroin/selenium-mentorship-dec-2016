@@ -14,8 +14,10 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.*;
 
-//TODO:  PRUDHVI Make it TESTNG Compliant.  Also Separate Setup and Cleanup.
+
+
 public class Week3EmployeeTests {
 	String strURL="http://opensource.demo.orangehrmlive.com";
 	String strUserName="Admin";
@@ -23,19 +25,37 @@ public class Week3EmployeeTests {
 	String strWelcomeMsg="Welcome "+strUserName;
 	String strActualMsg="";
 	WebDriver fd;
+	Boolean booleanIsLoginDone;
 	
 	//TODO:  PRUDHVI What if someone runs if on their machine that doesn't have
 	// C:\\users\\admin\\downloads folder on their machine?
 	// e.g. Running it on MAC or Linux will fail as C:\ won't be there
 	// Think of a way to fix it.
 	String downloadPath ="C:\\Users\\admin\\Downloads";
-	public Boolean isLoginSucceed()
+	
+	@BeforeMethod
+	public void Setup()
 	{
-		//TODO:  PRUDHVI Portability Issue.  This won't run on other's machine. How to fix it?
-		System.setProperty("webdriver.chrome.driver","E:\\SeleniumProject\\chromedriver.exe");
 		fd=new ChromeDriver();
 		fd.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		fd.manage().window().maximize();
+		booleanIsLoginDone= isLoginSucceed();
+	}
+	
+	@AfterMethod
+	public void Cleanup()
+	{
+		fd.quit();
+	}
+	
+	
+	
+	
+	
+	public Boolean isLoginSucceed()
+
+	{
+		
 		fd.get(strURL);
 		fd.findElement(By.id("txtUsername")).sendKeys(strUserName);
 		fd.findElement(By.id("txtPassword")).sendKeys(strPwd);
@@ -43,6 +63,7 @@ public class Week3EmployeeTests {
 		strActualMsg=fd.findElement(By.id("welcome")).getText();
 		if (strActualMsg.equalsIgnoreCase(strActualMsg))
 		{
+			System.out.println("Login is success");
 			return true;
 		}
 		else
@@ -52,21 +73,14 @@ public class Week3EmployeeTests {
 			
 		}
 	}
+	
+	
+	@Test
 	public void addEmployeeTest()
 	{
-		//TODO:  PRUDHVI Portability Issue.  This won't run on other's machine. How to fix it?
-		System.setProperty("webdriver.chrome.driver","E:\\SeleniumProject\\chromedriver.exe");
-		WebDriver fd=new ChromeDriver();
-		fd.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		fd.manage().window().maximize();
-		fd.get(strURL);
-		fd.findElement(By.id("txtUsername")).sendKeys(strUserName);
-		fd.findElement(By.id("txtPassword")).sendKeys(strPwd);
-		fd.findElement(By.id("btnLogin")).click();
-		strActualMsg=fd.findElement(By.id("welcome")).getText();
-		if (strActualMsg.equalsIgnoreCase(strActualMsg))
+				
+		if (booleanIsLoginDone)
 		{
-			System.out.println("Login  is successfull");
 			WebElement tabPIMLink=fd.findElement(By.id("menu_pim_viewPimModule"));
 			tabPIMLink.click();
 			
@@ -159,20 +173,11 @@ public class Week3EmployeeTests {
 		}
 	}
 	
+	@Test
 	public void editEmployeeDOBTest()
 
 	{
-		//TODO:  PRUDHVI Portability Issue.  This won't run on other's machine. How to fix it?
-		System.setProperty("webdriver.chrome.driver","E:\\SeleniumProject\\chromedriver.exe");
-		WebDriver fd=new ChromeDriver();
-		fd.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		fd.manage().window().maximize();
-		fd.get(strURL);
-		fd.findElement(By.id("txtUsername")).sendKeys(strUserName);
-		fd.findElement(By.id("txtPassword")).sendKeys(strPwd);
-		fd.findElement(By.id("btnLogin")).click();
-		strActualMsg=fd.findElement(By.id("welcome")).getText();
-		if (strActualMsg.equalsIgnoreCase(strActualMsg))
+		if (booleanIsLoginDone)
 		{
 			System.out.println("Login  is successfull");
 			WebElement tabPIMLink=fd.findElement(By.id("menu_pim_viewPimModule"));
@@ -229,24 +234,14 @@ public class Week3EmployeeTests {
 
 		
 	}
-
+	
+	@Test
 	public void deleteEmployeeTest()
 
-	{
-		//TODO:  PRUDHVI Portability Issue.  This won't run on other's machine. How to fix it?
-		System.setProperty("webdriver.chrome.driver","E:\\SeleniumProject\\chromedriver.exe");
-		fd=new ChromeDriver();
-		fd.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		fd.manage().window().maximize();
-		fd.get(strURL);
-		fd.findElement(By.id("txtUsername")).sendKeys(strUserName);
-		fd.findElement(By.id("txtPassword")).sendKeys(strPwd);
-		fd.findElement(By.id("btnLogin")).click();
-		strActualMsg=fd.findElement(By.id("welcome")).getText();
+	{	
 		
-		if (strActualMsg.equalsIgnoreCase(strActualMsg))
+		if (booleanIsLoginDone)
 		{
-			System.out.println("Login  is successfull");
 			WebElement tabPIMLink=fd.findElement(By.id("menu_pim_viewPimModule"));
 			tabPIMLink.click();
 			
@@ -316,28 +311,13 @@ public class Week3EmployeeTests {
 		}
 		
 	}
+	
+	@Test
 	public void UploadEmployeeImage()
 	{
-
-		/*
-		1.�� Launch Browser.
-		2.�� Open http://opensource.demo.orangehrmlive.com/
-		3.�� Enter username - Admin
-		4.�� Enter password - admin
-		5.�� Click Login Button
-		6.�� Verify that login succeeds and we then go to the PIM Page.
-		7.�� Click on the Employee List�SubMenu and Print out the URL
-		8.�� Enter Employee Id in Id Box and Click Search Button
-		9.�� Click on Employee Name field in the Result Table to open Emp Details
-		10.  Click Edit Button
-		11.  Click Employee Photo Icon
-		12.� Upload any image from your pc to site using Choose File and upload
-		13.  Verify that image is uploaded and shown. 
-		*/
-	
-		if(isLoginSucceed())
+		
+		if(booleanIsLoginDone)
 		{
-			fd.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 			WebElement tabPIMLink=fd.findElement(By.id("menu_pim_viewPimModule"));
 			tabPIMLink.click();
 
@@ -363,11 +343,12 @@ public class Week3EmployeeTests {
 			
 		}
 	}
+	
+	@Test
 	public void downloadEmpImportFile() throws InterruptedException
 	{
-		if(isLoginSucceed())
+		if(booleanIsLoginDone)
 		{
-			fd.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 			fd.findElement(By.id("menu_pim_viewPimModule")).click();
 			Actions objAct=new Actions(fd);
 			objAct.moveToElement(fd.findElement(By.id("menu_pim_Configuration"))).perform();
@@ -398,21 +379,21 @@ public class Week3EmployeeTests {
 	
 	 int verifyDownLoadPathExistenceAndFiles(String FilePath)
 	 {
-	 File objFile= new File(FilePath);
-	 if(!objFile.exists())
-	 {
-		 System.out.println("Folder does not exist");
-	 	if(objFile.mkdirs())
-	 	{
-	 		System.out.println("Folder created successfully");
-	 		return objFile.listFiles().length;
-	 	}
-	 	else
-	 		System.out.println("Folder creation failed");
-	 		return 0;
-	 }
-	 else
-		System.out.println("Folder  exists");
-	 	return objFile.listFiles().length;
+		 File objFile= new File(FilePath);
+		 if(!objFile.exists())
+		 {
+			 System.out.println("Folder does not exist");
+		 	if(objFile.mkdirs())
+		 	{
+		 		System.out.println("Folder created successfully");
+		 		return objFile.listFiles().length;
+		 	}
+		 	else
+		 		System.out.println("Folder creation failed");
+		 		return 0;
+		 }
+		 else
+			System.out.println("Folder  exists");
+		 	return objFile.listFiles().length;
 	 }
 }
