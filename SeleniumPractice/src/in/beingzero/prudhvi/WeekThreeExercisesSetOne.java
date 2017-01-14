@@ -60,6 +60,10 @@ public class WeekThreeExercisesSetOne {
 		selectCboLocation.selectByValue("3,1,2,-1");
 		Thread.sleep(5000);
 		fd.findElement(By.id("resetBtn")).click();
+		cboJobTitle=fd.findElement(By.id("searchDirectory_job_title"));
+		cboLocation=fd.findElement(By.id("searchDirectory_location"));
+		selectCboJobTitle= new Select(cboJobTitle);
+		selectCboLocation= new Select(cboLocation);
 		String strJobTitle=selectCboJobTitle.getFirstSelectedOption().getText();
 		String strJobLocation=selectCboLocation.getFirstSelectedOption().getText();
 		System.out.println(strJobTitle+"  "+strJobLocation);
@@ -91,16 +95,15 @@ public class WeekThreeExercisesSetOne {
 		fd.findElement(By.id("menu_directory_viewDirectory")).click();
 		//fd.findElement(By.xpath("//*[@id='menu_directory_viewDirectory']/b")).click();
 		
-		
+		String strSearchText="IT Manager";
 		WebElement cboJobTitle=fd.findElement(By.id("searchDirectory_job_title"));
 		Select selectCboJobTitle= new Select(cboJobTitle);
-		selectCboJobTitle.selectByVisibleText("IT Manager");
-		Select selectCboLocation=new Select(fd.findElement(By.id("searchDirectory_job_title")));
-		selectCboLocation.selectByVisibleText("searchDirectory_location");
-		selectCboLocation.selectByValue("2");
-		Thread.sleep(5000);
+		selectCboJobTitle.selectByVisibleText(strSearchText);
+		//Select selectCboLocation=new Select(fd.findElement(By.id("searchDirectory_job_title")));
+		//selectCboLocation.selectByVisibleText("searchDirectory_location");
+		//selectCboLocation.selectByValue("2");
 		fd.findElement(By.id("searchBtn")).click();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		
 		WebElement tblResult=fd.findElement(By.id("resultTable"));
 		WebElement tbodyElement=tblResult.findElement(By.tagName("tbody"));
@@ -112,12 +115,14 @@ public class WeekThreeExercisesSetOne {
 			int rowNumber=rowIndex+1;
 			List <WebElement> tdList=trList.get(rowIndex).findElements(By.tagName("td"));
 			WebElement jobTitleLabel=fd.findElement(By.xpath("//*[@id='resultTable']/tbody/tr["+rowNumber+"]/td[2]/ul/li[2]"));
-			if(jobTitleLabel.getText()==selectCboJobTitle.getFirstSelectedOption().getText())
+			if(jobTitleLabel.getText().equals(strSearchText))
 			{
 				System.out.println("Selected JobTitle and Result Job title are same");
 			}
 			else
 			{
+				System.out.println(jobTitleLabel.getText());
+				System.out.println(strSearchText);
 				System.out.println("Selected JobTitle and Result Job title are not same");
 			}
 			
