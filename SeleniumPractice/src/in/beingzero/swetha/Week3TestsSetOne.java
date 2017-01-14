@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
+//TODO:  SWETHA  Make it TestNG Compliant.  Separate Setup and Cleanup as well.
 public class Week3TestsSetOne {
 
 	public static void main(String[] args) throws InterruptedException {

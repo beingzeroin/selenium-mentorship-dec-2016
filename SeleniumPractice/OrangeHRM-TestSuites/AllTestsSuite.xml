@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ORANGE HRM All Tests Suite">
+	<test verbose="2" name="Orange HRM All Tests from RAVI">
+		<classes>
+			<class name="in.beingzero.Ravi.OHRMTests.AboutAndLogOut" />
+			<class name="in.beingzero.Ravi.OHRMTests.DirectoryTests" />
+		</classes>
+	</test>
+	<test verbose="2" name="Orange HRM All Tests from PRUDHVI">
+		<classes>
+		</classes>
+	</test>
+	<test verbose="2" name="Orange HRM All Tests from SWETHA">
+		<classes>
+		</classes>
+	</test>
+	<test verbose="2" name="Orange HRM All Tests from PRIYA">
+		<classes>
+		</classes>
+	</test>
+</suite>

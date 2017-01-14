@@ -25,7 +25,7 @@ public class Week3EmployeeTests {
 	WebDriver fd;
 	
 	//TODO:  PRUDHVI What if someone runs if on their machine that doesn't have
-	// C:\users\admin\downloads folder on their machine?
+	// C:\\users\\admin\\downloads folder on their machine?
 	// e.g. Running it on MAC or Linux will fail as C:\ won't be there
 	// Think of a way to fix it.
 	String downloadPath ="C:\\Users\\admin\\Downloads";
