@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -47,8 +48,8 @@ public class AboutAndLogOut {
 		browser.findElement(By.id("btnLogin")).click();
 		browser.findElement(By.id("welcome")).click();
 		WebDriverWait wait = new WebDriverWait(browser, 2);
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='welcome-menu']/ul/li[2]/a")));
-		browser.findElement(By.xpath("//*[@id='welcome-menu']/ul/li[2]/a")).click();
+		WebElement logoutLink = wait.until(ExpectedConditions.presenceOfElementLocated(By.linkText("Logout")));
+		logoutLink.click();
 		String lnktext = browser.findElement(By.linkText("OrangeHRM, Inc")).getText();
 		System.out.println(lnktext);
 		Assert.assertTrue(lnktext.contains("Orange"));

@@ -16,6 +16,7 @@ public class WebElementCommands {
 	public void FacebookAccCreation() throws Exception{
 		
 		//WebDriver driver = new FirefoxDriver();
+		//TODO:  PRIYA Portability Problem, Won't Run on My Machine.
 		System.setProperty("webdriver.chrome.driver","C:\\Users\\priya\\Desktop\\Priya\\SeleniumJava\\chromedriver_win32\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		
@@ -108,7 +109,7 @@ public class WebElementCommands {
 		
 		//got the error "Your connection is not secure page displayed instead of loading the beingzero site"
 		
-		WebElement beingzeroimg = driver.findElement(By.xpath("//*[@id=’branding’]//img"));
+		WebElement beingzeroimg = driver.findElement(By.xpath("//*[@id=ï¿½brandingï¿½]//img"));
 		System.out.println("Location of BeingZero IMG : " + beingzeroimg.getLocation());
 		System.out.println("Size of the BeingZero IMG : " + beingzeroimg.getSize());
 		driver.quit();

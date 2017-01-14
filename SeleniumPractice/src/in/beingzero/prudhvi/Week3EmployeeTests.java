@@ -1,5 +1,6 @@
 package in.beingzero.prudhvi;
 
+import java.io.File;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -7,11 +8,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+//TODO:  PRUDHVI Make it TESTNG Compliant.  Also Separate Setup and Cleanup.
 public class Week3EmployeeTests {
 	String strURL="http://opensource.demo.orangehrmlive.com";
 	String strUserName="Admin";
@@ -20,8 +24,14 @@ public class Week3EmployeeTests {
 	String strActualMsg="";
 	WebDriver fd;
 	
+	//TODO:  PRUDHVI What if someone runs if on their machine that doesn't have
+	// C:\\users\\admin\\downloads folder on their machine?
+	// e.g. Running it on MAC or Linux will fail as C:\ won't be there
+	// Think of a way to fix it.
+	String downloadPath ="C:\\Users\\admin\\Downloads";
 	public Boolean isLoginSucceed()
 	{
+		//TODO:  PRUDHVI Portability Issue.  This won't run on other's machine. How to fix it?
 		System.setProperty("webdriver.chrome.driver","E:\\SeleniumProject\\chromedriver.exe");
 		fd=new ChromeDriver();
 		fd.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
@@ -44,6 +54,7 @@ public class Week3EmployeeTests {
 	}
 	public void addEmployeeTest()
 	{
+		//TODO:  PRUDHVI Portability Issue.  This won't run on other's machine. How to fix it?
 		System.setProperty("webdriver.chrome.driver","E:\\SeleniumProject\\chromedriver.exe");
 		WebDriver fd=new ChromeDriver();
 		fd.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
@@ -151,6 +162,7 @@ public class Week3EmployeeTests {
 	public void editEmployeeDOBTest()
 
 	{
+		//TODO:  PRUDHVI Portability Issue.  This won't run on other's machine. How to fix it?
 		System.setProperty("webdriver.chrome.driver","E:\\SeleniumProject\\chromedriver.exe");
 		WebDriver fd=new ChromeDriver();
 		fd.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
@@ -221,6 +233,7 @@ public class Week3EmployeeTests {
 	public void deleteEmployeeTest()
 
 	{
+		//TODO:  PRUDHVI Portability Issue.  This won't run on other's machine. How to fix it?
 		System.setProperty("webdriver.chrome.driver","E:\\SeleniumProject\\chromedriver.exe");
 		fd=new ChromeDriver();
 		fd.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
@@ -307,18 +320,18 @@ public class Week3EmployeeTests {
 	{
 
 		/*
-		1.   Launch Browser.
-		2.   Open http://opensource.demo.orangehrmlive.com/
-		3.   Enter username - Admin
-		4.   Enter password - admin
-		5.   Click Login Button
-		6.   Verify that login succeeds and we then go to the PIM Page.
-		7.   Click on the Employee List SubMenu and Print out the URL
-		8.   Enter Employee Id in Id Box and Click Search Button
-		9.   Click on Employee Name field in the Result Table to open Emp Details
+		1.ï¿½ï¿½ Launch Browser.
+		2.ï¿½ï¿½ Open http://opensource.demo.orangehrmlive.com/
+		3.ï¿½ï¿½ Enter username - Admin
+		4.ï¿½ï¿½ Enter password - admin
+		5.ï¿½ï¿½ Click Login Button
+		6.ï¿½ï¿½ Verify that login succeeds and we then go to the PIM Page.
+		7.ï¿½ï¿½ Click on the Employee Listï¿½SubMenu and Print out the URL
+		8.ï¿½ï¿½ Enter Employee Id in Id Box and Click Search Button
+		9.ï¿½ï¿½ Click on Employee Name field in the Result Table to open Emp Details
 		10.  Click Edit Button
 		11.  Click Employee Photo Icon
-		12.  Upload any image from your pc to site using Choose File and upload
+		12.ï¿½ Upload any image from your pc to site using Choose File and upload
 		13.  Verify that image is uploaded and shown. 
 		*/
 	
@@ -350,4 +363,56 @@ public class Week3EmployeeTests {
 			
 		}
 	}
+	public void downloadEmpImportFile() throws InterruptedException
+	{
+		if(isLoginSucceed())
+		{
+			fd.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+			fd.findElement(By.id("menu_pim_viewPimModule")).click();
+			Actions objAct=new Actions(fd);
+			objAct.moveToElement(fd.findElement(By.id("menu_pim_Configuration"))).perform();
+			int originalCountFiles=verifyDownLoadPathExistenceAndFiles(downloadPath);
+			fd.findElement(By.linkText("Data Import")).click();;
+			fd.findElement(By.linkText("Download")).click();
+			Thread.sleep(5000);
+			int FinalCountFiles=verifyDownLoadPathExistenceAndFiles(downloadPath);
+			
+			if(originalCountFiles==FinalCountFiles-1)
+			{
+				System.out.println("Download of File is done successfully");
+			}
+			
+			WebElement browseFile = fd.findElement(By.id("pimCsvImport_csvFile"));
+			browseFile.sendKeys(downloadPath+"\\importData.csv");
+			Thread.sleep(3000);
+
+			WebElement uploadButton = fd.findElement(By.id("btnSave"));
+			uploadButton.click();
+		}
+		else
+		{
+			System.out.println("Login Action Failed");
+		}
+		
+	}
+	
+	 int verifyDownLoadPathExistenceAndFiles(String FilePath)
+	 {
+	 File objFile= new File(FilePath);
+	 if(!objFile.exists())
+	 {
+		 System.out.println("Folder does not exist");
+	 	if(objFile.mkdirs())
+	 	{
+	 		System.out.println("Folder created successfully");
+	 		return objFile.listFiles().length;
+	 	}
+	 	else
+	 		System.out.println("Folder creation failed");
+	 		return 0;
+	 }
+	 else
+		System.out.println("Folder  exists");
+	 	return objFile.listFiles().length;
+	 }
 }

@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+//TODO:  SWETHA  Make it TestNG Compliant.  Separate Setup and Cleanup as well.
 public class Week3EmployeeTests {
 
 	String url = "http://opensource.demo.orangehrmlive.com";

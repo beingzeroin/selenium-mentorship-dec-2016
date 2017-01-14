@@ -10,7 +10,6 @@ import org.openqa.selenium.support.ui.Select;
 public class FacebookSignUpPage {
 
 	public static void main(String[] args) throws Exception {
-		// TODO Auto-generated method stub
 		WebDriver ch = new ChromeDriver();
 		Navigation navigator = ch.navigate();
 		navigator.to("https://www.facebook.com/");

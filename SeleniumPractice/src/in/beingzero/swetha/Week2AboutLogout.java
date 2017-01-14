@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+//TODO:  SWETHA  Make it TestNG Compliant.  Separate Setup and Cleanup as well.
 public class Week2AboutLogout {
 
 	public static void main(String[] args) throws InterruptedException {

@@ -8,7 +8,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class BeingZeroLogo {
 
 	public static void main(String[] args) throws Exception {
-		// TODO Auto-generated method stub
 		WebDriver ch = new ChromeDriver();
 		ch.get("http://beingzero.in/");
 		Thread.sleep(4000);

@@ -47,16 +47,27 @@ public class DirectoryTests {
 		sjt.selectByVisibleText("CEO");
 		slct.selectByValue("3,1,2,-1");
 		System.out.println("Selected Filter Values");
+		//TODO:  RAVI Use of System.out.printf would have been better here
 		System.out.println(
 				"Name: " + nm.getAttribute("value") + "\n" + "Job Title: " + sjt.getFirstSelectedOption().getText()
 						+ "\n" + "Location: " + slct.getFirstSelectedOption().getText());
 		browser.findElement(By.id("searchBtn")).click();
 		browser.findElement(By.id("resetBtn")).click();
 		System.out.println("After Reset");
-		// TODO: SANDEEP ToDebug
-		/*System.out.println(
-				"Name: " + nm.getAttribute("value") + "\n" + "Job Title: " + sjt.getFirstSelectedOption().getText()
-						+ "\n" + "Location: " + slct.getFirstSelectedOption().getText());*/
+		// TODO: SANDEEP ToDebug FIXED
+		// There was STALE Element Exception
+		// Because On RESET page is getting refreshed
+		// Previously found elements become invalid
+		// We need to find them again (To refresh them)
+		// Below code fixes the issue.
+		lct = browser.findElement(By.id("searchDirectory_location"));
+		jt = browser.findElement(By.id("searchDirectory_job_title"));
+		sjt = new Select(jt);
+		slct = new Select(lct);
+		nm = browser.findElement(By.id("searchDirectory_emp_name_empName"));
+		System.out.println("Name: " + nm.getAttribute("value"));
+		System.out.println("Job Title: " + sjt.getFirstSelectedOption().getText());
+		System.out.println("Location: " + slct.getFirstSelectedOption().getText());
 	}
 
 	@Test

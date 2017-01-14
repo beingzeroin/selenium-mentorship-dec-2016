@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class Week2TCAbout {
-
+	//TODO:  PRIYA - Make it TESTNG Compliant Test
 	public static void main(String[] args) throws Exception {
 		
 		

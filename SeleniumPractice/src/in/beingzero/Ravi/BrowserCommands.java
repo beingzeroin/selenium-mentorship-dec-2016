@@ -7,7 +7,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class BrowserCommands {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		WebDriver fd = new ChromeDriver();
 		fd.get("http://beingzero.in/our-team");
 		System.out.println("Currently on "+fd.getTitle()+" page");

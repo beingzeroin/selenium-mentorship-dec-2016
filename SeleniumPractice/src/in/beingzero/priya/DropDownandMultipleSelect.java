@@ -18,6 +18,7 @@ public class DropDownandMultipleSelect {
 
 	public static void main(String[] args) throws InterruptedException {
 		
+		//TODO:  PRIYA It won't run on other's machine.  How to Solve this problem?
 		System.setProperty("webdriver.chrome.driver","C:\\Users\\priya\\Desktop\\Priya\\SeleniumJava\\chromedriver_win32\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		
@@ -50,12 +51,15 @@ public class DropDownandMultipleSelect {
 		WebDriverWait wait1 = new WebDriverWait(driver, 50);
 		wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='countrySelect']")));
 
+		//TODO:  PRIYA Get the selected value from selobject and print
+		// Currently it is hard coded that India is selected
 		System.out.println("Country India selected from drop down");
 		
 		cselect.click();
 		selobj.selectByIndex(3); 
 		cselect.click();
 		
+		// TODO:  PRIYA Selection should be obtained from selobj and printed (Same as above)
 		System.out.println("Country India is  deselected from drop down and UK selected");
 		
 		
@@ -86,6 +90,7 @@ public class DropDownandMultipleSelect {
 		langsmulc.selectByValue("22");
 		langsmulc.selectByValue("24");
 		
+		// TODO:  PRIYA There is a way to get all selected values from multiselect and print
 		System.out.println("Hindi and Punjabi Languages are selected");
 		
 		langsmulc.deselectAll();
@@ -93,6 +98,7 @@ public class DropDownandMultipleSelect {
 		langsmulc.selectByIndex(4);
 		langsmulc.selectByVisibleText("Spanish");
 		
+		// TODO:  PRIYA Print selected values by calling function on langsmulc (Same as above)
 		System.out.println("English and French Languages are selected");
 		
 		//driver.quit();

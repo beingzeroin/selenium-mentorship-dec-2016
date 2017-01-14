@@ -9,7 +9,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class GoogleSearch {
 
 	public static void main(String[] args) throws Exception {
-		// TODO Auto-generated method stub
 		WebDriver ch = new ChromeDriver();
 		Navigation navigator = ch.navigate();
 		navigator.to("https://www.google.co.in/");
