@@ -11,7 +11,6 @@ import org.openqa.selenium.support.ui.Select;
 public class DropDownAndMultiSelect {
 
 	public static void main(String[] args) throws Exception {
-		// TODO Auto-generated method stub
 		WebDriver ch = new ChromeDriver();
 		ch.get("http://beingzero.in/selenium/selenium-java/selenium-dropdowns");
 		Thread.sleep(2000);
