@@ -6,52 +6,61 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
-//TODO:  SWETHA  Make it TestNG Compliant.  Separate Setup and Cleanup as well.
 public class Week2AboutLogout {
 
-	public static void main(String[] args) throws InterruptedException {
+	WebDriver driver;
+	
+	@BeforeMethod
+	public void setup()
+	{
+		// Launch browser
+		driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
 
-		verifyAboutCompanyNameContainsOrangeHRM();
-		verifyLogoutWorks();
+	}
+	
+	@AfterMethod
+	public void cleanup()
+	{
+		// Quit browser
+		driver.quit();
 	}
 
-	public static void verifyAboutCompanyNameContainsOrangeHRM() throws InterruptedException {
-		WebDriver fd = new FirefoxDriver();
-		fd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		fd.manage().window().maximize();
+	@Test
+	public void verifyAboutCompanyNameContainsOrangeHRM() throws InterruptedException {
 		
-		
-		fd.get("http://opensource.demo.orangehrmlive.com");
-		
-
-
-		WebElement Username = fd.findElement(By.id("txtUsername"));
+		driver.get("http://opensource.demo.orangehrmlive.com");
+	
+		WebElement Username = driver.findElement(By.id("txtUsername"));
 		Username.sendKeys("Admin");
 
-		WebElement Password = fd.findElement(By.id("txtPassword"));
+		WebElement Password = driver.findElement(By.id("txtPassword"));
 		Password.sendKeys("admin");
 
-		WebElement Login = fd.findElement(By.id("btnLogin"));
+		WebElement Login = driver.findElement(By.id("btnLogin"));
 		Login.click();
 
-		WebElement Welcome = fd.findElement(By.id("welcome"));
+		WebElement Welcome = driver.findElement(By.id("welcome"));
 		System.out.println(Welcome.isDisplayed());
 		System.out.println(Welcome.isEnabled());
 		Thread.sleep(1000);
-		Welcome.submit();
-		//Welcome.click();
+		//Welcome.submit();
+		Welcome.click();
 
 		Thread.sleep(1000);
 
-		WebElement Aboutlnk = fd.findElement(By.id("aboutDisplayLink"));
+		WebElement Aboutlnk = driver.findElement(By.id("aboutDisplayLink"));
 		Aboutlnk.click();
 
-		if (fd.findElement(By.xpath(".//div[@id='displayAbout']//h3[contains(text(),'About')]"))
+		if (driver.findElement(By.xpath(".//div[@id='displayAbout']//h3[contains(text(),'About')]"))
 				.isDisplayed() == true) {
 
-			WebElement AboutWindow = fd.findElement(
+			WebElement AboutWindow = driver.findElement(
 					By.xpath(".//div[@id='companyInfo']//p[contains(text(),'Company Name: OrangeHRM (Pvt) Ltd')]"));
 			Thread.sleep(1000);
 			String ActualName = AboutWindow.getText();
@@ -60,36 +69,35 @@ public class Week2AboutLogout {
 			if (ActualName.equals(ExpectedName)) {
 				System.out.println("Company Name verified");
 			}
-			WebElement CloseWindow = fd.findElement(By.xpath(".//div[@id='displayAbout']//a[@class='close']"));
+			WebElement CloseWindow = driver.findElement(By.xpath(".//div[@id='displayAbout']//a[@class='close']"));
 			CloseWindow.click();
 		}
 	}
 
-	public static void verifyLogoutWorks() throws InterruptedException {
+	@Test
+	public void verifyLogoutWorks() throws InterruptedException {
 
-		WebDriver fd = new ChromeDriver();
+		driver.get("http://opensource.demo.orangehrmlive.com");
 
-		fd.get("http://opensource.demo.orangehrmlive.com");
+		driver.manage().window().maximize();
 
-		fd.manage().window().maximize();
-
-		WebElement Username = fd.findElement(By.id("txtUsername"));
+		WebElement Username = driver.findElement(By.id("txtUsername"));
 		Username.sendKeys("Admin");
 
-		WebElement Password = fd.findElement(By.id("txtPassword"));
+		WebElement Password = driver.findElement(By.id("txtPassword"));
 		Password.sendKeys("admin");
 
-		WebElement Login = fd.findElement(By.id("btnLogin"));
+		WebElement Login = driver.findElement(By.id("btnLogin"));
 		Login.click();
 
 		Thread.sleep(1000);
 
-		WebElement Welcome = fd.findElement(By.id("welcome"));
+		WebElement Welcome = driver.findElement(By.id("welcome"));
 		Welcome.click();
 
 		Thread.sleep(1000);
 
-		WebElement Logout = fd.findElement(By.xpath(".//div[@id='welcome-menu']//a[contains(text(),'Logout')]"));
+		WebElement Logout = driver.findElement(By.xpath(".//div[@id='welcome-menu']//a[contains(text(),'Logout')]"));
 		Logout.click();
 	}
 
