@@ -4,9 +4,10 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -25,7 +26,7 @@ public class SwitchingWindows {
 
 	}
 	
-
+	@AfterMethod
 	public void cleanup()
 	{
 		// Quit browser
@@ -83,7 +84,10 @@ public class SwitchingWindows {
 	@Test
 	public void switchingWindowsExercise2()
 	{	
-		driver.get("http://beingzero.in/selenium/selenium-java/selenium-switching-windows");
+
+//	    Using Selenium Launch Browser		
+		
+		driver.get("http://beingzero.in/selenium-new-tab");
 		
 		String originalWindowHandle = driver.getWindowHandle();
 		
@@ -91,57 +95,55 @@ public class SwitchingWindows {
 		System.out.println("Original Window URL " + driver.getCurrentUrl());
 		
 		Set<String> handles = driver.getWindowHandles();
-		
-		
+				
 		System.out.println("Total Windows Before Clicking Link: "+handles.size());
-		driver.findElement(By.linkText("Selenium New Tab Page")).click();
-	
+		
+//	    Click Terms and Conditions link on the page.
+		driver.findElement(By.linkText("Terms and Conditions")).click();
+
 		handles = driver.getWindowHandles();
 		
-		System.out.println("Total Windows After Clicking Link(Selenium New Tab Page): "+handles.size());
-		System.out.println("New Window Title " + driver.getTitle());
-		System.out.println("New Window URL " + driver.getCurrentUrl());
+//	    Verify that a new browser window or tab is launched.
+
+		System.out.println("Total Windows After Clicking Link(Terms and Conditions): "+handles.size());		
 		
+//	    Switch to newly opened window.
 		
-		System.out.println("Switching to new window");
+		System.out.println("Switching to new tab");
+		
 		for(String h : handles){
 			
 			if(!h.equals(originalWindowHandle))
 			{
-				String seleniumtab = (driver.switchTo().window(h)).toString();
 				
-				System.out.println("New Window Title(within if) " + driver.getTitle());
-				System.out.println("New Window URL(within if) " + driver.getCurrentUrl());
+				driver.switchTo().window(h);			
+
+//			    Print the Current URL and Title after switching.
 				
-//				driver.close();
+				System.out.println("New tab Title " + driver.getTitle());
+				System.out.println("New tab URL " + driver.getCurrentUrl());
 							
-				Set<String> tabhandles = driver.getWindowHandles();
+//			    Click Agree button.
 				
-				driver.findElement(By.linkText("Terms and Conditions")).click();
+				driver.findElement(By.id("acceptBtn")).click();
 				
-				tabhandles = driver.getWindowHandles();
-				for(String hT : tabhandles){
-					
-					if(!hT.equals(originalWindowHandle)&&(!hT.equals(seleniumtab))){
-						
-						driver.switchTo().window(hT);
-						System.out.println("Total Windows After Clicking Link(Terms and Conditions): "+tabhandles.size());
-						System.out.println("New Window Title " + driver.getTitle());
-						System.out.println("New Window URL " + driver.getCurrentUrl());
-						
-					}			
-				}
 				driver.switchTo().window(originalWindowHandle);
+//			    Switch back to main window.
+//			    Print Current URL and Title.
 				
 				System.out.println("Original Window Title " + driver.getTitle());
 				System.out.println("Original Window URL " + driver.getCurrentUrl());
+				
 			}
-			
-			
-		}
+				
+		}	
+							
+}	
 		
-		//driver.quit();
+				
+//	    Quit browser;
+		
+//		driver.quit();
 		
 	}
 
-}
