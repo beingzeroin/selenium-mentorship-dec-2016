@@ -19,7 +19,7 @@ public class DropDownandMultipleSelect {
 	public static void main(String[] args) throws InterruptedException {
 		
 		//TODO:  PRIYA It won't run on other's machine.  How to Solve this problem?
-		System.setProperty("webdriver.chrome.driver","C:\\Users\\priya\\Desktop\\Priya\\SeleniumJava\\chromedriver_win32\\chromedriver.exe");
+		//Added the chromedriver.exe in windows//system32 folder
 		WebDriver driver = new ChromeDriver();
 		
 		//WebDriver driver = new FirefoxDriver();
