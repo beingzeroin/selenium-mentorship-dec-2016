@@ -18,10 +18,7 @@ public class Week2TCAbout {
 		
 		
 		WebDriver driver = new FirefoxDriver();
-		//System.setProperty("webdriver.chrome.driver","C:\\Users\\priya\\Desktop\\Priya\\SeleniumJava\\chromedriver_win32\\chromedriver.exe");
-		//WebDriver driver = new ChromeDriver();
 		
-		//This is not working in firefox becuase of the existing issue that's why used the chrome driver to test it.
 		Actions WelcomeAbt = new Actions(driver);
 		
 		driver.get("http://opensource.demo.orangehrmlive.com");
