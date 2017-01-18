@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -14,6 +15,7 @@ import org.testng.annotations.Parameters;
 public class BeforeAfterTestNG {
 
 	WebDriver driver;
+	String downloadDirectory = System.getProperty("user.dir") + "/priya_download";
 	
 	/*@BeforeMethod
 	@Parameters("browser")
@@ -49,6 +51,35 @@ public class BeforeAfterTestNG {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 	}
+	
+	/*public void launchBrowser()
+	{
+		System.out.println("In FF browser");
+		driver = FirefoxProfilesetup();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+	}
+	
+	WebDriver FirefoxProfilesetup()
+	{
+		   //Create FireFox Profile object
+		FirefoxProfile fp = new FirefoxProfile();
+ 
+		//Here '2' means save file at the location specified for the most recent download.
+		fp.setPreference("browser.download.folderList", 2);
+		fp.setPreference( "browser.download.manager.showWhenStarting", false );
+		//Set Location to store files after downloading.
+		fp.setPreference("browser.download.dir", downloadDirectory);
+		//Set Preference to not show file download confirmation dialogue using MIME types Of different file extension types.
+		fp.setPreference("browser.helperApps.neverAsk.saveToDisk", 
+		    "text/csv;"); 
+  
+		//return FP parameter In webdriver to use preferences to download file.
+		WebDriver driver = new FirefoxDriver(fp);  
+		return driver;  
+
+	}*/
+	
 	
 	@AfterMethod
 	public void closeBrowser()

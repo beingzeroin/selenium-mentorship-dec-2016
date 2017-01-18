@@ -11,15 +11,16 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 //TODO:  PRIYA Separate out Setup and Cleanup methods
-public class SelTest1 
+//Done
+public class SelTest1 extends BeforeAfterTestNG
 {
 	//Test Case 1 with Valid UserId and Valid Password
 	@Test
 	public void validUserNameandPassword()
 	{
-		WebDriver driver = new FirefoxDriver();
+		//WebDriver driver = new FirefoxDriver();
 		driver.get("http://opensource.demo.orangehrmlive.com");
-		driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
+		//driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
 		
 		WebElement UserId = driver.findElement(By.id("txtUsername"));
 		UserId.clear();
@@ -38,7 +39,7 @@ public class SelTest1
 	
 		Assert.assertEquals(Expectedlogger, Actuallogger);
 		System.out.println("Successfully login into OrangeHRM by Admin");
-		driver.close();
+		//driver.close();
 		//driver.quit();
 	}
 
@@ -46,9 +47,9 @@ public class SelTest1
 	@Test
 	public void invalidUserNameandcorrectPassword()
 	{
-		WebDriver driver = new FirefoxDriver();
+		//WebDriver driver = new FirefoxDriver();
 		driver.get("http://opensource.demo.orangehrmlive.com");
-		driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
+		//driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
 		
 		WebElement UserId = driver.findElement(By.id("txtUsername"));
 		UserId.clear();
@@ -66,7 +67,7 @@ public class SelTest1
 	
 		Assert.assertEquals(Expectedlogger, Actuallogger);
 		System.out.println("Login with valid userid into OrangeHRM");
-		driver.close();
+		//driver.close();
 		
 	}
 	
@@ -74,9 +75,9 @@ public class SelTest1
 	@Test
 	public void correctUserNameandInvalidPassword()
 	{
-		WebDriver driver = new FirefoxDriver();
+		//WebDriver driver = new FirefoxDriver();
 		driver.get("http://opensource.demo.orangehrmlive.com");
-		driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
+		//driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
 		
 		WebElement UserId = driver.findElement(By.id("txtUsername"));
 		UserId.clear();
@@ -94,7 +95,7 @@ public class SelTest1
 	
 		Assert.assertEquals(Expectedlogger, Actuallogger);
 		System.out.println("Login with valid password into OrangeHRM");
-		driver.close();
+		//driver.close();
 		
 	}
 	
@@ -102,9 +103,9 @@ public class SelTest1
 	@Test
 	public void blankUserNameandPassword()
 	{
-		WebDriver driver = new FirefoxDriver();
+		//WebDriver driver = new FirefoxDriver();
 		driver.get("http://opensource.demo.orangehrmlive.com");
-		driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
+		//driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
 		
 		WebElement UserId = driver.findElement(By.id("txtUsername"));
 		UserId.clear();
@@ -122,7 +123,7 @@ public class SelTest1
 	
 		Assert.assertEquals(Expectedlogger, Actuallogger);
 		System.out.println("User Id Should Not be blank");
-		driver.close();
+		//driver.close();
 		
 	}
 
@@ -130,9 +131,9 @@ public class SelTest1
 	@Test
 	public void validUserNameandBlankPassword()
 	{
-		WebDriver driver = new FirefoxDriver();
+		//WebDriver driver = new FirefoxDriver();
 		driver.get("http://opensource.demo.orangehrmlive.com");
-		driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
+		//driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
 		
 		WebElement UserId = driver.findElement(By.id("txtUsername"));
 		UserId.clear();
@@ -150,8 +151,8 @@ public class SelTest1
 	
 		Assert.assertEquals(Expectedlogger, Actuallogger);
 		System.out.println("Password Should Not be blank");
-		driver.close();
-		driver.quit();
+		//driver.close();
+		//driver.quit();
 	}
 	
 }
