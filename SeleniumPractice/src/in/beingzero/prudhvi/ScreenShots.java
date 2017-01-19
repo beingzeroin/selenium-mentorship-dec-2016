@@ -1,7 +1,6 @@
 package in.beingzero.prudhvi;
 
 import java.io.File;
-import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
@@ -65,7 +64,7 @@ public class ScreenShots {
 	}
 	
 	@Test
-	public void Login(Method method)
+	public void Login( )
 	{
 		driver.get(strUrl);
 		//ITestResult result;
