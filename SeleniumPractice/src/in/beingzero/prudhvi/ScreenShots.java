@@ -47,11 +47,7 @@ public class ScreenShots {
 		
 	}
 	
-	public static void main(String[] args)
-	{
-		
-		
-	}
+
 	@BeforeMethod
 	
 	public void Setup(Method method)
