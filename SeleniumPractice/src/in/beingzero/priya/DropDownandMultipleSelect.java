@@ -19,7 +19,7 @@ public class DropDownandMultipleSelect {
 	public static void main(String[] args) throws InterruptedException {
 		
 		//TODO:  PRIYA It won't run on other's machine.  How to Solve this problem?
-		//Added the chromedriver.exe in windows//system32 folder
+		//Done: Added the chromedriver.exe in windows//system32 folder
 		WebDriver driver = new ChromeDriver();
 		
 		//WebDriver driver = new FirefoxDriver();
@@ -53,14 +53,18 @@ public class DropDownandMultipleSelect {
 
 		//TODO:  PRIYA Get the selected value from selobject and print
 		// Currently it is hard coded that India is selected
-		System.out.println("Country India selected from drop down");
+		//Done
+		System.out.println("Selected Country value from drop down: "+ selobj.getFirstSelectedOption().getText());
+		//System.out.println("Country India selected from drop down");
 		
 		cselect.click();
 		selobj.selectByIndex(3); 
 		cselect.click();
 		
 		// TODO:  PRIYA Selection should be obtained from selobj and printed (Same as above)
-		System.out.println("Country India is  deselected from drop down and UK selected");
+		//Done
+		System.out.println("Selected Country value from drop down: "+ selobj.getFirstSelectedOption().getText());
+		//System.out.println("Country India is  deselected from drop down and UK selected");
 		
 		
 		boolean countrymul = selobj.isMultiple();
@@ -91,7 +95,14 @@ public class DropDownandMultipleSelect {
 		langsmulc.selectByValue("24");
 		
 		// TODO:  PRIYA There is a way to get all selected values from multiselect and print
-		System.out.println("Hindi and Punjabi Languages are selected");
+		//Done
+		System.out.println("Languages selected are: ");
+		List<WebElement> mulLang = langsmulc.getAllSelectedOptions();
+		for(int i = 0;i<mulLang.size();i++)
+		{
+			System.out.println(mulLang.get(i).getText());
+		}
+		
 		
 		langsmulc.deselectAll();
 		
@@ -99,7 +110,13 @@ public class DropDownandMultipleSelect {
 		langsmulc.selectByVisibleText("Spanish");
 		
 		// TODO:  PRIYA Print selected values by calling function on langsmulc (Same as above)
-		System.out.println("English and French Languages are selected");
+		//Done
+		System.out.println("Languages selected are after reselection: ");
+		List<WebElement> remulLang = langsmulc.getAllSelectedOptions();
+		for(int i = 0;i<remulLang.size();i++)
+		{
+			System.out.println(remulLang.get(i).getText());
+		}
 		
 		//driver.quit();
 		

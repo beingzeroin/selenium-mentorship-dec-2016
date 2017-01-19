@@ -1,5 +1,6 @@
 package in.beingzero.priya;
 
+import java.io.File;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -8,6 +9,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -25,6 +28,7 @@ public class EmployeeTest extends BeforeAfterTestNG{
 		String loginBtn = "btnLogin";
 		String empIdValue = "0001";
 		String profilePicPath = System.getProperty("user.dir").concat("\\testData\\profilePic.png");
+		String downloadDirectory = System.getProperty("user.dir") + "/priya_download";
 		
 		
 		boolean loginCheck(String userNme, String passWd)
@@ -407,7 +411,7 @@ public class EmployeeTest extends BeforeAfterTestNG{
 		}
 
 		@Test
-		public void downloadEmpImportFile(){
+		public void downloadEmpImportFile() throws Exception{
 			if(loginCheck("admin","admin"))
 			{
 				//6.   Verify that login succeeds and we then go to the PIM Page.
@@ -417,14 +421,30 @@ public class EmployeeTest extends BeforeAfterTestNG{
 				driver.findElement(By.id("menu_pim_viewPimModule")).click();
 				WebElement pimcfg = driver.findElement(By.id("menu_pim_Configuration"));
 				builder.moveToElement(pimcfg).build().perform();
-				
 				driver.findElement(By.id("menu_admin_pimCsvImport")).click();
 				
 				//8.   Click Download Link on CSV Data Import Page
 				driver.findElement(By.className("download")).click();
 				
 				//9.   Verify that file has been downloaded to the computer.
+				System.out.println("Download directory path : "+downloadDirectory);
+				File dwDir = new File(downloadDirectory);
+				File[] dwDirCnt = dwDir.listFiles();
+
+				for (int i = 0; i < dwDirCnt.length; i++) {
+					if (dwDirCnt[i].getName().equals("importData.csv"))
+						System.out.println("File downloaded successfully");
+				}
+
+				//10.  Click upload to upload the same file again.
+				//11.  Quit the browser
 				
+				WebElement browse = driver.findElement(By.id("pimCsvImport_csvFile"));
+				browse.sendKeys(downloadDirectory + "importData.csv");
+				Thread.sleep(1000);
+			
+				driver.findElement(By.id("btnSave")).click();
+				System.out.println("File Uploaded successfully");
 			}
 		}
 	

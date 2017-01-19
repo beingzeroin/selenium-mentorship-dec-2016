@@ -17,7 +17,7 @@ public class Week3TcReset {
 		
 		//WebDriver driver = new FirefoxDriver();
 		//TODO:  PRIYA Portability Issue.  Refer other TODOs
-		System.setProperty("webdriver.chrome.driver","C:\\Users\\priya\\Desktop\\Priya\\SeleniumJava\\chromedriver_win32\\chromedriver.exe");
+		//Done
 		WebDriver driver = new ChromeDriver();
 		
 		//This is not working in firefox becuase of the existing issue that's why used the chrome driver to test it.

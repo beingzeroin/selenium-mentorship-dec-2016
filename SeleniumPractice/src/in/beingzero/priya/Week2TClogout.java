@@ -18,7 +18,7 @@ public class Week2TClogout {
 
 		//WebDriver driver = new FirefoxDriver();
 		//TODO:  PRIYA Portability Issue, Won't Run on my machine.  Think of solving it.
-		System.setProperty("webdriver.chrome.driver","C:\\Users\\priya\\Desktop\\Priya\\SeleniumJava\\chromedriver_win32\\chromedriver.exe");
+		//Done
 		WebDriver driver = new ChromeDriver();
 		
 		Navigation navigator = driver.navigate();

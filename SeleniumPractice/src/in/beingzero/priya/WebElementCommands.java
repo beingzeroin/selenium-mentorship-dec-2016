@@ -17,7 +17,7 @@ public class WebElementCommands {
 		
 		//WebDriver driver = new FirefoxDriver();
 		//TODO:  PRIYA Portability Problem, Won't Run on My Machine.
-		System.setProperty("webdriver.chrome.driver","C:\\Users\\priya\\Desktop\\Priya\\SeleniumJava\\chromedriver_win32\\chromedriver.exe");
+		//Done
 		WebDriver driver = new ChromeDriver();
 		
 		driver.get("https://www.facebook.com/");
