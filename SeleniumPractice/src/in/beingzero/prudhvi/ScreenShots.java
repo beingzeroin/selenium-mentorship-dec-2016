@@ -2,6 +2,7 @@ package in.beingzero.prudhvi;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -24,6 +25,7 @@ public class ScreenShots {
 	String strUserName="Admin";
 	String strPwd="admin";
 	WebDriver driver;
+	String strMethodName;
 	public  void captureScreenShots(String strTestName,String strStepName)
 	{
 		Date objDate=new Date();
@@ -53,9 +55,9 @@ public class ScreenShots {
 	}
 	@BeforeMethod
 	
-	public void Setup()
+	public void Setup(Method method)
 	{
-	
+		strMethodName=method.getName();
 		driver=new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
@@ -63,17 +65,16 @@ public class ScreenShots {
 	}
 	
 	@Test
-	public void Login(ITestContext context)
+	public void Login(Method method)
 	{
 		driver.get(strUrl);
 		//ITestResult result;
-		String strTestName=context.getName();
-		System.out.println(strTestName);
-		captureScreenShots(strTestName,"Login");
+
+		captureScreenShots(strMethodName,"Login");
 		driver.findElement(By.id("txtUsername")).sendKeys(strUserName);
-		captureScreenShots(strTestName,"UserName Entered");
+		captureScreenShots(strMethodName,"UserName Entered");
 		driver.findElement(By.id("txtPassword")).sendKeys(strPwd);
-		captureScreenShots(strTestName,"Password Entered");
+		captureScreenShots(strMethodName,"Password Entered");
 		driver.findElement(By.id("btnLogin")).sendKeys();
 		driver.findElement(By.id("btnLogin")).click();
 	}
