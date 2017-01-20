@@ -14,7 +14,7 @@ public class Runner {
 		//objTests.editEmployeeDOBTest();
 		//objTests.deleteEmployeeTest();
 		//objTests.UploadEmployeeImage();
-		//objTests.downloadEmpImportFile();
+		objTests.downloadEmpImportFile();
 		
 		 
 	}
