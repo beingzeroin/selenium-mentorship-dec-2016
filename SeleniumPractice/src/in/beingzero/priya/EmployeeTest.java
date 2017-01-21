@@ -2,15 +2,10 @@ package in.beingzero.priya;
 
 import java.io.File;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -73,7 +68,7 @@ public class EmployeeTest extends BeforeAfterTestNG{
 				driver.get(pimhref);
 				System.out.println("PIM clicked");
 			
-				 //7. Click on the Add Employee SubMenu and Print out the URL
+				 //7. Click on the Add Employeeï¿½SubMenu and Print out the URL
 				WebElement pimaddemp = driver.findElement(By.id("menu_pim_addEmployee"));
 				String pimaddemphref = pimaddemp.getAttribute("href");
 				driver.get(pimaddemphref);
@@ -88,8 +83,8 @@ public class EmployeeTest extends BeforeAfterTestNG{
 				String addEmpUNme = "BZTest3";
 				String addEmpPwd = "BZTest3";
 				
-				//8.   Click and enter First Name
-				//9.   Click and enter Middle Name
+				//8.ï¿½ï¿½ Click and enter First Name
+				//9.ï¿½ï¿½ Click and enter Middle Name
 				//10.  Click and enter Last Name
 				WebElement firstname = driver.findElement(By.id("firstName"));
 				firstname.click();
@@ -201,8 +196,8 @@ public class EmployeeTest extends BeforeAfterTestNG{
 			if(loginCheck("admin","admin"))
 			{
 							
-				//6.   Verify that login succeeds and we then go to the PIM Page.
-				//7.   Click on the Employee List SubMenu and Print out the URL
+				//6.ï¿½ï¿½ Verify that login succeeds and we then go to the PIM Page.
+				//7.ï¿½ï¿½ Click on the Employee Listï¿½SubMenu and Print out the URL
 				Actions builder = new Actions(driver);
 				WebElement pim = driver.findElement(By.id("menu_pim_viewPimModule"));
 				builder.moveToElement(pim).build().perform();
@@ -215,7 +210,7 @@ public class EmployeeTest extends BeforeAfterTestNG{
 				String pimaemplisturl = driver.getCurrentUrl();
 				System.out.println("Employee List URL : " + pimaemplisturl);
 			
-				//8.   Enter Employee Id in Id Box and Click Search Button
+				//8.ï¿½ï¿½ Enter Employee Id in Id Box and Click Search Button
 				WebElement emplistempid = driver.findElement(By.id("empsearch_id"));
 				emplistempid.clear();
 				emplistempid.sendKeys(empIdValue);
@@ -223,7 +218,7 @@ public class EmployeeTest extends BeforeAfterTestNG{
 				WebElement searchbtn = driver.findElement(By.id("searchBtn"));
 				searchbtn.click();
 				
-				//9.   Click on Employee Id field in the Result Table to open Emp Details
+				//9.ï¿½ï¿½ Click on Employee Id field in the Result Table to open Emp Details
 				//10.  Click Edit Button
 				WebElement searchedempid = driver.findElement(By.xpath("//*[@id='resultTable']/tbody/tr/td[2]/a"));
 				String searchedempidurl = searchedempid.getAttribute("href");
@@ -247,7 +242,7 @@ public class EmployeeTest extends BeforeAfterTestNG{
 				WebElement dobdate = driver.findElement(By.xpath("//*[@id='ui-datepicker-div']/table/tbody/tr[1]/td[6]/a"));
 				dobdate.click();
 				
-				//12.  Click Save Button
+				//12.ï¿½ Click Save Button
 				driver.findElement(By.id("btnSave")).click();
 				
 				//13.	Wait for "Successfully Saved" popup message appear.
@@ -273,21 +268,21 @@ public class EmployeeTest extends BeforeAfterTestNG{
 			if(loginCheck("admin","admin"))
 			{
 				
-				//6.   Verify that login succeeds and we then go to the PIM Page.
-				//7.   Click on the Employee List SubMenu and Print out the URL
+				//6.ï¿½ï¿½ Verify that login succeeds and we then go to the PIM Page.
+				//7.ï¿½ï¿½ Click on the Employee Listï¿½SubMenu and Print out the URL
 				
 				driver.findElement(By.id("menu_pim_viewPimModule")).click();
 				driver.findElement(By.id("menu_pim_viewEmployeeList")).click();
 				
 				System.out.println("Employee List URL : " + driver.getCurrentUrl());
 			
-				//8.   Enter Employee Id in Id Box and Click Search Button
+				//8.ï¿½ï¿½ Enter Employee Id in Id Box and Click Search Button
 				driver.findElement(By.id("empsearch_id")).sendKeys(empIdValue);
 				
 				
 				driver.findElement(By.id("searchBtn")).click();
 				
-				//9.   Click on Employee Id field in the Result Table to open Emp Details
+				//9.ï¿½ï¿½ Click on Employee Id field in the Result Table to open Emp Details
 				//10.  Click Edit Button
 				WebElement searchedempid = driver.findElement(By.xpath("//*[@id='resultTable']/tbody/tr/td[3]/a"));
 				String searchedempidurl = searchedempid.getAttribute("href");
@@ -312,7 +307,7 @@ public class EmployeeTest extends BeforeAfterTestNG{
 				System.out.println("Profile Pic Path : "+ profilePicPath) ;
 				profilePic.click();
 				
-				//12.  Upload any image from your pc to site using Choose File and upload
+				//12.ï¿½ Upload any image from your pc to site using Choose File and upload
 				WebElement profilePicUpload = driver.findElement(By.id("photofile"));
 				profilePicUpload.sendKeys(profilePicPath);
 				
@@ -329,14 +324,14 @@ public class EmployeeTest extends BeforeAfterTestNG{
 		{
 			if(loginCheck("admin","admin"))
 			{
-				//6.   Verify that login succeeds and we then go to the PIM Page.
-				//7.   Click on the Employee List SubMenu and Print out the URL
+				//6.ï¿½ï¿½ Verify that login succeeds and we then go to the PIM Page.
+				//7.ï¿½ï¿½ Click on the Employee Listï¿½SubMenu and Print out the URL
 				driver.findElement(By.id("menu_pim_viewPimModule")).click();
 				driver.findElement(By.id("menu_pim_viewEmployeeList")).click();
 				
 				System.out.println("Employee List URL : " + driver.getCurrentUrl());
 				
-				//8.   Get count of total employees shown in the table and store in variable originalCount
+				//8.ï¿½ï¿½ Get count of total employees shown in the table and store in variable originalCount
 				
 				WebElement tblreslt = driver.findElement(By.id("resultTable"));
 				WebElement tblrsltbdy = tblreslt.findElement(By.tagName("tbody"));
@@ -414,8 +409,8 @@ public class EmployeeTest extends BeforeAfterTestNG{
 		public void downloadEmpImportFile() throws Exception{
 			if(loginCheck("admin","admin"))
 			{
-				//6.   Verify that login succeeds and we then go to the PIM Page.
-				//7.   Hover mouse over Configuration SubMenu and Click Data Import
+				//6.ï¿½ï¿½ Verify that login succeeds and we then go to the PIM Page.
+				//7.ï¿½ï¿½ Hover mouse over Configuration SubMenu and Click Data Import
 				
 				Actions builder = new Actions(driver);
 				driver.findElement(By.id("menu_pim_viewPimModule")).click();
@@ -423,7 +418,7 @@ public class EmployeeTest extends BeforeAfterTestNG{
 				builder.moveToElement(pimcfg).build().perform();
 				driver.findElement(By.id("menu_admin_pimCsvImport")).click();
 				
-				//8.   Click Download Link on CSV Data Import Page
+				//8.ï¿½ï¿½ Click Download Link on CSV Data Import Page
 				driver.findElement(By.className("download")).click();
 				
 				//9.   Verify that file has been downloaded to the computer.

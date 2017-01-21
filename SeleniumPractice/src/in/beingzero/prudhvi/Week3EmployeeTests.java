@@ -10,15 +10,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 
 
@@ -406,7 +406,8 @@ public class Week3EmployeeTests {
 	
 	WebDriver SetGoogleChromeSettings()
 	{
-		int filesCount=verifyDownLoadPathExistenceAndFiles(downloadPath);
+		//int filesCount=
+		verifyDownLoadPathExistenceAndFiles(downloadPath);
 		ChromeOptions options=new ChromeOptions();
 		HashMap<String,Object> chromePreferences=new HashMap<String,Object>();
 		chromePreferences.put("download.default_directory", downloadPath);

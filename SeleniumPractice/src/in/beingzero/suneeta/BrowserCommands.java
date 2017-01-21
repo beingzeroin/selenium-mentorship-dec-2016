@@ -1,7 +1,6 @@
 package in.beingzero.suneeta;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriver.Navigation;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class BrowserCommands {
@@ -11,7 +10,7 @@ public class BrowserCommands {
 			// Launch browser
 			 WebDriver browser = new FirefoxDriver();
 			
-			 //Request webdriver object to browse ‘Our Team Page’ (http://beingzero.in/our-team)
+			 //Request webdriver object to browse ï¿½Our Team Pageï¿½ (http://beingzero.in/our-team)
 			 browser.get("http://beingzero.in");
         
 			//Print the Page Title, Current Url, Length of Page Source
