@@ -5,10 +5,15 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import org.openqa.selenium.firefox.FirefoxDriver;
+
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
 
 public class SwitchingWindows {
 	
@@ -79,7 +84,7 @@ public class SwitchingWindows {
 		
 	}
 	
-	@Test
+	
 	public void switchingWindowsExercise2()
 	{	
 
@@ -137,11 +142,92 @@ public class SwitchingWindows {
 		}	
 							
 }	
+	@Test
+	public void switchingWindowsExercise2Tabs3()
+	{	
+		WebDriver driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
 		
+		driver.get("http://beingzero.in/selenium/selenium-java/selenium-switching-windows");
+		
+		String mainWindowHandle = driver.getWindowHandle();
+		
+		System.out.println("Original Window Title " + driver.getTitle());
+		System.out.println("Original Window URL " + driver.getCurrentUrl());
+		
+		
+		Set<String> handles = driver.getWindowHandles();
+		
+		
+		System.out.println("Total Windows Before Clicking Link: "+handles.size());
+		driver.findElement(By.linkText("Selenium New Tab Page")).click();
+		
+		// Make Sure two windows are there
+		handles = driver.getWindowHandles();
+		System.out.println("Total Windows After Clicking Link: "+handles.size());
+		
+		
+		System.out.println("Switching to new window");
+		for(String h : handles){
+			
+			if(!h.equals(mainWindowHandle))
+			{
+				// Switch to this winodw
+				driver.switchTo().window(h);
 				
-//	    Quit browser;
+				System.out.println("New Window Title " + driver.getTitle());
+				System.out.println("New Window URL " + driver.getCurrentUrl());
+				
+				WebElement tab3= driver.findElement(By.linkText("Terms and Conditions"));
+				tab3.click();
+				
+				String tabHandle = driver.getWindowHandle();
+				
+				driver.switchTo().window(tabHandle);
+				
+				System.out.println("New Window Title (Terms and Conditions) " + driver.getTitle());
+				System.out.println("New Window URL (Terms and Conditions) " + driver.getCurrentUrl());
+				
+				driver.switchTo().window(mainWindowHandle);
+				
+				System.out.println("Original Window Title " + driver.getTitle());
+				System.out.println("Original Window URL " + driver.getCurrentUrl());
+			}
+			
+		}
 		
-//		driver.quit();
 		
+		driver.quit();
 	}
+	
+
+	public void switchFrames()
+	{
+		WebDriver driver = new FirefoxDriver();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+		
+		driver.get("https://jqueryui.com/autocomplete");
+		
+		WebElement frameElement = driver.findElement(By.xpath("//div[@id='content']/iframe[@class='demo-frame']"));
+
+		driver.switchTo().frame(frameElement);
+		
+		WebElement tagsTextBox =  driver.findElement(By.id("tags"));
+		
+		tagsTextBox.sendKeys("test");
+		
+		System.out.println(tagsTextBox.getAttribute("value"));
+		
+		driver.switchTo().defaultContent();// Bring Context of driver back to main page code
+		
+		//driver.quit();
+	}
+	
+}
+
+		
+
+
 
