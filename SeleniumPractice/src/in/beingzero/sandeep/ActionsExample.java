@@ -40,13 +40,15 @@ public class ActionsExample {
 		
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Test
 	public void dynamicElements()
 	{
 		// Dynamic Elements
 		WebDriverWait wdv = new WebDriverWait(driver, 30);
 		
-		WebElement msg = wdv.until(ExpectedConditions.presenceOfElementLocated(By.className("message success fadable")));
+		//WebElement msg = 
+		wdv.until(ExpectedConditions.presenceOfElementLocated(By.className("message success fadable")));
 		
 		wdv.until(ExpectedConditions.textToBePresentInElement(By.id(""), "Processing"));
 		

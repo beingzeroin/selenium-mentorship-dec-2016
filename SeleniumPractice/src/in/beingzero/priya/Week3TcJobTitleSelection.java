@@ -64,7 +64,7 @@ public class Week3TcJobTitleSelection {
 				
 				for(int row = 1; row<no_of_rows ; row++)
 				{
-					List<WebElement> col_rows = res_rows.get(row).findElements(By.tagName("td"));
+					//List<WebElement> col_rows = res_rows.get(row).findElements(By.tagName("td"));
 					WebElement jobtitletxt = driver.findElement(By.xpath("//*[@id='resultTable']/tbody/tr["+getlitxt+"]/td[2]/ul/li[2]"));
 					String celtxt = jobtitletxt.getText();
 					System.out.println("Job Title : " + celtxt);

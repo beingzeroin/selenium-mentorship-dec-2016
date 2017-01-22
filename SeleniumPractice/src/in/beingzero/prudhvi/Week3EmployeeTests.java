@@ -1,6 +1,7 @@
 package in.beingzero.prudhvi;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -8,13 +9,18 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+
 
 
 
@@ -27,16 +33,17 @@ public class Week3EmployeeTests {
 	WebDriver fd;
 	Boolean booleanIsLoginDone;
 	
+	
 	//TODO:  PRUDHVI What if someone runs if on their machine that doesn't have
 	// C:\\users\\admin\\downloads folder on their machine?
 	// e.g. Running it on MAC or Linux will fail as C:\ won't be there
 	// Think of a way to fix it.
-	String downloadPath ="C:\\Users\\admin\\Downloads";
+	String downloadPath =System.getProperty("user.dir")+"/Downloads/Prudhvi";
 	
 	@BeforeMethod
 	public void Setup()
 	{
-		fd=new ChromeDriver();
+		fd=SetGoogleChromeSettings();
 		fd.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		fd.manage().window().maximize();
 		booleanIsLoginDone= isLoginSucceed();
@@ -75,7 +82,7 @@ public class Week3EmployeeTests {
 	}
 	
 	
-	@Test
+	//@Test
 	public void addEmployeeTest()
 	{
 				
@@ -173,7 +180,7 @@ public class Week3EmployeeTests {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void editEmployeeDOBTest()
 
 	{
@@ -235,7 +242,7 @@ public class Week3EmployeeTests {
 		
 	}
 	
-	@Test
+	//@Test
 	public void deleteEmployeeTest()
 
 	{	
@@ -312,7 +319,7 @@ public class Week3EmployeeTests {
 		
 	}
 	
-	@Test
+	//@Test
 	public void UploadEmployeeImage()
 	{
 		
@@ -377,7 +384,7 @@ public class Week3EmployeeTests {
 		
 	}
 	
-	 int verifyDownLoadPathExistenceAndFiles(String FilePath)
+	int verifyDownLoadPathExistenceAndFiles(String FilePath)
 	 {
 		 File objFile= new File(FilePath);
 		 if(!objFile.exists())
@@ -396,4 +403,27 @@ public class Week3EmployeeTests {
 			System.out.println("Folder  exists");
 		 	return objFile.listFiles().length;
 	 }
+	
+	WebDriver SetGoogleChromeSettings()
+	{
+		//int filesCount=
+		verifyDownLoadPathExistenceAndFiles(downloadPath);
+		ChromeOptions options=new ChromeOptions();
+		HashMap<String,Object> chromePreferences=new HashMap<String,Object>();
+		chromePreferences.put("download.default_directory", downloadPath);
+		
+		options.setExperimentalOption("prefs", chromePreferences);
+		HashMap<String, Object> chromeOptionsMap = new HashMap<String, Object>();
+		options.setExperimentalOption("prefs", chromePreferences);
+		options.addArguments("--test-type");
+		DesiredCapabilities cap = DesiredCapabilities.chrome();
+		cap.setCapability(ChromeOptions.CAPABILITY, chromeOptionsMap);
+		cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+		cap.setCapability(ChromeOptions.CAPABILITY, options);
+		WebDriver driver = new ChromeDriver(cap);
+
+		return driver;
+		
+	}
+
 }

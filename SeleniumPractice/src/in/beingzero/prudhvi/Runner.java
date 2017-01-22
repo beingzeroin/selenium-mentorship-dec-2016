@@ -1,11 +1,9 @@
 package in.beingzero.prudhvi;
 
-import java.io.File;
-
 public class Runner {
 
 	public static void main(String[] args) throws InterruptedException {
-		WeekThreeExercisesSetOne obj=new WeekThreeExercisesSetOne();
+		//WeekThreeExercisesSetOne obj=new WeekThreeExercisesSetOne();
 		
 			//obj.verifyResetFunctionality();
 		
@@ -14,7 +12,7 @@ public class Runner {
 		//objTests.editEmployeeDOBTest();
 		//objTests.deleteEmployeeTest();
 		//objTests.UploadEmployeeImage();
-		//objTests.downloadEmpImportFile();
+		objTests.downloadEmpImportFile();
 		
 		 
 	}

@@ -113,8 +113,8 @@ public class SwitchingCommands {
 		
 		SwitchingCommands sc = new SwitchingCommands();
 		//sc.switchAlerts();
-		//sc.switchWindows();
-		sc.switchFrames();
+		sc.switchWindows();
+		//sc.switchFrames();
 		
 		
 		// Switch Commands

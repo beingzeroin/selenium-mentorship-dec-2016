@@ -1,7 +1,5 @@
 package in.beingzero.priya;
 
-import org.openqa.selenium.WebElement;
-
 public class EmployeeTestRunner {
 
 	public static void main(String[] args) {

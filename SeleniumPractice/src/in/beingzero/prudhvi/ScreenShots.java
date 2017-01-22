@@ -11,8 +11,6 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.ITestContext;
-import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -67,12 +65,41 @@ public class ScreenShots {
 
 		captureScreenShots(strMethodName,"Login");
 		driver.findElement(By.id("txtUsername")).sendKeys(strUserName);
-		captureScreenShots(strMethodName,"UserName Entered");
+		
+		captureScreenShots(strMethodName,"UserNameEntered");
 		driver.findElement(By.id("txtPassword")).sendKeys(strPwd);
-		captureScreenShots(strMethodName,"Password Entered");
-		driver.findElement(By.id("btnLogin")).sendKeys();
+		
+		captureScreenShots(strMethodName,"PasswordEntered");
 		driver.findElement(By.id("btnLogin")).click();
-	}
+		
+		captureScreenShots(strMethodName,"LoginProcess");
+		
+		if(driver.findElement(By.id("welcome")).isDisplayed())
+		{
+			System.out.println("LogInSuccessfull");
+			captureScreenShots(strMethodName,"LogInSuccess");
+			driver.findElement(By.id("welcome")).click();
+			captureScreenShots(strMethodName,"LoginSuccess");
+			driver.findElement(By.linkText("Logout")).click();
+			captureScreenShots(strMethodName,"Logout is in process");
+			if(driver.findElement(By.id("txtUsername")).isDisplayed())
+			{
+				System.out.println("LogoutSuccessfull");
+				captureScreenShots(strMethodName,"LogoutSuccess");
+			}
+			else
+			{
+				System.out.println("Login is Failed");
+				captureScreenShots(strMethodName,"LogoutFail");
+			}
+		
+		}
+		else
+		{
+			System.out.println("Login is Failed");
+			captureScreenShots(strMethodName,"LogoutFail");
+		}
+		}
 	
 	
 	
