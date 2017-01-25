@@ -1,0 +1,83 @@
+  AGENDA
+==========
+Constituents of a Class
+Functions - Constructor and Overloading
+Concept of JAR file
+    - Using a JAR file.
+    - Creating a JAR file.
+Object Oriented Programming Concepts
+  ConfigFileReader
+
+
+
+REUSABILITY should be there (Code Duplication should be avoided).
+HARDCODING should be avoided (Configurable parameters).
+EXCEL AS A DATA SOURCE (Data Driven Tests).
+LOCATORS should not be hard coded.
+REPORTING (Customizable as per our need).
+AUTOMATIC EXECUTION START (CI - Continuous Integration).
+AUTOMATING SHOULD BE EASY for junior members in the team.
+AUTOMATING SHOULD BE QUICK.
+TEST CASE MANAGEMENT should be easy.
+SELECTIVE TEST EXECUTION.
+DEBUG INFO CAPTURING.
+Uniform Coding Conventions and Style.
+Extensible and Easy to maintain.
+
+Transitive Dependency.
+
+
+What is Automation Framework??
+    - One stop shop for all automation and reporting and debugging needs.
+
+
+
+
+
+    Our Framework ----- JAR
+      We use Selenium JAR for our frmework classes.
+
+// INPUT FILE
+browser=chrome
+url=http://ohrm.com
+runFullScreen=true
+
+// Purpose - This provides us values of 
+// Various configuration properties.
+class ConfigManager
+{
+    public boolean isPropertyExisting(String propName)
+    {
+
+    }
+    public String getProperty(String propName)
+    {
+
+    }
+    public int getLongProperty(String propName)
+    {
+        
+    }
+}
+
+
+WebDriver driver;
+ConfigManager cm = new ConfigManager();
+String b = cm.getProperty("browser");
+if(b.equals("chrome"))
+    driver = new ChromeDriver();
+else if(b.equals("ie"))
+    driver = new IE();
+
+// Set Implicit Wait Timeout
+if(cm.isPropertyExisting("timeoutInSeconds")){
+
+    long timeout = cm.getLongProperty("timeoutInSeconds");
+    driver.manage().timeout().implicitWaitTimeout(timeout);
+}
+
+
+IConfigManager cm = new ExcelConfigManager();
+
+SAT . --- .
+

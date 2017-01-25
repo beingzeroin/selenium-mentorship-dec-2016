@@ -1,0 +1,88 @@
+ Agenda
+=========
+
+ OLD Guidelines
+-------------
+1.  Add a Test class.
+2.  Write one function per test.
+3.  Add a main method (A separate or same class)
+4.  Create object of our test class
+5.  Call function on test class object.
+
+Problems
+---------
+1.  Add new test and add a call to it in main.
+2.  If one test fails, other tests below it are blocked.
+        Reasons:  (EXCEPTIONS) -- Runtime error -- Program Terminates
+        A function throws exception (when it finds something unusal)
+            - ElementNotFound
+            - ArrayListIndexOutOfBounds
+3.  Reporting.
+4.  Lot of open browsers on our desktop.
+
+TestNG
+-------
+1.  Add a Test class.
+2.  Write one function per test.
+3.  Annotate your function with @Test
+4.  If we want to mark test failed
+        throw new RuntimeException("Reason of failure");
+4.  BETTER
+    Use assertions rather that throwing our own exception.
+
+
+TestNG - TestSuite
+Tests of one file
+Tests from multiple files
+Tests from entire package
+Tests from entire project
+
+A word about Exceptions in Java
+
+
+WebDriverWait ---- Timeouts
+Actions Class
+ --- Mouse Hover
+        .moveToElement()
+ --- Drag and Drop
+ --- Double Click
+
+File Class - https://docs.oracle.com/javase/7/docs/api/java/io/File.html
+Data Members of Class, static members
+
+Interview Questions
+
+Screenshot Taking- System.getProperty
+File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+FileUtils.copyFile(scrFile, new File(fullFilePath));
+
+
+<tr><td>Ravi</td><td>Selenium</td></tr>
+
+getText -- Removes all the tags and just gives the value inside a tag.
+
+
+
+-------------------------
+  Ravi - One Question:
+    --- 
+  Priya - One Question
+
+
+
+
+  Setup
+    Test1
+  Cleanup
+
+  Setup 
+    Test2
+  Cleanup
+
+
+In-built class for WebTables
+
+WebTable wt = new WebTable(driver.findElement(By.id("")));
+wt.isValueThere("");
+
+Select 
