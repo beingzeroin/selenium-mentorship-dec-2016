@@ -1,5 +1,7 @@
 package in.beingzero.framework.config.Prudhvi;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -10,14 +12,26 @@ public class ConfigManager implements IConfigManager
 	String str;
 	
 	Properties objProperties;
-	FileReader objReader;
-
-	public  void LoadPropertiesToReader() throws Exception
+	
+	public ConfigManager()
 	{
-		objReader=new FileReader(System.getProperty("user.dir")+"\\FrameWorkConfig.txt");
-		objProperties.load(objReader);
+		try
+		{
+			File objFile=new File("./src/in/beingzero/framework/config/Prudhvi/FrameWorkConfig.txt");	
+			FileInputStream objFIS  = new FileInputStream(objFile);
+			objProperties=new Properties();
+			objProperties.load(objFIS);		
+		} 
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
 		
 	}
+	
+	
+	
+	
 	@Override
 	public boolean isPropertyExisting(String propName) 
 	{
@@ -26,19 +40,20 @@ public class ConfigManager implements IConfigManager
 		return boolIsPropertyExist;
 	}
 
-	@Override
+	
 	public String getProperty(String propName) 
 	{
+		
 		return objProperties.getProperty(propName);
 	}
 
-	@Override
+
 	public int getLongProperty(String propName) 
 	{
 		return Integer.parseInt(objProperties.getProperty(propName));
 	}
 
-	@Override
+
 	public boolean getBooleanProperty(String propName) 
 	{
 		return Boolean.parseBoolean(objProperties.getProperty(propName));
