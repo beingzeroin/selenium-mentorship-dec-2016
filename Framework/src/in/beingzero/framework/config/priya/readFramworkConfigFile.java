@@ -1,31 +1,32 @@
 package in.beingzero.framework.config.priya;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.Properties;
 
 
 
 public class readFramworkConfigFile {
 
-	protected Properties pro = null;
-	protected InputStream input = readFramworkConfigFile.class.getClassLoader().getResourceAsStream("frameworkConfig.properties");
+	 Properties pro = null;
+	 
 	
-	public readFramworkConfigFile()
+	public readFramworkConfigFile() throws Exception 
 	{
+		
+		File input = new File(System.getProperty("user.dir").concat("\\src\\in\\beingzero\\framework\\config\\priya\\frameworkConfig.properties"));
+		FileInputStream freader = new FileInputStream(input);
 		pro = new Properties();
+		
+		System.out.println("File Path: "+input);
 		try {
-			pro.load(input);
-		} catch (IOException e) {
-			e.printStackTrace();
+			pro.load(freader);
+		} catch (Exception e) {
+			System.out.println("Exception is :"+ e.getMessage());
 		}
+		
 	}
 	
-	/*public String getBrowser() throws IOException
-	{
-			return pro.getProperty("browser");
-	}*/
-			
 	public String getUrl()
 	{
 			return pro.getProperty("url");
@@ -33,8 +34,6 @@ public class readFramworkConfigFile {
 	
 	public String getBrowser() 
 	{	
-		System.out.println(System.getProperty("user.dir"));
-		System.out.println("Path of file :"+ readFramworkConfigFile.class.getClassLoader().getResourceAsStream(""));
 			return pro.getProperty("browser");
 	}
 	
@@ -77,7 +76,4 @@ public class readFramworkConfigFile {
 	public String getImpWait() {
 		return pro.getProperty("implicitTimeoutInSeconds");
 	}
-
-	
-
 }
