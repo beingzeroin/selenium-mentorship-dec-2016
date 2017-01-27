@@ -67,6 +67,15 @@ public class readFramworkConfigFile {
 			return pro.getProperty("LogOut");
 	}
 	
+	public String getWelcomeTxt()
+	{
+			return pro.getProperty("Welcometxt");
+	}
+	
+	public String getLogoutUrl()
+	{
+			return pro.getProperty("LogoutUrl");
+	}
 	public String getFullScreen()
 	{
 		return pro.getProperty("runFullScreen");
