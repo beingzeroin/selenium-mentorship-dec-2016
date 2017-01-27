@@ -1,6 +1,8 @@
 package in.beingzero.tests.priya;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -8,21 +10,27 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import in.beingzero.framework.config.priya.ConfigManager;
 import in.beingzero.framework.config.priya.IConfigManager;
+import in.beingzero.framework.config.priya.readFramworkConfigFile;
 
 
 public class LoginTests {
 
+	WebDriver driver = null;
+	readFramworkConfigFile cm = new readFramworkConfigFile();
+	System.out.println(System.getProperty("user.dir"));
+	
+	public void readFramworkConfigFile()
+	{
+		
+	}
 	@BeforeMethod
 	public void setup()
 	{
 		// Do setup based on Configuration Manager
-		
-		WebDriver driver = null;
-		
+			
 		// Launching Browser
-		ConfigManager cm = new ConfigManager();
+		
 		String b = cm.getBrowser();
 		if(b.equals("chrome"))
 		    driver = new ChromeDriver();
@@ -52,12 +60,16 @@ public class LoginTests {
 	@AfterMethod
 	public void cleanup()
 	{
-		
+		driver.close();
+		driver.quit();
 	}
 	
 	@Test
 	public void validLoginTest()
 	{
-		
+		driver.findElement(By.id(cm.getUsrNmeTxt())).sendKeys(cm.getUserName());
+		driver.findElement(By.id(cm.getPwd())).sendKeys(cm.getPwdTxt());
+		driver.findElement(By.id(cm.getLgnBtn())).click();
+		driver.findElement(By.xpath(cm.getLogOutBtn())).click();
 	}
 }

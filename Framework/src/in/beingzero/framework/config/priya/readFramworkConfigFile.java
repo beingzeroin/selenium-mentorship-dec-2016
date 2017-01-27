@@ -6,15 +6,19 @@ import java.util.Properties;
 
 
 
-public class ConfigManager {
+public class readFramworkConfigFile {
 
 	protected Properties pro = null;
-	protected InputStream input = ConfigManager.class.getClassLoader().getResourceAsStream("frameworkConfig.properties");
+	protected InputStream input = readFramworkConfigFile.class.getClassLoader().getResourceAsStream("frameworkConfig.properties");
 	
-	public void readFramworkConfigFile() throws Exception
+	public readFramworkConfigFile()
 	{
 		pro = new Properties();
-		pro.load(input);
+		try {
+			pro.load(input);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/*public String getBrowser() throws IOException
@@ -28,7 +32,9 @@ public class ConfigManager {
 	}	
 	
 	public String getBrowser() 
-	{
+	{	
+		System.out.println(System.getProperty("user.dir"));
+		System.out.println("Path of file :"+ readFramworkConfigFile.class.getClassLoader().getResourceAsStream(""));
 			return pro.getProperty("browser");
 	}
 	
@@ -55,6 +61,11 @@ public class ConfigManager {
 	public String getLgnBtn()
 	{
 			return pro.getProperty("LgnBtn");
+	}
+	
+	public String getLogOutBtn()
+	{
+			return pro.getProperty("LogOut");
 	}
 	
 	public String getFullScreen()
