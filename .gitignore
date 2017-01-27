@@ -1,8 +1,5 @@
 test-output/
 bin
 .DS_Store
-<<<<<<< HEAD
 images/
-=======
 .settings/
->>>>>>> branch 'master' of https://github.com/beingzeroin/selenium-mentorship-dec-2016
