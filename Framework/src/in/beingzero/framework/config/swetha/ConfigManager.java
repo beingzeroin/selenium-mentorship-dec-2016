@@ -1,10 +1,62 @@
 package in.beingzero.framework.config.swetha;
 
-public class ConfigManager {
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+public class ConfigManager implements IConfigManager {
 
+	Properties prop;
+	
+	public ConfigManager(){
+		
+		System.out.println(System.getProperty("user.dir"));
+	
+		
+		File file = new File(System.getProperty("user.dir")+"/src/in/beingzero/framework/config/swetha/FrameWorkConfig.txt");
+		
+		FileInputStream fileInput = null;
+		try {
+			fileInput = new FileInputStream(file);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		prop = new Properties();
+		
+		//load properties file
+		try {
+			prop.load(fileInput);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}		
+		
 	}
+	
+	@Override
+	public boolean isPropertyExisting(String propName) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public String getProperty(String propName) {
+		
+		return prop.getProperty(propName);
+	}
+
+	@Override
+	public int getLongProperty(String propName) {
+		
+		return Integer.parseInt(prop.getProperty(propName));
+	}
+
+	@Override
+	public boolean getBooleanProperty(String propName) {
+
+		return Boolean.parseBoolean(prop.getProperty(propName));
+	}
+
 
 }
