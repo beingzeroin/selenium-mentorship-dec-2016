@@ -13,7 +13,6 @@ public class ConfigManager implements IConfigManager {
 	public ConfigManager(){
 		
 		System.out.println(System.getProperty("user.dir"));
-	
 		
 		File file = new File(System.getProperty("user.dir")+"/src/in/beingzero/framework/config/swetha/FrameWorkConfig.txt");
 		
@@ -36,7 +35,9 @@ public class ConfigManager implements IConfigManager {
 	
 	@Override
 	public boolean isPropertyExisting(String propName) {
-		// TODO Auto-generated method stub
+		// Check property file
+		// If propName is there return true
+		// Else return false
 		return false;
 	}
 

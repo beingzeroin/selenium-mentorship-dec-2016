@@ -1,0 +1,90 @@
+Class Member
+    - Function
+    - Constructor
+    - Data Members
+    - static Members
+    - final Members
+
+OOP Concepts
+  - Abstraction:
+    Act of looking what a thing does
+    without worrying about how (implementation details)
+     - interface
+     - abstract function
+     - abstract class
+
+  - Inheritance:
+    Reduce code duplication by fostering code reuse
+    Using existing experience
+        - extends
+        - super
+    Object is superclass for all other classes.
+
+  - Polymorphism:
+    Using existing experience with slight modifications
+     - Modification of inherited function is Polymorphism. (Override)
+         - Same function name.
+         - Same Input Params.
+         - Same Return Type.
+         - One function in SuperClass and one in SubClass.
+
+    - Overloading (Belonging to same class - can be inherited)
+        - Same function name.
+        - Diff Input Parameters.
+        - Both belonging of same class - can be inherited also.
+
+
+  - Encapsulation:
+    Hiding the unnecessary. 
+    Access Modifiers
+    public --- Members are accessible everywhere.
+    protected --- Available same package + subclass (even in diff package).
+    <default> --- Only in same package.
+    private --- Available only inside same class.
+
+
+
+    // Always launches a firefox without extensions
+    // Withou your bookmarks
+    FirefoxDriver fd = new FirefoxDriver();
+
+
+    Browser stores some settings for us
+     - extensions
+     - passwords
+     - bookmarks
+     - history
+
+public class Person
+{
+    // What all can be written in the class
+    
+    // Properties or Data Memebers or Fields
+    public int age;
+    private String name;
+
+    // Functions
+    void test()
+    {
+
+    }
+
+    // Special Function - Constructor
+    // 1.  Name is same as that of class
+    // 2.  No return type
+    // default constructor
+    public Person()
+    {
+        // initialize data mebers
+        age = 12;
+        name = "";
+    }
+
+
+}
+
+
+Exception Handling
+    - try, catch, finally, throw and throws
+
+Application!! - OOPS, Exeptions
