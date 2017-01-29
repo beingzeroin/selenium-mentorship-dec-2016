@@ -9,7 +9,7 @@ public class BrowserClient {
 		ChromeBrowser clsObj = new ChromeBrowser();
 		clsObj.launch();
 		
-		System.out.println("Browser Name: " + ifaceObj.getBrowserName());
+		System.out.println("Browser Name: " + clsObj.getBrowserName());
 		
 		System.out.println("Browser Name: " + clsObj.getBrowserName());
 		
@@ -23,6 +23,6 @@ public class BrowserClient {
 }
 
 
-//1. A non-abstract class implementing an interface must provide body of all functions declared in interface. - False
+//1. A non-abstract class implementing an interface must provide body of all functions declared in interface. - True
 //2. We can create an object of class and assign it to variable of type interface that is implemented by the class. - True
 //3. We can only invoke those functions of class that are declared in interface if we create object of class and assign it to variable of type interface implemented by the class.- True

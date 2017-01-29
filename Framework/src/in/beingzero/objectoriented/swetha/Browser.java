@@ -5,7 +5,6 @@ public interface Browser {
 	void launch();
 	public void quit();
 	void purpose();
-	String getBrowserName();
 
 }
 
