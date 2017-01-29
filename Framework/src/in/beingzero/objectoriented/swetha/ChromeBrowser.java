@@ -17,7 +17,7 @@ public class ChromeBrowser implements Browser{
 		
 	}
 	
-	String getBrowserName(){
+	public String getBrowserName(){
 		return "Google Chrome";
 	}
 
