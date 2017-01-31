@@ -54,10 +54,12 @@ public class BrowserClient {
 		for(IBrowser b : browsers) 
 		{  
 			b.launch(); 
-			
 			b.purpose(); 
 		} 
 		 
+		iebr.maximized(launchBrMaximied);
+		ffbr.maximized(launchBrMaximied);
+		cbr.maximized(launchBrMaximied);
 		// Typecasting interface to specific class object to use class method 
 		IEBrowser ieb = (IEBrowser)browsers[0]; 
 		ChromeBrowser cb = (ChromeBrowser)browsers[2]; 
@@ -67,10 +69,11 @@ public class BrowserClient {
 		 
 		for(IBrowser b : browsers) 
 		{  
+			
 			b.quit();
 			
 		}   
-		 
+
 		ifaceObj.quit();
 		clsObj.quit();
 		
