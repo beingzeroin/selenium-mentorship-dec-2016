@@ -11,6 +11,7 @@ public abstract class BrowserBase implements Browser{
 		System.out.println("Browser helps you fetch info from World Wide WEB");
 		
 	}
+	
 	public void launch(boolean launchMaximized) {
 		
 		if(launchMaximized){

@@ -6,6 +6,8 @@ public class IEBrowser extends BrowserBase {
 
 	@Override
 	public void quit() {
+		
+		wd.quit();
 		System.out.println("Quitting IE Browser");
 		
 	}
@@ -24,6 +26,7 @@ public class IEBrowser extends BrowserBase {
 	@Override
 	public void launch() {
 		
+		System.setProperty("webdriver.ie.driver","C:\\IEDriverServer.exe");
 		wd= new InternetExplorerDriver();
 		System.out.println("Launching IE Browser");
 		
@@ -36,7 +39,8 @@ public class IEBrowser extends BrowserBase {
 			wd= new InternetExplorerDriver();
 			wd.manage().window().maximize();
 			System.out.println("Browser maximized");
-		} else{
+		} 
+		else{
 			
 			wd= new InternetExplorerDriver();
 		}
