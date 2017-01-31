@@ -7,7 +7,7 @@ public class BrowserClient {
 		Browser ifaceObj = new ChromeBrowser();
 		ifaceObj.launch();
 		ChromeBrowser clsObj = new ChromeBrowser();
-		clsObj.launch();
+		clsObj.launch(false);
 		
 		ChromeBrowser cbObj = (ChromeBrowser)ifaceObj;
 		

@@ -1,8 +1,13 @@
 package in.beingzero.objectoriented.swetha;
 
+import org.openqa.selenium.chrome.ChromeDriver;
+
 public class ChromeBrowser extends BrowserBase{
 
 	public void launch() {
+		
+		wd= new ChromeDriver();
+		
 		System.out.println("Launching Chrome Browser");
 		
 	}
@@ -15,7 +20,6 @@ public class ChromeBrowser extends BrowserBase{
 	public String getBrowserName(){
 		return "Google Chrome";
 	}
-
-
+	
 
 }
