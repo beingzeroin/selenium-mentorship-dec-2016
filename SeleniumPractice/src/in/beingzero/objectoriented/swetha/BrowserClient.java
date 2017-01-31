@@ -1,13 +1,15 @@
 package in.beingzero.objectoriented.swetha;
 
 public class BrowserClient {
+	
+	static boolean launchMaximized = true;
 
 	public static void main(String[] args) {
 		
 		Browser ifaceObj = new ChromeBrowser();
 		ifaceObj.launch();
 		ChromeBrowser clsObj = new ChromeBrowser();
-		clsObj.launch(false);
+		clsObj.launch(launchMaximized);
 		
 		ChromeBrowser cbObj = (ChromeBrowser)ifaceObj;
 		
@@ -23,7 +25,7 @@ public class BrowserClient {
 		
 		System.out.println("========== Using Version 2 =========");
 		
-		Browser[] browsers = new Browser[3];
+		BrowserBase[] browsers = new BrowserBase[3];
 		
 		browsers[0] = new IEBrowser();
 		
@@ -31,9 +33,9 @@ public class BrowserClient {
 		
 		browsers[2] = new ChromeBrowser();
 		
-		for(Browser b : browsers)
+		for(BrowserBase b : browsers)
 		{
-			b.launch();
+			b.launch(launchMaximized);
 			b.purpose();
 		}
 		

@@ -28,6 +28,19 @@ public class IEBrowser extends BrowserBase {
 		System.out.println("Launching IE Browser");
 		
 	}
+	
+	public void launch(boolean launchMaximized) {
+		
+		if(launchMaximized){
+			
+			wd= new InternetExplorerDriver();
+			wd.manage().window().maximize();
+			System.out.println("Browser maximized");
+		} else{
+			
+			wd= new InternetExplorerDriver();
+		}
+	}	
 
 
 

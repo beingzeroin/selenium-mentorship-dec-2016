@@ -21,5 +21,16 @@ public class ChromeBrowser extends BrowserBase{
 		return "Google Chrome";
 	}
 	
+	public void launch(boolean launchMaximized) {
+		
+		if(launchMaximized){
+			wd= new ChromeDriver();
+			wd.manage().window().maximize();
+			System.out.println("Browser maximized");
+		} else{
+			wd= new ChromeDriver();
+		}
+	}	
+	
 
 }
