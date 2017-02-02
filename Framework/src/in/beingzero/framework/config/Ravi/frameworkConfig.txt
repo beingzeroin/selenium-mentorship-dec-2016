@@ -1,0 +1,10 @@
+# ie, chrome, firefox
+browser=chrome
+
+url=http://ohrm.com
+
+# true or false
+runFullScreen=true
+
+# 0 to 10000
+implicitTimeoutInSeconds=30
