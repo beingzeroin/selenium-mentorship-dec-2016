@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 public abstract class BrowserBase implements IBrowser 
 
 {
-	WebDriver wd;
+	protected WebDriver wd;
 	public void purpose() 
 	{
 		System.out.println("Browser helps you fetch info from WEB");

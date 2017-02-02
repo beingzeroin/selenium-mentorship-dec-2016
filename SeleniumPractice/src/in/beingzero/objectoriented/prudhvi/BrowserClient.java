@@ -17,7 +17,8 @@ public class BrowserClient
 		System.out.println("Two Browser Windows Launched, Now Closing");
 		
 		obj.quit();
-		objCB.quit();
+		//objCB.quit();
+		
 		System.out.println("========== Using Version 2 =========");
 		boolean isMaximize=true;
 		
