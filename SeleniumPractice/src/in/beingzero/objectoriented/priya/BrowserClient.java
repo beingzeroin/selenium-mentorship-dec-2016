@@ -1,7 +1,5 @@
 package in.beingzero.objectoriented.priya;
 
-import org.openqa.selenium.WebDriver;
-
 public class BrowserClient {
 
 	public static void main(String[] args) {
@@ -34,7 +32,7 @@ public class BrowserClient {
 		
 		ChromeBrowser clsObj = new ChromeBrowser(); 
 		clsObj.launch(); 
-		clsObj.maximized(launchBrMaximied);
+		clsObj.launch(launchBrMaximied);
 		
 		//System.out.println("Browser Name: " + ifaceObj.getBrowserName()); 
 		System.out.println("Browser Name: " + clsObj.getBrowserName()); 
@@ -57,10 +55,10 @@ public class BrowserClient {
 			b.purpose(); 
 		} 
 		 
-		iebr.maximized(launchBrMaximied);
-		ffbr.maximized(launchBrMaximied);
-		cbr.maximized(launchBrMaximied);
-		// Typecasting interface to specific class object to use class method 
+		iebr.launch(launchBrMaximied);
+		ffbr.launch(launchBrMaximied);
+		cbr.launch(launchBrMaximied);
+		// Type casting interface to specific class object to use class method 
 		IEBrowser ieb = (IEBrowser)browsers[0]; 
 		ChromeBrowser cb = (ChromeBrowser)browsers[2]; 
 		System.out.println("IEBrowserVersion: " + ieb.getBrowserVersion());

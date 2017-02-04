@@ -20,7 +20,8 @@ public abstract class BrowserBase implements IBrowser{
 		System.out.println("Browser helps you fetch info from World Wide WEB");
 	}
 	
-	public void maximized(boolean launchMaximized)
+	//@Override
+	public void launch(boolean launchMaximized)
 	{
 		if (launchMaximized)
 		{
