@@ -26,52 +26,41 @@ public class BrowserClient {
 //		
 //		System.out.println("========== Using Version 2 =========");
 //		
-//		Browser[] browsers = new Browser[3];
-//		
-//		browsers[0] = new IEBrowser();
-//		
-//		browsers[1] = new FirefoxBrowser();
-//		
-//		browsers[2] = new ChromeBrowser();
-//		
+		Browser[] browsers = new Browser[3];
+		
+		browsers[0] = new IEBrowser();
+		
+		browsers[1] = new FirefoxBrowser();
+		
+		browsers[2] = new ChromeBrowser();
+		
 //		for(Browser b : browsers)
 //		{
 //			b.launch();
 //			b.purpose();
 //		}
-//	
-//// 		Typecasting interface to specific class object to use class method
-//	
-//    	IEBrowser ieb = (IEBrowser)browsers[0];
-//		
-//    	ChromeBrowser cb = (ChromeBrowser)browsers[2];
-//
-//		System.out.println("IEBrowserVersion: " + ieb.getBrowserVersion());
-//		System.out.println("ChromeBrowserName: " + cb.getBrowserName());
-//		
-//		for(Browser b : browsers)
-//		{
-//		b.quit();
-//		}
-		
-		System.out.println("========== Using Version 3 =========");
-		
-		FirefoxBrowser fbObj = new FirefoxBrowser();
-		
-		fbObj.launch();
-		
-		fbObj.launch(launchMaximized);
-		
-		fbObj.quit();
+	
+// 		Typecasting interface to specific class object to use class method
 
+		IEBrowser ieb = (IEBrowser)browsers[0];
+    	
+    	FirefoxBrowser fb = (FirefoxBrowser)browsers[1];
 		
-		ChromeBrowser clsObj = new ChromeBrowser();
+    	ChromeBrowser cb = (ChromeBrowser)browsers[2];
+
+		System.out.println("IEBrowserVersion: " + ieb.getBrowserVersion());
+		System.out.println("ChromeBrowserName: " + cb.getBrowserName());
 		
-		clsObj.launch();
+		fb.launch();
+		fb.launch(launchMaximized);
 		
-		clsObj.launch(launchMaximized);
+		cb.launch();
+		cb.launch(launchMaximized);
 		
-		clsObj.quit();
+		for(Browser b : browsers)
+		{
+		b.quit();
+		}
 
 	}
 
