@@ -21,12 +21,12 @@ public class FirefoxBrowser extends BrowserBase{
 //	public void launch(boolean launchMaximized) {
 //		
 //		if(launchMaximized){
-////			wd = new FirefoxDriver();
+////		wd = new FirefoxDriver();
 //			wd.manage().window().maximize();
 //			System.out.println("Browser maximized");
 //		} 
-////		else{
+////	else{
 ////			wd = new FirefoxDriver();
-////		}
+////	}
 //	}
 }
