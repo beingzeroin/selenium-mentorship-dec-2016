@@ -17,11 +17,14 @@ public class AlertsHandling extends BeforeAfterTestNG{
 		
 		WebElement bzHme = driver.findElement(By.xpath("//*[@id='main-nav']/li[1]/a/span"));
 		bzHme.click();
+		// DEBUG LOG
+		System.out.println("Clicked bzHome");
 		
 		Alert al = driver.switchTo().alert();
 		Thread.sleep(2000);
 		al.accept();
 		
+		// INFO LOG
 		System.out.println("Current Page URL: "+ driver.getCurrentUrl());
 		System.out.println("Current Page Title: "+ driver.getTitle());
 		

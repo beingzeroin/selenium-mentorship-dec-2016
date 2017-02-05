@@ -9,8 +9,7 @@ public class DashBoardPage
 	By welcomeLabel=By.id("welcome");
 	By logOutButton=By.xpath(".//*[@id='welcome-menu']/ul/li[2]/a");
 	
-	
-	
+
 	
 	public LoginPage logOutAction(WebDriver driver)
 	{
