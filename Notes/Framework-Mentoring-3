@@ -1,0 +1,131 @@
+DSL - Domain Specific Language
+
+
+Seleniun Independent
+Domain Specific
+Maintainable
+Junior members in the team can work on test case automation
+Senior members can maintain framework.
+Automation becomes faster
+
+TEST CASES ARE LIGHTWEIGHT, FRAMEWORK (All heavylifting)
+
+class PageOnSite
+{
+    // Data members
+
+    // Functions
+
+    // MoveToAnotherPage by clicking a link
+    // Enroll
+
+    // each action should be a function/method
+    // considering inputs and output
+
+}
+
+
+// CLARITY  
+PRIYA - CONFIDENCE
+RV - ARTICULATION or COMMUNICATION
+PV - KNOWLEDGE 
+SH - CANDID and HONEST
+
+
+this - used inside functions of a class.
+It is used to access members of the class.
+It represents current object.
+
+super is same as this, but it can call members of superclass.
+
+
+Class for a Page (Extend from BasePage)
+    - WebDriver as data member
+    - Constructor (default)
+    - Constructor (parameterized WebDriver)
+
+
+Framework / Library
+    - Library - JARS which we can use.
+
+TestNG is an execution fraemwork
+    - PRovides a way to write tests.
+    - Provides a way to execute them.
+    - Creates Report.
+
+
+Logger
+    - Why Need it?
+    - What is it?
+    - How to use it?
+
+
+System.out.println - Logging the message!
+    - Logging only to console window (Persistence)
+    - Logging Levels (Configurable to which level to log).
+
+
+abstract class Logger
+{
+    // Only for you
+    public abstract void logDebug(String message);
+
+    // Only what is relevent
+    public abstract void logInfo(String message);
+
+    // We observe something suspicious
+    // But we can ignore it for the time being
+    public abstract void logWarn(String message);
+
+    // Validating username ---- Something worth noticiing
+    public abstract void logError(String message);
+
+    // FATAL test failing or assertion failing
+    public abstract void logFatal(String message);
+
+    public abstract void setLoggingLevel(int level);
+
+    // 0 - DEBUG, 1 - INFO, 2 - WARN, 3 - ERROR, 4 - FATAL
+
+}
+
+ABSTRACTION
+    - abstract class BasePage
+
+
+INHERTIANCE
+    - BasePage (Code ReUse and avoid code duplication)
+
+ENCAPSULATION
+    - Hide the unnecessary details from consumers of our classes.
+    - protected (Tests should not use driver directly. Restrict it.)
+    - private (Logger)
+
+
+POLYMORPHISM
+    - Overloading (Constructor in POM) - Give us a choice.
+
+Difference between ABSTRACT class and Interface!!!
+
+
+API Testing
+ - SOAP UI
+
+ WEB APP - WEB SERVER
+
+ WebApp  ----                   Calls an API    -----              APP SERVER (Functions)
+
+ Desktop App --
+
+ Mobile App
+
+ RESTAssure
+
+
+WebServices --- XML - MS
+REST is new way of writing web services which is called API (JSON)
+    
+
+
+
+
