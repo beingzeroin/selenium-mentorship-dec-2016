@@ -1,0 +1,44 @@
+Data Driven Test?
+    - Same Test, Different Data
+        - Login With Multiple User Accounts.
+        - Employee Add in OHRM
+
+Log4J
+DataDriven
+Configuration
+POM
+
+
+Implementation of interface is preferred over Extending	
+
+I - > AC -> Classes	
+
+int [][] twoDArray = new int[23][12];
+
+int a;
+
+0th row - 
+ASSIGNMENT
+
+1.  Add 10 Employees in OrangeHRM through data driven tests.
+2.  Create DataManager interface with getData function
+    Implement DataManager interface in class ExcelDataManager
+    Use Apache POI to read excel table and return data in 2d array.
+
+
+DataManager dm = new ExcelDataManager("C:\\test.xlsx");
+data = dm.getData("Prudhvi", "LoginTestData");
+
+
+
+LoginPage - enter un, pw, click button
+DashBoarPage dp;
+    dp.validateUser
+    dp.logout
+
+
+LoginPage
+   WebElement un = driver.findElement(By.id(""));
+   driver.findElement(By.linkText("goToGoogle")).click();
+   un.sendKeys("test"); // StateElement exception
+
