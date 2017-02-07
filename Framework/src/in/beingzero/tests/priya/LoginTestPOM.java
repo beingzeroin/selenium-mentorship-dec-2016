@@ -23,6 +23,7 @@ public class LoginTestPOM {
 		DashBoardPageOHRM dp = loginPage.validLogin(UName, Pwd);
 		
 		dp.validateValidUser(UName,Pwd);
+		loginPage = dp.logout();
 		System.out.println("valid user logged In");
 	}
 	

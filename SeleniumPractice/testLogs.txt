@@ -1,0 +1,3 @@
+0    [main] DEBUG in.beingzero.sandeep.logging.LoggingExample:30  - This is a debug message
+3    [main] INFO  in.beingzero.sandeep.logging.LoggingExample:31  - This is an info message
+3    [main] ERROR in.beingzero.sandeep.logging.LoggingExample:32  - This is an error message
