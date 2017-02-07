@@ -3,31 +3,39 @@ package in.beingzero.framework.POM.Priya;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
-public class DashBoardPageOHRM {
-	WebDriver driver;
+public class DashBoardPageOHRM extends BasePage{
+	
+	String Expectedlogger = "Linda";
 	WebElement Actualtxt;
+	
+	public DashBoardPageOHRM()
+	{
+		super();
+	}
 	
 	public DashBoardPageOHRM(WebDriver driver)
 	{
-		Actualtxt = driver.findElement(By.id("welcome"));
+		super(driver);
 	}
+	
 	public void validateValidUser(String UName,String Pwd)
 	{
+		Actualtxt = driver.findElement(By.id("welcome"));
 		String Actuallogger = Actualtxt.getText();
-		String Expectedlogger = "Welcome Admin";
+		System.out.println("Actual Text: "+Actuallogger );
+		//Assert.assertTrue(Actuallogger.toLowerCase().contains(Expectedlogger));
+	}
 	
-		//Verify Welcome is displayed
-		if(Actuallogger.equals(Expectedlogger))
-		{
-			System.out.println("Login succeeded for User: "+UName);
-			
-		}
-		else
-		{
-			System.out.println("Login Failed for User: "+Pwd);
-			
-		}
-	
+	public LoginPageOHRM logout()
+	{
+		driver.findElement(By.id("welcome")).click();
+		WebDriverWait wait = new WebDriverWait(driver, 2); 
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='welcome-menu']/ul/li[2]/a")));
+		driver.findElement(By.xpath("//*[@id='welcome-menu']/ul/li[2]/a")).click();
+		return new LoginPageOHRM(driver);
 	}
 }
