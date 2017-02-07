@@ -1,4 +1,4 @@
-package in.beingzero.framework.config.priya;
+package in.beingzero.framework.POM.Priya;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

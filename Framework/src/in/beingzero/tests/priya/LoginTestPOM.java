@@ -6,10 +6,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import in.beingzero.framework.config.priya.DashBoardPageOHRM;
-import in.beingzero.framework.config.priya.LoginPageOHRM;
+import in.beingzero.framework.POM.Priya.DashBoardPageOHRM;
+import in.beingzero.framework.POM.Priya.LoginPageOHRM;
 
-public class LoginTestOHRM {
+public class LoginTestPOM {
 	
 	//WebDriver driver;
 	WebDriver driver = new ChromeDriver();
