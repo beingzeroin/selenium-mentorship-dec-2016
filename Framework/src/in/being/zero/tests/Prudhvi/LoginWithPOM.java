@@ -6,71 +6,41 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import in.beingzero.framework.POM.Prudhvi.DashBoardPage;
 import in.beingzero.framework.POM.Prudhvi.LoginPage;
+import in.beingzero.framework.config.Prudhvi.BrowserManager;
 import in.beingzero.framework.config.Prudhvi.ConfigManager;
 
 public class LoginWithPOM {
-	ConfigManager objConfig=new ConfigManager();
-	WebDriver objDriver;
-
+	
+	LoginPage objLoginPPage;
 	@BeforeMethod
 	public void Setup()
 	{
-		//To select the browser 
-		String strBrowserName=objConfig.getProperty("browser");
-		if(strBrowserName.equalsIgnoreCase("CHROME"))
-		{
-			objDriver=new ChromeDriver();
-		}
-		else if(strBrowserName.equalsIgnoreCase("FIREFOX"))
-		{
-			objDriver=new FirefoxDriver();
-		}
-		else
-		{
-			objDriver=new InternetExplorerDriver();
-		}
-		
-		//To open the URL
-		
-		objDriver.get(objConfig.getProperty("url"));
-		
-		//To maximize the browser window.
-		if(objConfig.getBooleanProperty("runFullScreen"))
-			objDriver.manage().window().maximize();
-
-		//To set the implicit wait time
-		objDriver.manage().timeouts().implicitlyWait(objConfig.getLongProperty("implicitTimeoutInSeconds"), TimeUnit.SECONDS);
-		
+		objLoginPPage=new LoginPage();
 		
 	}
+   
 
-	@Test
-	public void LoginTest()
+	//@Test
+	public void ValidLoginTest()
 	{
-		
-		LoginPage objLoginPage=new LoginPage();
-		DashBoardPage objDashboardPage;
-		String strName=objConfig.getProperty("userName");
-		String strPwd=objConfig.getProperty("password");
-		objDashboardPage=objLoginPage.loginAction(objDriver, strName, strPwd);
-		if(objDashboardPage.isLoginSuccessfull(objDriver))
-		{
-			System.out.println("Login is success");
-		}
-		else
-		{
-			System.out.println("Login Failed");
-		}
+		DashBoardPage objDashBoardPage=objLoginPPage.validLogin("Admin","admin");
+		String strWelcomeText=objDashBoardPage.getWelcomeMessage();
+		Assert.assertTrue(strWelcomeText.toLowerCase().contains("admin"));
 	}
 	
-	//@Test
+	@Test
 	public void LogoutTest()
 	{
+		DashBoardPage objDashBoardPage=objLoginPPage.validLogin("Admin","admin");
+		objLoginPPage=objDashBoardPage.logOutAction();
+		Assert.assertTrue(objLoginPPage.validatePage());
 		
 	}
 	
