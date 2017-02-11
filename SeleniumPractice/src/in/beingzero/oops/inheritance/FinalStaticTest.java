@@ -3,7 +3,7 @@ package in.beingzero.oops.inheritance;
 public class FinalStaticTest {
 
 	public static void main(String[] args) {
-		
+		/*
 		FinalAndStatic fs = new FinalAndStatic();
 		
 		fs.age = 10;
@@ -17,6 +17,8 @@ public class FinalStaticTest {
 		
 		System.out.println(fs.age);
 		System.out.println(fs1.age);
+		
+		*/
 		
 	}
 	

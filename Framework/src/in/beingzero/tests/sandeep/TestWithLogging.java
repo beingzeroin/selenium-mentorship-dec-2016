@@ -1,7 +1,5 @@
 package in.beingzero.tests.sandeep;
 
-import java.util.logging.LogManager;
-
 import org.testng.annotations.Test;
 
 
