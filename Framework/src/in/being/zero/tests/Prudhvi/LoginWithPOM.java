@@ -18,19 +18,19 @@ import in.beingzero.framework.config.Prudhvi.ConfigManager;
 
 public class LoginWithPOM {
 	
-	LoginPage objLoginPPage;
+	LoginPage objLoginPage;
 	@BeforeMethod
 	public void Setup()
 	{
-		objLoginPPage=new LoginPage();
+		objLoginPage=new LoginPage();
 		
 	}
    
 
-	//@Test
+	@Test
 	public void ValidLoginTest()
 	{
-		DashBoardPage objDashBoardPage=objLoginPPage.validLogin("Admin","admin");
+		DashBoardPage objDashBoardPage=objLoginPage.validLogin("Admin","admin");
 		String strWelcomeText=objDashBoardPage.getWelcomeMessage();
 		Assert.assertTrue(strWelcomeText.toLowerCase().contains("admin"));
 	}
@@ -38,9 +38,9 @@ public class LoginWithPOM {
 	@Test
 	public void LogoutTest()
 	{
-		DashBoardPage objDashBoardPage=objLoginPPage.validLogin("Admin","admin");
-		objLoginPPage=objDashBoardPage.logOutAction();
-		Assert.assertTrue(objLoginPPage.validatePage());
+		DashBoardPage objDashBoardPage=objLoginPage.validLogin("Admin","admin");
+		objLoginPage=objDashBoardPage.logOutAction();
+		Assert.assertTrue(objLoginPage.validatePage());
 		
 	}
 	

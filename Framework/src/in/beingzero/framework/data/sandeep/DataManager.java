@@ -1,4 +1,4 @@
-package in.beingzero.framework.data.sandeep;
+package in.beingzero.framework.Data.sandeep;
 
 public interface DataManager {
 

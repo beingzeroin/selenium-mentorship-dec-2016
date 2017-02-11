@@ -3,27 +3,30 @@ package in.beingzero.framework.POM.Prudhvi;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import in.beingzero.framework.config.Prudhvi.BrowserManager;
 
-public class DashBoardPage
+public class DashBoardPage extends BasePage
 {
 	By welcomeLabel=By.id("welcome");
 	By logOutButton=By.xpath(".//*[@id='welcome-menu']/ul/li[2]/a");
-	WebDriver driver;
+	By PIMLink=By.id("menu_pim_viewPimModule");
+	By AddEmployeeLink=By.id("menu_pim_addEmployee");
+	//WebDriver driver;
 	
 	public DashBoardPage()
 	{
-		BrowserManager objBM=new BrowserManager();
-		driver=objBM.launchBrowser();
+		//BrowserManager objBM=new BrowserManager();
+		//driver=objBM.launchBrowser();
 	}
 	
 	
-
-	
 	public DashBoardPage(WebDriver driver) 
 	{
-		this.driver=driver;
+		
+		//this.driver=driver;
+		super(driver);
 	}
 
 	public LoginPage logOutAction()
@@ -55,6 +58,18 @@ public class DashBoardPage
 			
 		
 		return strLabelMessage;
+	}
+	
+	public AddEmployeePage navigateToAddEmployeePage()
+	{
+	
+			WebElement PIM=driver.findElement(PIMLink);
+			Actions objAction=new Actions(driver);
+			objAction.moveToElement(PIM).build().perform();
+			driver.findElement(AddEmployeeLink).click();
+			return new AddEmployeePage(driver);
+		
+	
 	}
 	
 }
