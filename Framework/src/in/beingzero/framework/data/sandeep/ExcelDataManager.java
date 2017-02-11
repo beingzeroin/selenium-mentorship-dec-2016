@@ -11,7 +11,19 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFTable;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class ExcelDataManager implements DataManager{
+// *.xls  2010 and back
+// *.xlsx 2013
+// CTRL + SHIFT + O : FIX IMPORTS
+public class ExcelDataManager extends DataManager{
+	
+	String fp, ws, tb;
+	
+	public ExcelDataManager(String filePath, String worksheetName, String tbName)
+	{
+		fp=filePath;
+		ws = worksheetName;
+		tb = tbName;
+	}
 
 	public Object[][] getData(String filePath, String worksheetName, String tableName, boolean hasHeader) {
 		XSSFWorkbook workbook = null;
@@ -20,6 +32,7 @@ public class ExcelDataManager implements DataManager{
 			workbook = new XSSFWorkbook(new File(filePath));
 			sheet = workbook.getSheet(worksheetName);
 			List<XSSFTable> tables = sheet.getTables();
+
 			for (XSSFTable t : tables) {
 				if (t.getDisplayName().equals(tableName) || t.getName().equals(tableName)) {
 
@@ -95,15 +108,15 @@ public class ExcelDataManager implements DataManager{
 		}
 		return null;
 	}
-	
-	@Override
+
 	public Object[][] getData(String filePath, String sheetName, String tableName) {
 		
 		return getData(filePath, sheetName, tableName, true);
 		
 	}
+
+
 	
-	@Override
 	public Object[][] getData(String filePath, String tableName) {
 		XSSFWorkbook workbook = null;
 		XSSFSheet sheet = null;
@@ -122,5 +135,10 @@ public class ExcelDataManager implements DataManager{
 			
 		return getData(filePath, sheet.getSheetName(), tableName, true);
 		
+	}
+
+	@Override
+	public Object[][] getData() {
+		return getData(fp, ws, tb);
 	}
 }

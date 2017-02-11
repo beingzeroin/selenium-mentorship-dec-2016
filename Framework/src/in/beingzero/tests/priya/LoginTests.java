@@ -14,7 +14,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import in.beingzero.framework.config.priya.readFramworkConfigFile;
-import junit.framework.Assert;
 
 
 public class LoginTests {

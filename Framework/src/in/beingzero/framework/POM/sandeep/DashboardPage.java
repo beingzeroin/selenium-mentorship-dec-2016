@@ -2,6 +2,7 @@ package in.beingzero.framework.POM.sandeep;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class DashboardPage extends BasePage{
@@ -16,7 +17,7 @@ public class DashboardPage extends BasePage{
 	
 	
 	public LoginPage logout(){
-		driver.findElement(By.id("logoutLink")).click();
+		//click(By.id("logoutLink"));
 		return new LoginPage(driver);
 	}
 

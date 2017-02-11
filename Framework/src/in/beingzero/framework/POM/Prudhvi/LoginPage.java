@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import in.beingzero.framework.config.Prudhvi.BrowserManager;
-import in.beingzero.framework.config.Prudhvi.ConfigManager;
 
 public class LoginPage {
 	

@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 
 import in.beingzero.framework.POM.Priya.DashBoardPageOHRM;
 import in.beingzero.framework.POM.Priya.LoginPageOHRM;
+import in.beingzero.framework.config.swetha.LoginPage;
 
 public class LoginTestPOM {
 	
@@ -27,12 +28,5 @@ public class LoginTestPOM {
 		System.out.println("valid user logged In");
 	}
 	
-	@Test
-	public void verifyLogout()
-	{
-		DashBoardPageOHRM dp1 = new DashBoardPageOHRM();
-		dp1.logout();
-		System.out.println("User logged Out");
 	
-	}
 }

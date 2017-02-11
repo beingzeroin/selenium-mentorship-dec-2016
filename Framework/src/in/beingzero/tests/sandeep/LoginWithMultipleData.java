@@ -33,7 +33,7 @@ public class LoginWithMultipleData {
 	@Test
 	public void addMultipleEmployees()
 	{
-		ExcelDataManager edm = new ExcelDataManager();
+		ExcelDataManager edm = new ExcelDataManager("testdata/OrangeHRM-TestData.xlsx", "AuthTests", "RightLoginTestData");
 		
 		/*
 		 * ConfigWay of getting data file path
@@ -43,7 +43,7 @@ public class LoginWithMultipleData {
 		
 		*/
 		
-		Object[][] empData = edm.getData("testdata/OrangeHRM-TestData.xlsx" , "AuthTests", "RightLoginTestData");
+		Object[][] empData = edm.getData();
 		
 		// empData.length ---- Gives us row count
 		for(int i=0;i<empData.length;i++)
@@ -76,11 +76,8 @@ public class LoginWithMultipleData {
 	public Object[][] loginTestData() {
 		Object[][] tableToReturn;
 		
-		DataManager edm = new ExcelDataManager();
-		
-		//  edm.getExcelData("C:/orangeHRM/testdata/OrangeHRM-TestData.xlsx", "AuthTests", "RightLoginTestData");
-		//  edm.getExcelData("C:\\orangeHRM\\testdata\\OrangeHRM-TestData.xlsx", "AuthTests", "RightLoginTestData");
-		tableToReturn = edm.getData("testdata/OrangeHRM-TestData.xlsx" , "AuthTests", "RightLoginTestData");
+		DataManager edm = new ExcelDataManager("testdata/OrangeHRM-TestData.xlsx", "AuthTests", "RightLoginTestData");
+		tableToReturn = edm.getData();
 		
 		// A new overload in case excel has only one sheet
 		// tableToReturn = edm.getExcelData("filePath" , "tableName");

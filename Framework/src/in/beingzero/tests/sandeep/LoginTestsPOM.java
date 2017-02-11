@@ -3,9 +3,7 @@ package in.beingzero.tests.sandeep;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import in.beingzero.framework.POM.sandeep.BasePage;
 import in.beingzero.framework.POM.sandeep.DashboardPage;
-import in.beingzero.framework.POM.sandeep.EmployeePage;
 import in.beingzero.framework.POM.sandeep.LoginPage;
 
 public class LoginTestsPOM {
@@ -22,6 +20,10 @@ public class LoginTestsPOM {
 	public void loginAdminTest()
 	{
 		DashboardPage dp = loginPage.validLogin("admin", "admin");
+		//dp.refresh();
+		
+		dp.navigate().goToDirectoryPage();
+		
 		
 		// Verification
 		String welcomeText = dp.getWelcomeText();

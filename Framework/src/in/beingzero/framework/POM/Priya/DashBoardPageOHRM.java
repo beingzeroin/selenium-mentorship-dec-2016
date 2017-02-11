@@ -33,8 +33,8 @@ public class DashBoardPageOHRM extends BasePage{
 	public LoginPageOHRM logout()
 	{
 		driver.findElement(By.id("welcome")).click();
-		WebDriverWait wait = new WebDriverWait(driver, 2); 
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='welcome-menu']/ul/li[2]/a")));
+		WebDriverWait wait = new WebDriverWait(driver, 10); 
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='welcome-menu']/ul/li[2]/a")));
 		driver.findElement(By.xpath("//*[@id='welcome-menu']/ul/li[2]/a")).click();
 		return new LoginPageOHRM(driver);
 	}
