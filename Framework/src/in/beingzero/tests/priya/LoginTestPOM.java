@@ -4,7 +4,6 @@ import org.testng.annotations.Test;
 
 import in.beingzero.framework.POM.Priya.DashBoardPageOHRM;
 import in.beingzero.framework.POM.Priya.LoginPageOHRM;
-import in.beingzero.framework.config.swetha.LoginPage;
 
 public class LoginTestPOM {
 	

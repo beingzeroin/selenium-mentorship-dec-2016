@@ -1,9 +1,6 @@
 package in.beingzero.framework.POM.Prudhvi;
 
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 import in.beingzero.framework.config.Prudhvi.BrowserManager;
 

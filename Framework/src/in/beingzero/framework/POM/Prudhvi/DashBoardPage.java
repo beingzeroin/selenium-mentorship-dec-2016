@@ -5,8 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-import in.beingzero.framework.config.Prudhvi.BrowserManager;
-
 public class DashBoardPage extends BasePage
 {
 	By welcomeLabel=By.id("welcome");

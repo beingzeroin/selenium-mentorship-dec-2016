@@ -3,8 +3,6 @@ package in.beingzero.framework.POM.Prudhvi;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import in.beingzero.framework.config.Prudhvi.BrowserManager;
-
 public class LoginPage extends BasePage {
 	
 	By userNameLocator=By.id("txtUsername");

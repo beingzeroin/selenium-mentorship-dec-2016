@@ -1,4 +1,4 @@
-package in.beingzero.framework.Data.Prudhvi;
+package in.beingzero.framework.data.Prudhvi;
 
 public interface IDataManager {
 
