@@ -21,12 +21,13 @@ public class DashBoardPageOHRM extends BasePage{
 		super(driver);
 	}
 	
-	public void validateValidUser(String UName,String Pwd)
+	public AddEmployeePage validateValidUser(String UName,String Pwd)
 	{
 		Actualtxt = driver.findElement(By.id("welcome"));
 		String Actuallogger = Actualtxt.getText();
 		System.out.println("Actual Text: "+Actuallogger );
 		//Assert.assertTrue(Actuallogger.toLowerCase().contains(Expectedlogger));
+		return new AddEmployeePage(driver);
 	}
 	
 	public LoginPageOHRM logout()
