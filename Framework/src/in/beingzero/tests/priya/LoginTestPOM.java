@@ -7,6 +7,7 @@ import in.beingzero.framework.POM.Priya.DashBoardPageOHRM;
 import in.beingzero.framework.POM.Priya.LoginPageOHRM;
 import in.beingzero.framework.POM.Priya.PersonalDetails;
 import in.beingzero.framework.data.priya.AddEmpData;
+import in.beingzero.framework.data.priya.AddEmpMulDataExcel;
 
 public class LoginTestPOM {
 	
@@ -42,5 +43,12 @@ public class LoginTestPOM {
 	}*/
 	
 	
-	
+	@Test(dataProvider = "loginTestData",dataProviderClass = AddEmpMulDataExcel.class) 
+	public void addEmployeeTest(String firstname,String middlename,String lastname)
+	{
+		System.out.println(firstname+middlename+lastname);
+		PersonalDetails vfemp = AddEmpObj.addEmployeeDt(firstname,middlename,lastname);
+		vfemp.verifynewAddedEmp();
+		System.out.println("checking how many times this called");
+	}
 }
