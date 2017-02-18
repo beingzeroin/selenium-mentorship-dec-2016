@@ -2,11 +2,11 @@ package in.beingzero.tests.priya;
 
 import org.testng.annotations.Test;
 
-import in.beingzero.framework.POM.Priya.AddEmpData;
 import in.beingzero.framework.POM.Priya.AddEmployeePage;
 import in.beingzero.framework.POM.Priya.DashBoardPageOHRM;
 import in.beingzero.framework.POM.Priya.LoginPageOHRM;
 import in.beingzero.framework.POM.Priya.PersonalDetails;
+import in.beingzero.framework.data.priya.AddEmpData;
 
 public class LoginTestPOM {
 	
@@ -32,11 +32,15 @@ public class LoginTestPOM {
 		System.out.println("valid user logged In");
 	}
 	
-	@Test(dataProvider = "addempdata",dataProviderClass = AddEmpData.class) 
+	//Processing of hard coded emp data 
+	/*@Test(dataProvider = "addempdata",dataProviderClass = AddEmpData.class) 
 	public void addEmployeeTest(String firstname,String middlename,String lastname)
 	{
 		PersonalDetails vfemp = AddEmpObj.addEmployeeDt(firstname,middlename,lastname);
 		vfemp.verifynewAddedEmp();
 		System.out.println("checking how many times this called");
-	}
+	}*/
+	
+	
+	
 }

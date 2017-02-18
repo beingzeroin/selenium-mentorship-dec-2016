@@ -1,4 +1,4 @@
-package in.beingzero.framework.POM.Priya;
+package in.beingzero.framework.data.priya;
 
 import org.testng.annotations.DataProvider;
 
