@@ -9,7 +9,7 @@ public class AddEmployeePage extends BasePage{
 	String afirstname;
 	String amiddlename;
 	String alastname; 
-	String empIdValue ;
+	String aempIdValue ;
 
 	public AddEmployeePage()
 	{
@@ -27,7 +27,7 @@ public class AddEmployeePage extends BasePage{
 		this.alastname = alastname;
 	}*/
 	 
-	public PersonalDetails addEmployeeDt(String afirstname,String amiddlename,String alastname)
+	public PersonalDetails addEmployeeDt(String afirstname,String amiddlename,String alastname, String aempIdValue)
 	{
 			System.out.println(afirstname+amiddlename+alastname);
 			WebElement pim = driver.findElement(By.id("menu_pim_viewPimModule"));
@@ -65,14 +65,14 @@ public class AddEmployeePage extends BasePage{
 		
 			//11.  Print Employee ID (which is auto generated field)
 			WebElement empid = driver.findElement(By.id("employeeId"));
-			empIdValue = empid.getAttribute("value");
-			System.out.println("EMP ID :" + empIdValue);
+			aempIdValue = empid.getAttribute("value");
+			System.out.println("EMP ID :" + aempIdValue);
 		
 			//15.  Click Save
 			WebElement savebtn = driver.findElement(By.id("btnSave"));
 			savebtn.click();
 			
-			return new PersonalDetails(afirstname,amiddlename,alastname,empIdValue);
+			return new PersonalDetails(driver);
 			
 		}
 

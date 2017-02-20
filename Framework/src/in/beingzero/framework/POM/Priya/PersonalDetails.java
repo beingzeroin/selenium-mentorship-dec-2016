@@ -9,7 +9,7 @@ public class PersonalDetails extends BasePage{
 	String afirstname;
 	String amiddlename;
 	String alastname;
-	String empIdValue;
+	String aempIdValue;
 
 	public PersonalDetails()
 	{
@@ -21,14 +21,14 @@ public class PersonalDetails extends BasePage{
 		super(driver);
 	}
 	
-	public PersonalDetails(String afirstname, String amiddlename, String alastname,String empIdValue) {
+	/*public PersonalDetails(String afirstname, String amiddlename, String alastname,String empIdValue) {
 		this.afirstname = afirstname;
 		this.amiddlename = amiddlename;
 		this.alastname = alastname;
 		this.empIdValue = empIdValue;
-	}
+	}*/
 
-	public void verifynewAddedEmp()
+	public void verifynewAddedEmp(String afirstname, String amiddlename, String alastname,String aempIdValue)
 	{
 		// 16. Verify Employee Details are correct -
 		// Validate FirstName, Middle Name, LAst Name and Employee ID
@@ -72,7 +72,7 @@ public class PersonalDetails extends BasePage{
 		WebElement valempid = driver.findElement(By.id("personal_txtEmployeeId"));
 		String valempidvalue = valempid.getAttribute("value");
 		System.out.println("Val EmpID :" + valempidvalue);
-		if(valempidvalue.equals(empIdValue))
+		if(valempidvalue.equals(aempIdValue))
 		{
 			System.out.println("EmpID validated");
 		}

@@ -82,6 +82,10 @@ public class AddMultEmpExcel implements IExcelDataManager{
 									break;
 								}
 							}
+							else
+							{
+								data[r][c]="";
+							}
 							System.out.print(data[r][c] + "\t");
 						}
 						System.out.println();
