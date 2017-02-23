@@ -13,7 +13,7 @@ implicitTimeoutInSeconds=30
 userEmail=priyataran@gmail.com
 
 #Password
-pwd=taran2014
+pwd=password
 
 #Webelement to locate Email
 UsrEmail =Email
