@@ -21,5 +21,6 @@ public class MentorPickTest {
 	public void MentorPickMulTest()
 	{
 		MentorPickDashBoardPage dp = loginObj.validLogin();
+		dp.VerifyLockUnlockCourse();
 	}
 }
