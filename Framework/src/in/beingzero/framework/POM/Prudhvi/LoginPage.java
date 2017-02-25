@@ -1,3 +1,4 @@
+
 package in.beingzero.framework.POM.Prudhvi;
 
 import org.openqa.selenium.By;
@@ -8,6 +9,7 @@ public class LoginPage extends BasePage {
 	By userNameLocator=By.id("txtUsername");
 	By passwordLocator=By.id("txtPassword");
 	By LoginButton=By.id("btnLogin");
+	By warningMessageSpan=By.id("spanMessage");
 	
 	//Test wants to launch browser
 	public LoginPage()
@@ -44,4 +46,17 @@ public class LoginPage extends BasePage {
 		return new DashBoardPage(driver);
 	}
 	
+	public  String InvalidLogin(String strUserName, String strPassword) {
+		
+		driver.findElement(userNameLocator).sendKeys(strUserName);
+		driver.findElement(passwordLocator).sendKeys(strPassword);
+		driver.findElement(LoginButton).click();
+		String strWarning =driver.findElement(warningMessageSpan).getText();
+		driver.close();
+		return strWarning;
+	}
+	
+	
+	
 }
+
