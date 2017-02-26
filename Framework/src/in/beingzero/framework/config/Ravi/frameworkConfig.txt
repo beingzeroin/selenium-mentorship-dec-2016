@@ -1,7 +1,7 @@
 # ie, chrome, firefox
 browser=chrome
 
-url=http://ohrm.com
+url=http://opensource.demo.orangehrmlive.com/
 
 # true or false
 runFullScreen=true
