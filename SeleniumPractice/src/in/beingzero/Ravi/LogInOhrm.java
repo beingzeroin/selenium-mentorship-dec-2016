@@ -64,9 +64,9 @@ public class LogInOhrm {
 	public static void main(String[] args) {
 		//TODO:  RAVI.  This is a Compilation error, Class has been removed.  FIX IT.
 		LogInOhrm login = new LogInOhrm();
-		login.vUserAndVpwd();
-		login.invUserAndVpwd();
-		login.blankUserVpwd();
+		//login.vUserAndVpwd();
+		//login.invUserAndVpwd();
+		//login.blankUserVpwd();
 		login.vUserBlankPwd();
 		}
 
