@@ -84,6 +84,9 @@ public class ExcelDataManager extends DataManager{
 									break;
 								}
 							}
+							else{
+								data[r][c] ="";// We want to replace nulls with blank string
+							}
 							System.out.print(data[r][c] + "\t");
 						}
 						System.out.println();

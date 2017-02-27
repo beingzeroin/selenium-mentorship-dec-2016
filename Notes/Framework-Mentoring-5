@@ -1,0 +1,51 @@
+1.  Add Employee Test.
+2.  Data Manager.
+
+Priya - Dashboard page returning Test <<
+
+class LoginTestCases
+{
+    @Test(DataProvider="dpMethod")
+    public void loginTest(String un, String pw)
+    {
+        
+    }
+
+    @DataProvider
+    public Object[][] dpMethod()
+    {
+        DataManager dm = new ExcelDataManager();
+        Object[][] data = dm.getData("path", "sheetName", "tableName");
+        return data;
+    }
+}
+
+
+BasePage
+ - LoginPage
+ - DashboardPage
+
+
+Test Cases needs a page to be refreshed.
+
+PageFactory
+
+AdminPage ap ;
+
+DashboardPage dp = ap.goToDashboardPage();
+dp.goToPIMPage();
+
+void GoBack()
+void GoForward()
+
+
+
+IS-A Relationship  [[ SUPER - SUB]]
+HAS-A Relationship [[ Containment]]
+
+Design Pattern - 
+
+Given A Problem
+How to design classes and relationship between them.
+
+

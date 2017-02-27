@@ -13,12 +13,13 @@ public class AddEmpMulDataExcel {
 		String LastName ;
 		
 		IExcelDataManager edm = new AddMultEmpExcel("testdata/OHRMTestData-Priya.xlsx", "OHRM-New-Emp-Data", "NewEmpData");
-		tableToReturn = edm.getData();
+		return edm.getData();
 		
 		// A new overload in case excel has only one sheet
 		//tableToReturn = edm.getExcelData("filePath" , "tableName");
 		
 		// tableToReturn.length ---- Gives us row count
+		/*
 		for(int i=0;i<tableToReturn.length;i++)
 		{
 			//tableToReturn[0].length ---- Col count in 0th row
@@ -40,7 +41,7 @@ public class AddEmpMulDataExcel {
 				else 
 					LastName = tableToReturn[i][1].toString();
 		}
-		return tableToReturn;
+		*/
 		
 	}
 

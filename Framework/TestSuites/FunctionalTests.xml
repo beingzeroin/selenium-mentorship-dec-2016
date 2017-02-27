@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="OrangeHRM Functional Suite">
+  <test verbose="2" name="Emp Tests">
+  	<parameter name="browserType" value="chrome"></parameter>
+    <classes>
+      <class name="in.beingzero.tests.sandeep.JobVacanciesTest"/>
+      <class name="in.beingzero.tests.sandeep.MultiEmpTest"/>
+    </classes>
+  </test> <!-- Default test -->
+   <test verbose="2" name="Job Vacancies Test">
+    <classes>
+      <class name="in.beingzero.tests.sandeep.JobVacanciesTest"/>
+      <class name="in.beingzero.tests.sandeep.MultiEmpTest"/>
+    </classes>
+  </test> <!-- Default test -->
+   <test verbose="2" name="Site Admin Tests">
+    <classes>
+      <class name="in.beingzero.tests.sandeep.JobVacanciesTest"/>
+      <class name="in.beingzero.tests.sandeep.MultiEmpTest"/>
+    </classes>
+  </test> <!-- Default test -->
+</suite> <!-- Default suite -->

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="Being Zero HackerRank" basedir=".">
+    
+  <property name="libs" value="${basedir}\libs"/>
+  <property name="src" value="${basedir}\src"/>
+  <property name="dest" value="${basedir}\dest"/>
+	
+  <target name="clean">
+	<echo message="Deleting Previously Built Files" />
+    <delete dir="${dest}" />
+    <echo message="Creating Directory for Fresh Build" />
+    <mkdir dir="${dest}" />
+  	<path id="classpath_jars">
+  		<pathelement path="${basedir}/"/>
+  	      <!-- Jar added here -->
+  	      <fileset dir="${libs}" includes="*.jar"/>
+  	    </path>
+    <pathconvert pathsep=";" property="test.classpath" refid="classpath_jars"/>
+    <taskdef resource="testngtasks" classpath="${test.classpath}"/>
+  </target>
+
+  <target name="compileAndRun" depends="clean">
+    <echo message="Start Compiling Source with Libs" />
+    <javac destdir="${dest}" srcdir="${src}">
+        <classpath refid="classpath_jars"/>
+    </javac>
+  	<testng classpath="${test.classpath};${dest}">
+      <xmlfileset dir="${basedir}\TestSuites" includes="FunctionalTests.xml"/>
+  	</testng>
+  </target>
+    
+</project>

@@ -1,0 +1,1677 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>HTML Layout Example</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Feb 18 19:35:55 IST 2017<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>File:Line</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.client.protocol.RequestAddCookies category">org.apache.http.client.protocol.RequestAddCookies</td>
+<td>RequestAddCookies.java:122</td>
+<td title="Message">CookieSpec selected: default</td>
+</tr>
+
+<tr>
+<td>10</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.client.protocol.RequestAuthCache category">org.apache.http.client.protocol.RequestAuthCache</td>
+<td>RequestAuthCache.java:76</td>
+<td title="Message">Auth cache not set in the context</td>
+</tr>
+
+<tr>
+<td>11</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.conn.PoolingHttpClientConnectionManager category">org.apache.http.impl.conn.PoolingHttpClientConnectionManager</td>
+<td>PoolingHttpClientConnectionManager.java:249</td>
+<td title="Message">Connection request: [route: {}-&gt;http://localhost:47499][total kept alive: 0; route allocated: 0 of 2000; total allocated: 0 of 2000]</td>
+</tr>
+
+<tr>
+<td>20</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.conn.PoolingHttpClientConnectionManager category">org.apache.http.impl.conn.PoolingHttpClientConnectionManager</td>
+<td>PoolingHttpClientConnectionManager.java:282</td>
+<td title="Message">Connection leased: [id: 0][route: {}-&gt;http://localhost:47499][total kept alive: 0; route allocated: 1 of 2000; total allocated: 1 of 2000]</td>
+</tr>
+
+<tr>
+<td>21</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.execchain.MainClientExec category">org.apache.http.impl.execchain.MainClientExec</td>
+<td>MainClientExec.java:234</td>
+<td title="Message">Opening connection {}-&gt;http://localhost:47499</td>
+</tr>
+
+<tr>
+<td>23</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.conn.DefaultHttpClientConnectionOperator category">org.apache.http.impl.conn.DefaultHttpClientConnectionOperator</td>
+<td>DefaultHttpClientConnectionOperator.java:138</td>
+<td title="Message">Connecting to localhost/127.0.0.1:47499</td>
+</tr>
+
+<tr>
+<td>24</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.conn.DefaultHttpClientConnectionOperator category">org.apache.http.impl.conn.DefaultHttpClientConnectionOperator</td>
+<td>DefaultHttpClientConnectionOperator.java:145</td>
+<td title="Message">Connection established 127.0.0.1:62186&lt;-&gt;127.0.0.1:47499</td>
+</tr>
+
+<tr>
+<td>25</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.conn.DefaultManagedHttpClientConnection category">org.apache.http.impl.conn.DefaultManagedHttpClientConnection</td>
+<td>LoggingManagedHttpClientConnection.java:90</td>
+<td title="Message">http-outgoing-0: set socket timeout to 10800000</td>
+</tr>
+
+<tr>
+<td>25</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.execchain.MainClientExec category">org.apache.http.impl.execchain.MainClientExec</td>
+<td>MainClientExec.java:255</td>
+<td title="Message">Executing request POST /session HTTP/1.1</td>
+</tr>
+
+<tr>
+<td>25</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.execchain.MainClientExec category">org.apache.http.impl.execchain.MainClientExec</td>
+<td>MainClientExec.java:260</td>
+<td title="Message">Target auth state: UNCHALLENGED</td>
+</tr>
+
+<tr>
+<td>26</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.execchain.MainClientExec category">org.apache.http.impl.execchain.MainClientExec</td>
+<td>MainClientExec.java:266</td>
+<td title="Message">Proxy auth state: UNCHALLENGED</td>
+</tr>
+
+<tr>
+<td>28</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:135</td>
+<td title="Message">http-outgoing-0 &gt;&gt; POST /session HTTP/1.1</td>
+</tr>
+
+<tr>
+<td>28</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:138</td>
+<td title="Message">http-outgoing-0 &gt;&gt; Content-Type: application/json; charset=utf-8</td>
+</tr>
+
+<tr>
+<td>29</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:138</td>
+<td title="Message">http-outgoing-0 &gt;&gt; Content-Length: 435</td>
+</tr>
+
+<tr>
+<td>29</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:138</td>
+<td title="Message">http-outgoing-0 &gt;&gt; Host: localhost:47499</td>
+</tr>
+
+<tr>
+<td>29</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:138</td>
+<td title="Message">http-outgoing-0 &gt;&gt; Connection: Keep-Alive</td>
+</tr>
+
+<tr>
+<td>30</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:138</td>
+<td title="Message">http-outgoing-0 &gt;&gt; User-Agent: Apache-HttpClient/4.5.2 (Java/1.8.0_111)</td>
+</tr>
+
+<tr>
+<td>31</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:138</td>
+<td title="Message">http-outgoing-0 &gt;&gt; Accept-Encoding: gzip,deflate</td>
+</tr>
+
+<tr>
+<td>31</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-0 &gt;&gt; &quot;POST /session HTTP/1.1[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>31</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-0 &gt;&gt; &quot;Content-Type: application/json; charset=utf-8[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>32</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-0 &gt;&gt; &quot;Content-Length: 435[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>32</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-0 &gt;&gt; &quot;Host: localhost:47499[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>32</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-0 &gt;&gt; &quot;Connection: Keep-Alive[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>32</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-0 &gt;&gt; &quot;User-Agent: Apache-HttpClient/4.5.2 (Java/1.8.0_111)[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>32</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-0 &gt;&gt; &quot;Accept-Encoding: gzip,deflate[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>33</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-0 &gt;&gt; &quot;[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>33</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:86</td>
+<td title="Message">http-outgoing-0 &gt;&gt; &quot;{&quot;capabilities&quot;: {&quot;desiredCapabilities&quot;: {&quot;marionette&quot;:true,&quot;firefoxOptions&quot;:{&quot;prefs&quot;:{},&quot;args&quot;:[]},&quot;browserName&quot;:&quot;firefox&quot;,&quot;moz:firefoxOptions&quot;:{&quot;prefs&quot;:{},&quot;args&quot;:[]},&quot;version&quot;:&quot;&quot;,&quot;platform&quot;:&quot;ANY&quot;},&quot;requiredCapabilities&quot;: {}},&quot;desiredCapabilities&quot;: {&quot;marionette&quot;:true,&quot;firefoxOptions&quot;:{&quot;prefs&quot;:{},&quot;args&quot;:[]},&quot;browserName&quot;:&quot;firefox&quot;,&quot;moz:firefoxOptions&quot;:{&quot;prefs&quot;:{},&quot;args&quot;:[]},&quot;version&quot;:&quot;&quot;,&quot;platform&quot;:&quot;ANY&quot;},&quot;requiredCapabilities&quot;: {}}&quot;</td>
+</tr>
+
+<tr>
+<td>2195</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-0 &lt;&lt; &quot;HTTP/1.1 200 OK[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>2196</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-0 &lt;&lt; &quot;Connection: close[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>2196</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-0 &lt;&lt; &quot;Content-Type: application/json[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>2196</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-0 &lt;&lt; &quot;Content-Length: 535[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>2197</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-0 &lt;&lt; &quot;Date: Sat, 18 Feb 2017 14:05:57 GMT[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>2197</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-0 &lt;&lt; &quot;[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>2197</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:86</td>
+<td title="Message">http-outgoing-0 &lt;&lt; &quot;{&quot;sessionId&quot;:&quot;fa987dfe-849f-0e4f-a147-eaecc0f43198&quot;,&quot;value&quot;:{&quot;XULappId&quot;:&quot;{ec8030f7-c20a-464f-9b0e-13a3a9e97384}&quot;,&quot;acceptSslCerts&quot;:false,&quot;appBuildId&quot;:&quot;20170125094131&quot;,&quot;browserName&quot;:&quot;firefox&quot;,&quot;browserVersion&quot;:&quot;51.0.1&quot;,&quot;command_id&quot;:1,&quot;firefoxOptions&quot;:{&quot;args&quot;:[],&quot;prefs&quot;:{}},&quot;marionette&quot;:true,&quot;platform&quot;:&quot;DARWIN&quot;,&quot;platformName&quot;:&quot;darwin&quot;,&quot;platformVersion&quot;:&quot;16.4.0&quot;,&quot;processId&quot;:19364,&quot;proxy&quot;:{},&quot;raisesAccessibilityExceptions&quot;:false,&quot;rotatable&quot;:false,&quot;specificationLevel&quot;:0,&quot;takesElementScreenshot&quot;:true,&quot;takesScreenshot&quot;:true,&quot;version&quot;:&quot;&quot;}}&quot;</td>
+</tr>
+
+<tr>
+<td>2199</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:124</td>
+<td title="Message">http-outgoing-0 &lt;&lt; HTTP/1.1 200 OK</td>
+</tr>
+
+<tr>
+<td>2200</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:127</td>
+<td title="Message">http-outgoing-0 &lt;&lt; Connection: close</td>
+</tr>
+
+<tr>
+<td>2200</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:127</td>
+<td title="Message">http-outgoing-0 &lt;&lt; Content-Type: application/json</td>
+</tr>
+
+<tr>
+<td>2200</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:127</td>
+<td title="Message">http-outgoing-0 &lt;&lt; Content-Length: 535</td>
+</tr>
+
+<tr>
+<td>2200</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:127</td>
+<td title="Message">http-outgoing-0 &lt;&lt; Date: Sat, 18 Feb 2017 14:05:57 GMT</td>
+</tr>
+
+<tr>
+<td>2207</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.conn.DefaultManagedHttpClientConnection category">org.apache.http.impl.conn.DefaultManagedHttpClientConnection</td>
+<td>LoggingManagedHttpClientConnection.java:81</td>
+<td title="Message">http-outgoing-0: Close connection</td>
+</tr>
+
+<tr>
+<td>2208</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.execchain.MainClientExec category">org.apache.http.impl.execchain.MainClientExec</td>
+<td>ConnectionHolder.java:103</td>
+<td title="Message">Connection discarded</td>
+</tr>
+
+<tr>
+<td>2209</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.conn.PoolingHttpClientConnectionManager category">org.apache.http.impl.conn.PoolingHttpClientConnectionManager</td>
+<td>PoolingHttpClientConnectionManager.java:320</td>
+<td title="Message">Connection released: [id: 0][route: {}-&gt;http://localhost:47499][total kept alive: 0; route allocated: 0 of 2000; total allocated: 0 of 2000]</td>
+</tr>
+
+<tr>
+<td>2226</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.client.protocol.RequestAddCookies category">org.apache.http.client.protocol.RequestAddCookies</td>
+<td>RequestAddCookies.java:122</td>
+<td title="Message">CookieSpec selected: default</td>
+</tr>
+
+<tr>
+<td>2226</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.client.protocol.RequestAuthCache category">org.apache.http.client.protocol.RequestAuthCache</td>
+<td>RequestAuthCache.java:76</td>
+<td title="Message">Auth cache not set in the context</td>
+</tr>
+
+<tr>
+<td>2226</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.conn.PoolingHttpClientConnectionManager category">org.apache.http.impl.conn.PoolingHttpClientConnectionManager</td>
+<td>PoolingHttpClientConnectionManager.java:249</td>
+<td title="Message">Connection request: [route: {}-&gt;http://localhost:47499][total kept alive: 0; route allocated: 0 of 2000; total allocated: 0 of 2000]</td>
+</tr>
+
+<tr>
+<td>2227</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.conn.PoolingHttpClientConnectionManager category">org.apache.http.impl.conn.PoolingHttpClientConnectionManager</td>
+<td>PoolingHttpClientConnectionManager.java:282</td>
+<td title="Message">Connection leased: [id: 1][route: {}-&gt;http://localhost:47499][total kept alive: 0; route allocated: 1 of 2000; total allocated: 1 of 2000]</td>
+</tr>
+
+<tr>
+<td>2227</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.execchain.MainClientExec category">org.apache.http.impl.execchain.MainClientExec</td>
+<td>MainClientExec.java:234</td>
+<td title="Message">Opening connection {}-&gt;http://localhost:47499</td>
+</tr>
+
+<tr>
+<td>2227</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.conn.DefaultHttpClientConnectionOperator category">org.apache.http.impl.conn.DefaultHttpClientConnectionOperator</td>
+<td>DefaultHttpClientConnectionOperator.java:138</td>
+<td title="Message">Connecting to localhost/127.0.0.1:47499</td>
+</tr>
+
+<tr>
+<td>2228</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.conn.DefaultHttpClientConnectionOperator category">org.apache.http.impl.conn.DefaultHttpClientConnectionOperator</td>
+<td>DefaultHttpClientConnectionOperator.java:145</td>
+<td title="Message">Connection established 127.0.0.1:62201&lt;-&gt;127.0.0.1:47499</td>
+</tr>
+
+<tr>
+<td>2228</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.conn.DefaultManagedHttpClientConnection category">org.apache.http.impl.conn.DefaultManagedHttpClientConnection</td>
+<td>LoggingManagedHttpClientConnection.java:90</td>
+<td title="Message">http-outgoing-1: set socket timeout to 10800000</td>
+</tr>
+
+<tr>
+<td>2228</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.execchain.MainClientExec category">org.apache.http.impl.execchain.MainClientExec</td>
+<td>MainClientExec.java:255</td>
+<td title="Message">Executing request POST /session/fa987dfe-849f-0e4f-a147-eaecc0f43198/url HTTP/1.1</td>
+</tr>
+
+<tr>
+<td>2228</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.execchain.MainClientExec category">org.apache.http.impl.execchain.MainClientExec</td>
+<td>MainClientExec.java:260</td>
+<td title="Message">Target auth state: UNCHALLENGED</td>
+</tr>
+
+<tr>
+<td>2228</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.execchain.MainClientExec category">org.apache.http.impl.execchain.MainClientExec</td>
+<td>MainClientExec.java:266</td>
+<td title="Message">Proxy auth state: UNCHALLENGED</td>
+</tr>
+
+<tr>
+<td>2229</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:135</td>
+<td title="Message">http-outgoing-1 &gt;&gt; POST /session/fa987dfe-849f-0e4f-a147-eaecc0f43198/url HTTP/1.1</td>
+</tr>
+
+<tr>
+<td>2229</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:138</td>
+<td title="Message">http-outgoing-1 &gt;&gt; Content-Type: application/json; charset=utf-8</td>
+</tr>
+
+<tr>
+<td>2229</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:138</td>
+<td title="Message">http-outgoing-1 &gt;&gt; Content-Length: 27</td>
+</tr>
+
+<tr>
+<td>2229</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:138</td>
+<td title="Message">http-outgoing-1 &gt;&gt; Host: localhost:47499</td>
+</tr>
+
+<tr>
+<td>2230</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:138</td>
+<td title="Message">http-outgoing-1 &gt;&gt; Connection: Keep-Alive</td>
+</tr>
+
+<tr>
+<td>2230</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:138</td>
+<td title="Message">http-outgoing-1 &gt;&gt; User-Agent: Apache-HttpClient/4.5.2 (Java/1.8.0_111)</td>
+</tr>
+
+<tr>
+<td>2230</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:138</td>
+<td title="Message">http-outgoing-1 &gt;&gt; Accept-Encoding: gzip,deflate</td>
+</tr>
+
+<tr>
+<td>2230</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-1 &gt;&gt; &quot;POST /session/fa987dfe-849f-0e4f-a147-eaecc0f43198/url HTTP/1.1[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>2231</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-1 &gt;&gt; &quot;Content-Type: application/json; charset=utf-8[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>2231</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-1 &gt;&gt; &quot;Content-Length: 27[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>2231</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-1 &gt;&gt; &quot;Host: localhost:47499[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>2231</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-1 &gt;&gt; &quot;Connection: Keep-Alive[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>2231</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-1 &gt;&gt; &quot;User-Agent: Apache-HttpClient/4.5.2 (Java/1.8.0_111)[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>2232</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-1 &gt;&gt; &quot;Accept-Encoding: gzip,deflate[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>2232</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-1 &gt;&gt; &quot;[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>2232</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:86</td>
+<td title="Message">http-outgoing-1 &gt;&gt; &quot;{&quot;url&quot;:&quot;http://google.com&quot;}&quot;</td>
+</tr>
+
+<tr>
+<td>3936</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-1 &lt;&lt; &quot;HTTP/1.1 200 OK[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>3936</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-1 &lt;&lt; &quot;Connection: close[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>3937</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-1 &lt;&lt; &quot;Content-Type: application/json[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>3937</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-1 &lt;&lt; &quot;Content-Length: 2[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>3937</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-1 &lt;&lt; &quot;Date: Sat, 18 Feb 2017 14:05:59 GMT[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>3937</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-1 &lt;&lt; &quot;[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>3937</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:86</td>
+<td title="Message">http-outgoing-1 &lt;&lt; &quot;{}&quot;</td>
+</tr>
+
+<tr>
+<td>3938</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:124</td>
+<td title="Message">http-outgoing-1 &lt;&lt; HTTP/1.1 200 OK</td>
+</tr>
+
+<tr>
+<td>3938</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:127</td>
+<td title="Message">http-outgoing-1 &lt;&lt; Connection: close</td>
+</tr>
+
+<tr>
+<td>3938</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:127</td>
+<td title="Message">http-outgoing-1 &lt;&lt; Content-Type: application/json</td>
+</tr>
+
+<tr>
+<td>3938</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:127</td>
+<td title="Message">http-outgoing-1 &lt;&lt; Content-Length: 2</td>
+</tr>
+
+<tr>
+<td>3938</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:127</td>
+<td title="Message">http-outgoing-1 &lt;&lt; Date: Sat, 18 Feb 2017 14:05:59 GMT</td>
+</tr>
+
+<tr>
+<td>3939</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.conn.DefaultManagedHttpClientConnection category">org.apache.http.impl.conn.DefaultManagedHttpClientConnection</td>
+<td>LoggingManagedHttpClientConnection.java:81</td>
+<td title="Message">http-outgoing-1: Close connection</td>
+</tr>
+
+<tr>
+<td>3939</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.execchain.MainClientExec category">org.apache.http.impl.execchain.MainClientExec</td>
+<td>ConnectionHolder.java:103</td>
+<td title="Message">Connection discarded</td>
+</tr>
+
+<tr>
+<td>3940</td>
+<td title="Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote thread">Forwarding get on session fa987dfe-849f-0e4f-a147-eaecc0f43198 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.conn.PoolingHttpClientConnectionManager category">org.apache.http.impl.conn.PoolingHttpClientConnectionManager</td>
+<td>PoolingHttpClientConnectionManager.java:320</td>
+<td title="Message">Connection released: [id: 1][route: {}-&gt;http://localhost:47499][total kept alive: 0; route allocated: 0 of 2000; total allocated: 0 of 2000]</td>
+</tr>
+
+<tr>
+<td>3941</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="in.beingzero.tests.sandeep.BrowserLaunch category">in.beingzero.tests.sandeep.BrowserLaunch</td>
+<td>BrowserLaunch.java:17</td>
+<td title="Message">This is an Info Message</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>HTML Layout Example</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Feb 18 19:38:40 IST 2017<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>File:Line</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.client.protocol.RequestAddCookies category">org.apache.http.client.protocol.RequestAddCookies</td>
+<td>RequestAddCookies.java:122</td>
+<td title="Message">CookieSpec selected: default</td>
+</tr>
+
+<tr>
+<td>10</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.client.protocol.RequestAuthCache category">org.apache.http.client.protocol.RequestAuthCache</td>
+<td>RequestAuthCache.java:76</td>
+<td title="Message">Auth cache not set in the context</td>
+</tr>
+
+<tr>
+<td>11</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.conn.PoolingHttpClientConnectionManager category">org.apache.http.impl.conn.PoolingHttpClientConnectionManager</td>
+<td>PoolingHttpClientConnectionManager.java:249</td>
+<td title="Message">Connection request: [route: {}-&gt;http://localhost:28447][total kept alive: 0; route allocated: 0 of 2000; total allocated: 0 of 2000]</td>
+</tr>
+
+<tr>
+<td>21</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.conn.PoolingHttpClientConnectionManager category">org.apache.http.impl.conn.PoolingHttpClientConnectionManager</td>
+<td>PoolingHttpClientConnectionManager.java:282</td>
+<td title="Message">Connection leased: [id: 0][route: {}-&gt;http://localhost:28447][total kept alive: 0; route allocated: 1 of 2000; total allocated: 1 of 2000]</td>
+</tr>
+
+<tr>
+<td>22</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.execchain.MainClientExec category">org.apache.http.impl.execchain.MainClientExec</td>
+<td>MainClientExec.java:234</td>
+<td title="Message">Opening connection {}-&gt;http://localhost:28447</td>
+</tr>
+
+<tr>
+<td>23</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.conn.DefaultHttpClientConnectionOperator category">org.apache.http.impl.conn.DefaultHttpClientConnectionOperator</td>
+<td>DefaultHttpClientConnectionOperator.java:138</td>
+<td title="Message">Connecting to localhost/127.0.0.1:28447</td>
+</tr>
+
+<tr>
+<td>25</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.conn.DefaultHttpClientConnectionOperator category">org.apache.http.impl.conn.DefaultHttpClientConnectionOperator</td>
+<td>DefaultHttpClientConnectionOperator.java:145</td>
+<td title="Message">Connection established 127.0.0.1:62592&lt;-&gt;127.0.0.1:28447</td>
+</tr>
+
+<tr>
+<td>25</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.conn.DefaultManagedHttpClientConnection category">org.apache.http.impl.conn.DefaultManagedHttpClientConnection</td>
+<td>LoggingManagedHttpClientConnection.java:90</td>
+<td title="Message">http-outgoing-0: set socket timeout to 10800000</td>
+</tr>
+
+<tr>
+<td>26</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.execchain.MainClientExec category">org.apache.http.impl.execchain.MainClientExec</td>
+<td>MainClientExec.java:255</td>
+<td title="Message">Executing request POST /session HTTP/1.1</td>
+</tr>
+
+<tr>
+<td>26</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.execchain.MainClientExec category">org.apache.http.impl.execchain.MainClientExec</td>
+<td>MainClientExec.java:260</td>
+<td title="Message">Target auth state: UNCHALLENGED</td>
+</tr>
+
+<tr>
+<td>27</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.execchain.MainClientExec category">org.apache.http.impl.execchain.MainClientExec</td>
+<td>MainClientExec.java:266</td>
+<td title="Message">Proxy auth state: UNCHALLENGED</td>
+</tr>
+
+<tr>
+<td>29</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:135</td>
+<td title="Message">http-outgoing-0 &gt;&gt; POST /session HTTP/1.1</td>
+</tr>
+
+<tr>
+<td>29</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:138</td>
+<td title="Message">http-outgoing-0 &gt;&gt; Content-Type: application/json; charset=utf-8</td>
+</tr>
+
+<tr>
+<td>29</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:138</td>
+<td title="Message">http-outgoing-0 &gt;&gt; Content-Length: 435</td>
+</tr>
+
+<tr>
+<td>29</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:138</td>
+<td title="Message">http-outgoing-0 &gt;&gt; Host: localhost:28447</td>
+</tr>
+
+<tr>
+<td>30</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:138</td>
+<td title="Message">http-outgoing-0 &gt;&gt; Connection: Keep-Alive</td>
+</tr>
+
+<tr>
+<td>30</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:138</td>
+<td title="Message">http-outgoing-0 &gt;&gt; User-Agent: Apache-HttpClient/4.5.2 (Java/1.8.0_111)</td>
+</tr>
+
+<tr>
+<td>31</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:138</td>
+<td title="Message">http-outgoing-0 &gt;&gt; Accept-Encoding: gzip,deflate</td>
+</tr>
+
+<tr>
+<td>31</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-0 &gt;&gt; &quot;POST /session HTTP/1.1[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>31</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-0 &gt;&gt; &quot;Content-Type: application/json; charset=utf-8[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>32</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-0 &gt;&gt; &quot;Content-Length: 435[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>32</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-0 &gt;&gt; &quot;Host: localhost:28447[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>32</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-0 &gt;&gt; &quot;Connection: Keep-Alive[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>32</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-0 &gt;&gt; &quot;User-Agent: Apache-HttpClient/4.5.2 (Java/1.8.0_111)[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>32</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-0 &gt;&gt; &quot;Accept-Encoding: gzip,deflate[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>33</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-0 &gt;&gt; &quot;[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>33</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:86</td>
+<td title="Message">http-outgoing-0 &gt;&gt; &quot;{&quot;capabilities&quot;: {&quot;desiredCapabilities&quot;: {&quot;marionette&quot;:true,&quot;firefoxOptions&quot;:{&quot;prefs&quot;:{},&quot;args&quot;:[]},&quot;browserName&quot;:&quot;firefox&quot;,&quot;moz:firefoxOptions&quot;:{&quot;prefs&quot;:{},&quot;args&quot;:[]},&quot;version&quot;:&quot;&quot;,&quot;platform&quot;:&quot;ANY&quot;},&quot;requiredCapabilities&quot;: {}},&quot;desiredCapabilities&quot;: {&quot;marionette&quot;:true,&quot;firefoxOptions&quot;:{&quot;prefs&quot;:{},&quot;args&quot;:[]},&quot;browserName&quot;:&quot;firefox&quot;,&quot;moz:firefoxOptions&quot;:{&quot;prefs&quot;:{},&quot;args&quot;:[]},&quot;version&quot;:&quot;&quot;,&quot;platform&quot;:&quot;ANY&quot;},&quot;requiredCapabilities&quot;: {}}&quot;</td>
+</tr>
+
+<tr>
+<td>2165</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-0 &lt;&lt; &quot;HTTP/1.1 200 OK[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>2165</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-0 &lt;&lt; &quot;Connection: close[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>2166</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-0 &lt;&lt; &quot;Content-Type: application/json[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>2166</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-0 &lt;&lt; &quot;Content-Length: 535[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>2166</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-0 &lt;&lt; &quot;Date: Sat, 18 Feb 2017 14:08:42 GMT[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>2166</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-0 &lt;&lt; &quot;[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>2167</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:86</td>
+<td title="Message">http-outgoing-0 &lt;&lt; &quot;{&quot;sessionId&quot;:&quot;df4ea923-0964-be4a-90fe-cf74eb4dbf13&quot;,&quot;value&quot;:{&quot;XULappId&quot;:&quot;{ec8030f7-c20a-464f-9b0e-13a3a9e97384}&quot;,&quot;acceptSslCerts&quot;:false,&quot;appBuildId&quot;:&quot;20170125094131&quot;,&quot;browserName&quot;:&quot;firefox&quot;,&quot;browserVersion&quot;:&quot;51.0.1&quot;,&quot;command_id&quot;:1,&quot;firefoxOptions&quot;:{&quot;args&quot;:[],&quot;prefs&quot;:{}},&quot;marionette&quot;:true,&quot;platform&quot;:&quot;DARWIN&quot;,&quot;platformName&quot;:&quot;darwin&quot;,&quot;platformVersion&quot;:&quot;16.4.0&quot;,&quot;processId&quot;:19404,&quot;proxy&quot;:{},&quot;raisesAccessibilityExceptions&quot;:false,&quot;rotatable&quot;:false,&quot;specificationLevel&quot;:0,&quot;takesElementScreenshot&quot;:true,&quot;takesScreenshot&quot;:true,&quot;version&quot;:&quot;&quot;}}&quot;</td>
+</tr>
+
+<tr>
+<td>2169</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:124</td>
+<td title="Message">http-outgoing-0 &lt;&lt; HTTP/1.1 200 OK</td>
+</tr>
+
+<tr>
+<td>2169</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:127</td>
+<td title="Message">http-outgoing-0 &lt;&lt; Connection: close</td>
+</tr>
+
+<tr>
+<td>2169</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:127</td>
+<td title="Message">http-outgoing-0 &lt;&lt; Content-Type: application/json</td>
+</tr>
+
+<tr>
+<td>2169</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:127</td>
+<td title="Message">http-outgoing-0 &lt;&lt; Content-Length: 535</td>
+</tr>
+
+<tr>
+<td>2170</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:127</td>
+<td title="Message">http-outgoing-0 &lt;&lt; Date: Sat, 18 Feb 2017 14:08:42 GMT</td>
+</tr>
+
+<tr>
+<td>2175</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.conn.DefaultManagedHttpClientConnection category">org.apache.http.impl.conn.DefaultManagedHttpClientConnection</td>
+<td>LoggingManagedHttpClientConnection.java:81</td>
+<td title="Message">http-outgoing-0: Close connection</td>
+</tr>
+
+<tr>
+<td>2176</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.execchain.MainClientExec category">org.apache.http.impl.execchain.MainClientExec</td>
+<td>ConnectionHolder.java:103</td>
+<td title="Message">Connection discarded</td>
+</tr>
+
+<tr>
+<td>2176</td>
+<td title="Forwarding newSession on session null to remote thread">Forwarding newSession on session null to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.conn.PoolingHttpClientConnectionManager category">org.apache.http.impl.conn.PoolingHttpClientConnectionManager</td>
+<td>PoolingHttpClientConnectionManager.java:320</td>
+<td title="Message">Connection released: [id: 0][route: {}-&gt;http://localhost:28447][total kept alive: 0; route allocated: 0 of 2000; total allocated: 0 of 2000]</td>
+</tr>
+
+<tr>
+<td>2193</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.client.protocol.RequestAddCookies category">org.apache.http.client.protocol.RequestAddCookies</td>
+<td>RequestAddCookies.java:122</td>
+<td title="Message">CookieSpec selected: default</td>
+</tr>
+
+<tr>
+<td>2193</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.client.protocol.RequestAuthCache category">org.apache.http.client.protocol.RequestAuthCache</td>
+<td>RequestAuthCache.java:76</td>
+<td title="Message">Auth cache not set in the context</td>
+</tr>
+
+<tr>
+<td>2194</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.conn.PoolingHttpClientConnectionManager category">org.apache.http.impl.conn.PoolingHttpClientConnectionManager</td>
+<td>PoolingHttpClientConnectionManager.java:249</td>
+<td title="Message">Connection request: [route: {}-&gt;http://localhost:28447][total kept alive: 0; route allocated: 0 of 2000; total allocated: 0 of 2000]</td>
+</tr>
+
+<tr>
+<td>2194</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.conn.PoolingHttpClientConnectionManager category">org.apache.http.impl.conn.PoolingHttpClientConnectionManager</td>
+<td>PoolingHttpClientConnectionManager.java:282</td>
+<td title="Message">Connection leased: [id: 1][route: {}-&gt;http://localhost:28447][total kept alive: 0; route allocated: 1 of 2000; total allocated: 1 of 2000]</td>
+</tr>
+
+<tr>
+<td>2194</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.execchain.MainClientExec category">org.apache.http.impl.execchain.MainClientExec</td>
+<td>MainClientExec.java:234</td>
+<td title="Message">Opening connection {}-&gt;http://localhost:28447</td>
+</tr>
+
+<tr>
+<td>2194</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.conn.DefaultHttpClientConnectionOperator category">org.apache.http.impl.conn.DefaultHttpClientConnectionOperator</td>
+<td>DefaultHttpClientConnectionOperator.java:138</td>
+<td title="Message">Connecting to localhost/127.0.0.1:28447</td>
+</tr>
+
+<tr>
+<td>2195</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.conn.DefaultHttpClientConnectionOperator category">org.apache.http.impl.conn.DefaultHttpClientConnectionOperator</td>
+<td>DefaultHttpClientConnectionOperator.java:145</td>
+<td title="Message">Connection established 127.0.0.1:62601&lt;-&gt;127.0.0.1:28447</td>
+</tr>
+
+<tr>
+<td>2195</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.conn.DefaultManagedHttpClientConnection category">org.apache.http.impl.conn.DefaultManagedHttpClientConnection</td>
+<td>LoggingManagedHttpClientConnection.java:90</td>
+<td title="Message">http-outgoing-1: set socket timeout to 10800000</td>
+</tr>
+
+<tr>
+<td>2195</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.execchain.MainClientExec category">org.apache.http.impl.execchain.MainClientExec</td>
+<td>MainClientExec.java:255</td>
+<td title="Message">Executing request POST /session/df4ea923-0964-be4a-90fe-cf74eb4dbf13/url HTTP/1.1</td>
+</tr>
+
+<tr>
+<td>2195</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.execchain.MainClientExec category">org.apache.http.impl.execchain.MainClientExec</td>
+<td>MainClientExec.java:260</td>
+<td title="Message">Target auth state: UNCHALLENGED</td>
+</tr>
+
+<tr>
+<td>2195</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.execchain.MainClientExec category">org.apache.http.impl.execchain.MainClientExec</td>
+<td>MainClientExec.java:266</td>
+<td title="Message">Proxy auth state: UNCHALLENGED</td>
+</tr>
+
+<tr>
+<td>2196</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:135</td>
+<td title="Message">http-outgoing-1 &gt;&gt; POST /session/df4ea923-0964-be4a-90fe-cf74eb4dbf13/url HTTP/1.1</td>
+</tr>
+
+<tr>
+<td>2196</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:138</td>
+<td title="Message">http-outgoing-1 &gt;&gt; Content-Type: application/json; charset=utf-8</td>
+</tr>
+
+<tr>
+<td>2196</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:138</td>
+<td title="Message">http-outgoing-1 &gt;&gt; Content-Length: 27</td>
+</tr>
+
+<tr>
+<td>2196</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:138</td>
+<td title="Message">http-outgoing-1 &gt;&gt; Host: localhost:28447</td>
+</tr>
+
+<tr>
+<td>2196</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:138</td>
+<td title="Message">http-outgoing-1 &gt;&gt; Connection: Keep-Alive</td>
+</tr>
+
+<tr>
+<td>2197</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:138</td>
+<td title="Message">http-outgoing-1 &gt;&gt; User-Agent: Apache-HttpClient/4.5.2 (Java/1.8.0_111)</td>
+</tr>
+
+<tr>
+<td>2197</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:138</td>
+<td title="Message">http-outgoing-1 &gt;&gt; Accept-Encoding: gzip,deflate</td>
+</tr>
+
+<tr>
+<td>2197</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-1 &gt;&gt; &quot;POST /session/df4ea923-0964-be4a-90fe-cf74eb4dbf13/url HTTP/1.1[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>2197</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-1 &gt;&gt; &quot;Content-Type: application/json; charset=utf-8[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>2197</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-1 &gt;&gt; &quot;Content-Length: 27[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>2197</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-1 &gt;&gt; &quot;Host: localhost:28447[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>2198</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-1 &gt;&gt; &quot;Connection: Keep-Alive[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>2198</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-1 &gt;&gt; &quot;User-Agent: Apache-HttpClient/4.5.2 (Java/1.8.0_111)[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>2198</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-1 &gt;&gt; &quot;Accept-Encoding: gzip,deflate[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>2198</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-1 &gt;&gt; &quot;[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>2198</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:86</td>
+<td title="Message">http-outgoing-1 &gt;&gt; &quot;{&quot;url&quot;:&quot;http://google.com&quot;}&quot;</td>
+</tr>
+
+<tr>
+<td>3645</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-1 &lt;&lt; &quot;HTTP/1.1 200 OK[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>3646</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-1 &lt;&lt; &quot;Connection: close[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>3647</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-1 &lt;&lt; &quot;Content-Type: application/json[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>3647</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-1 &lt;&lt; &quot;Content-Length: 2[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>3647</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-1 &lt;&lt; &quot;Date: Sat, 18 Feb 2017 14:08:44 GMT[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>3648</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:72</td>
+<td title="Message">http-outgoing-1 &lt;&lt; &quot;[\r][\n]&quot;</td>
+</tr>
+
+<tr>
+<td>3648</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.wire category">org.apache.http.wire</td>
+<td>Wire.java:86</td>
+<td title="Message">http-outgoing-1 &lt;&lt; &quot;{}&quot;</td>
+</tr>
+
+<tr>
+<td>3648</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:124</td>
+<td title="Message">http-outgoing-1 &lt;&lt; HTTP/1.1 200 OK</td>
+</tr>
+
+<tr>
+<td>3649</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:127</td>
+<td title="Message">http-outgoing-1 &lt;&lt; Connection: close</td>
+</tr>
+
+<tr>
+<td>3649</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:127</td>
+<td title="Message">http-outgoing-1 &lt;&lt; Content-Type: application/json</td>
+</tr>
+
+<tr>
+<td>3649</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:127</td>
+<td title="Message">http-outgoing-1 &lt;&lt; Content-Length: 2</td>
+</tr>
+
+<tr>
+<td>3649</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.headers category">org.apache.http.headers</td>
+<td>LoggingManagedHttpClientConnection.java:127</td>
+<td title="Message">http-outgoing-1 &lt;&lt; Date: Sat, 18 Feb 2017 14:08:44 GMT</td>
+</tr>
+
+<tr>
+<td>3650</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.conn.DefaultManagedHttpClientConnection category">org.apache.http.impl.conn.DefaultManagedHttpClientConnection</td>
+<td>LoggingManagedHttpClientConnection.java:81</td>
+<td title="Message">http-outgoing-1: Close connection</td>
+</tr>
+
+<tr>
+<td>3650</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.execchain.MainClientExec category">org.apache.http.impl.execchain.MainClientExec</td>
+<td>ConnectionHolder.java:103</td>
+<td title="Message">Connection discarded</td>
+</tr>
+
+<tr>
+<td>3651</td>
+<td title="Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote thread">Forwarding get on session df4ea923-0964-be4a-90fe-cf74eb4dbf13 to remote</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="org.apache.http.impl.conn.PoolingHttpClientConnectionManager category">org.apache.http.impl.conn.PoolingHttpClientConnectionManager</td>
+<td>PoolingHttpClientConnectionManager.java:320</td>
+<td title="Message">Connection released: [id: 1][route: {}-&gt;http://localhost:28447][total kept alive: 0; route allocated: 0 of 2000; total allocated: 0 of 2000]</td>
+</tr>
+
+<tr>
+<td>3653</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="in.beingzero.tests.sandeep.BrowserLaunch category">in.beingzero.tests.sandeep.BrowserLaunch</td>
+<td>BrowserLaunch.java:17</td>
+<td title="Message">This is an Info Message</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>HTML Layout Example</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Feb 18 19:40:18 IST 2017<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>File:Line</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="in.beingzero.tests.sandeep.BrowserLaunch category">in.beingzero.tests.sandeep.BrowserLaunch</td>
+<td>BrowserLaunch.java:17</td>
+<td title="Message">This is an Info Message</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>HTML Layout Example</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Feb 18 19:41:04 IST 2017<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>File:Line</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="in.beingzero.tests.sandeep.BrowserLaunch category">in.beingzero.tests.sandeep.BrowserLaunch</td>
+<td>BrowserLaunch.java:17</td>
+<td title="Message">This is an Info Message</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>HTML Layout Example</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Feb 18 19:44:09 IST 2017<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>File:Line</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title=" category"></td>
+<td>BrowserLaunch.java:17</td>
+<td title="Message">This is an Info Message</td>
+</tr>

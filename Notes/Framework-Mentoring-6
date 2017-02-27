@@ -1,0 +1,100 @@
+EXTENSIBLE
+
+Log4J
+
+Config
+
+Data
+
+POM
+ 
+Utils 
+    - ImageComparison
+    - ReportingCustomization
+
+OOP
+
+id
+name
+xpath
+class
+cssSelector
+linkText
+tagName
+partialLinkText
+
+
+When do we use Upcasting and Downcasting!!
+interface X
+{
+    void testMe();
+}
+
+class Y implements X
+{
+    @Override
+    public void testMe()
+    {
+
+    }
+
+    public void happyMe()
+    {
+
+    }
+}
+
+X x = new Y(); // UPCASTING
+x.testMe();
+x.happyMe(); // is INVALID.
+How do I call happyMe on x.  
+Y y = (Y)x;
+y.happyMe();// This is VALID --- DOWNCASTING
+
+
+interface Father
+{
+    void dropToSchool();
+}
+interface Husband
+{
+    void dropToOffice();
+}
+class Sandeep implements Father,Husband
+{
+    public void dropToSchool()
+    {
+
+    }
+    public void dropToOffice()
+    {
+
+    }
+}
+class Daugter
+{
+    psvm
+    {
+        Father f = new Sandeep();
+        f.dropToSchool();
+    }
+}
+
+
+class FirefoxDriver implements WebDriver, TakesScreenshot
+{
+
+}
+
+WebDriver wd = 
+wd.get("");
+TakesScreenshot fd = (TakesScreenshot)wd;
+fd.takeScreenshot();
+
+
+WHY!!
+
+
+DO IT!
+
+
