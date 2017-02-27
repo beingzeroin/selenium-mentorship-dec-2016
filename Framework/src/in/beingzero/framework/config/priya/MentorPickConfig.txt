@@ -1,0 +1,52 @@
+# ie, chrome, firefox
+browser=chrome
+
+url=http://mentorpick.com/
+
+# true or false
+runFullScreen=true
+
+# 0 to 10000
+implicitTimeoutInSeconds=30
+
+#UserName 
+userEmail=priyataran@gmail.com
+
+#Password
+pwd=password
+
+#Webelement to locate Email
+UsrEmail =Email
+
+#Webelement to locate Password
+PwdTxt =Passwd
+
+#Webelement to locate Next Button
+NxtBtn =next
+
+#WebElement to locate login button
+LogIn =.//*[@id='page-top']/nav/div/div[2]/ul/li[5]/a
+
+#WebElement to locate login with google button
+LgnWGgle =/html/body/section/div/div/a[1]
+
+#WebElement to locate signIn button
+SignInBtn =signIn
+
+#Google Auth url for login
+GgleAuthUrl =http://mentorpick.com/auth/google
+
+#Dashboard page url of beingzero
+DashBoardUrl =http://mentorpick.com/courses#
+
+#Verify logged in or not
+DshBrdLogin =.//*[@id='welcome']
+
+#Xpath to locate the list of courses available on BeingZero
+CourseList=/html/body/div[2]/div[3]/div/div/div[1]/a 
+			
+#Xpath to locate the list of courses available on BeingZero and href is containing the request
+CLwithReg=/html/body/div[2]/div[3]/div/div/div[1]/div/a[2]
+
+#Xpath to locate the list of courses unlocked
+UnLkCourse=//*[@ng-hide][@class='ng-hide']

@@ -13,7 +13,8 @@ public class BasePage {
 	
 	// If Test Wants to open page in new browser this constructor has been called
 	public BasePage()
-	{
+	{	
+		//DriverManager.getDriver();
 		driver = new ChromeDriver();
 		driver.get("http://opensource.demo.orangehrmlive.com");
 		driver.manage().window().maximize();

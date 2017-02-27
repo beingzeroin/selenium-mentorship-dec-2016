@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class DashboardPage {
 	
 	WebDriver wd;
+	
 	public LoginPage logout() throws InterruptedException{
 		
 		wd.findElement(By.id("welcome")).click();

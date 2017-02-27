@@ -21,7 +21,7 @@ public class DashBoardPageOHRM extends BasePage{
 		super(driver);
 	}
 	
-	public AddEmployeePage validateValidUser(String UName,String Pwd)
+	public AddEmployeePage validateValidUser()
 	{
 		Actualtxt = driver.findElement(By.id("welcome"));
 		String Actuallogger = Actualtxt.getText();
@@ -36,6 +36,6 @@ public class DashBoardPageOHRM extends BasePage{
 		WebDriverWait wait = new WebDriverWait(driver, 10); 
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='welcome-menu']/ul/li[2]/a")));
 		driver.findElement(By.xpath("//*[@id='welcome-menu']/ul/li[2]/a")).click();
-		return new LoginPageOHRM(driver);
+		return new LoginPageOHRM();
 	}
 }

@@ -55,7 +55,7 @@ public class LogInTests {
 		browser.findElement(By.id("btnLogin")).click();
 		String msg = browser.findElement(By.id("spanMessage")).getText();
 		System.out.println(msg);
-		Assert.assertTrue(msg.contains("Password cannot be empty"));
+		Assert.assertTrue(msg.contains("Password can be empty"));
 	}
 	
 	@Test

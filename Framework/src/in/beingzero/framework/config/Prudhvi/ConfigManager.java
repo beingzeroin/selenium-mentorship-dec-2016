@@ -1,3 +1,4 @@
+
 package in.beingzero.framework.config.Prudhvi;
 
 import java.io.File;
@@ -55,5 +56,5 @@ public class ConfigManager implements IConfigManager
 	{
 		return Boolean.parseBoolean(objProperties.getProperty(propName));
 	}
-
+	
 }
