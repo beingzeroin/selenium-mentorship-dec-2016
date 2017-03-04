@@ -1,32 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project name="Being Zero HackerRank" basedir=".">
+<project name="Being Zero Orange HRM Tests" basedir=".">
     
-  <property name="libs" value="${basedir}\libs"/>
+  <property name="libs" value="${basedir}\..\lib"/>
   <property name="src" value="${basedir}\src"/>
   <property name="dest" value="${basedir}\dest"/>
-	
+	  
   <target name="clean">
 	<echo message="Deleting Previously Built Files" />
     <delete dir="${dest}" />
     <echo message="Creating Directory for Fresh Build" />
     <mkdir dir="${dest}" />
-  	<path id="classpath_jars">
-  		<pathelement path="${basedir}/"/>
-  	      <!-- Jar added here -->
-  	      <fileset dir="${libs}" includes="*.jar"/>
-  	    </path>
-    <pathconvert pathsep=";" property="test.classpath" refid="classpath_jars"/>
+  	<path id="jars">
+ 	    <pathelement path="${dest}/"/>
+        <!-- Jar added here -->
+	    <fileset dir="${libs}" includes="*.jar"/>
+  	</path>
+    <pathconvert pathsep=";" property="test.classpath" refid="jars"/>
     <taskdef resource="testngtasks" classpath="${test.classpath}"/>
   </target>
 
   <target name="compileAndRun" depends="clean">
     <echo message="Start Compiling Source with Libs" />
-    <javac destdir="${dest}" srcdir="${src}">
-        <classpath refid="classpath_jars"/>
+    <javac includeantruntime="false" destdir="${dest}" srcdir="${src}">
+        <classpath refid="jars"/>
     </javac>
+    <echo message="Copying configurations to destination e.g. log4j.properties" />
+    <copy file="${src}/log4j.properties" todir="${dest}"/>
+    <!-- 
+	    <copy todir="${dest}">
+	    	<fileset dir="${src}" excludes="**/*.java"/>
+	    </copy>
+     -->
+     
   	<testng classpath="${test.classpath};${dest}">
-      <xmlfileset dir="${basedir}\TestSuites" includes="FunctionalTests.xml"/>
+      <xmlfileset dir="${basedir}" includes="AuthTests.xml"/>
   	</testng>
   </target>
     
