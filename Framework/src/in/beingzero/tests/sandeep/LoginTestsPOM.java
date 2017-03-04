@@ -1,9 +1,7 @@
 package in.beingzero.tests.sandeep;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import in.beingzero.framework.POM.sandeep.DashboardPage;
 import in.beingzero.framework.POM.sandeep.LoginPage;
 
 public class LoginTestsPOM {
