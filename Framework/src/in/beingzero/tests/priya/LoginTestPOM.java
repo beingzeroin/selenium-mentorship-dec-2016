@@ -1,7 +1,6 @@
 package in.beingzero.tests.priya;
 
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -9,12 +8,7 @@ import in.beingzero.framework.POM.Priya.AddEmployeePage;
 import in.beingzero.framework.POM.Priya.DashBoardPageOHRM;
 import in.beingzero.framework.POM.Priya.LoginPageOHRM;
 import in.beingzero.framework.POM.Priya.PersonalDetails;
-import in.beingzero.framework.data.Prudhvi.ExcelDataManager;
-import in.beingzero.framework.data.priya.AddEmpData;
 import in.beingzero.framework.data.priya.AddEmpMulDataExcel;
-import in.beingzero.framework.data.priya.IExcelDataManager;
-import in.beingzero.framework.data.priya.AddMultEmpExcel;
-import in.beingzero.framework.data.priya.IExcelDataManager;
 
 public class LoginTestPOM {
 	

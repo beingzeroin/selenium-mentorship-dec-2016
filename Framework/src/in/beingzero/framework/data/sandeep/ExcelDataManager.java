@@ -25,6 +25,7 @@ public class ExcelDataManager extends DataManager{
 		tb = tbName;
 	}
 
+	@SuppressWarnings("deprecation")
 	public Object[][] getData(String filePath, String worksheetName, String tableName, boolean hasHeader) {
 		XSSFWorkbook workbook = null;
 		XSSFSheet sheet = null;

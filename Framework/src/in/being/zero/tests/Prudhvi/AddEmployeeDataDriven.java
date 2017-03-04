@@ -1,12 +1,10 @@
 package in.being.zero.tests.Prudhvi;
 
-import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import in.beingzero.framework.POM.Prudhvi.AddEmployeePage;
 import in.beingzero.framework.POM.Prudhvi.DashBoardPage;
-import in.beingzero.framework.POM.Prudhvi.EmployeeListPage;
 import in.beingzero.framework.POM.Prudhvi.LoginPage;
 import in.beingzero.framework.config.Prudhvi.ConfigManager;
 import in.beingzero.framework.data.sandeep.DataManager;
@@ -19,7 +17,7 @@ public class AddEmployeeDataDriven {
 	{
 		LoginPage objLoginPage=new LoginPage();
 		ConfigManager objCM=new ConfigManager();
-		DashBoardPage objDBPage=objLoginPage.validLogin(objCM.getProperty("userName"), objCM.getProperty("password"));
+		objLoginPage.validLogin(objCM.getProperty("userName"), objCM.getProperty("password"));
 
 	}
 	
@@ -31,7 +29,7 @@ public class AddEmployeeDataDriven {
 		ConfigManager objCM=new ConfigManager();
 		DashBoardPage objDBPage=objLoginPage.validLogin(objCM.getProperty("userName"), objCM.getProperty("password"));
 		AddEmployeePage objAddEmpPage=objDBPage.navigateToAddEmployeePage();
-		EmployeeListPage obj=objAddEmpPage.addEmployee(firstName,middleName,lastName);
+		objAddEmpPage.addEmployee(firstName,middleName,lastName);
 	}
 	
 	@DataProvider
