@@ -34,7 +34,7 @@
      -->
      
   	<testng classpath="${test.classpath};${dest}">
-      <xmlfileset dir="${basedir}" includes="TestSuites/FunctionalTests.xml"/>		
+      <xmlfileset dir="${basedir}" includes="OrangeHRM-TestSuites/AllTestsSuite.xml"/>		
   	</testng>
   </target>
     
