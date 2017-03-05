@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="OrangeHRM Functional Suite">
-  <test verbose="2" name="Emp Tests">
+<suite name="OrangeHRM Functional Suite" parallel="methods" thread-count="5">
+  <test verbose="2" name="Emp Tests - Chrome">
   	<parameter name="browserType" value="chrome"></parameter>
+    <classes>
+      <class name="in.beingzero.tests.sandeep.JobVacanciesTest"/>
+      <class name="in.beingzero.tests.sandeep.MultiEmpTest"/>
+    </classes>
+  </test> <!-- Default test -->
+  <test verbose="2" name="Emp Tests - Firefox">
+  	<parameter name="browserType" value="firefox"></parameter>
     <classes>
       <class name="in.beingzero.tests.sandeep.JobVacanciesTest"/>
       <class name="in.beingzero.tests.sandeep.MultiEmpTest"/>

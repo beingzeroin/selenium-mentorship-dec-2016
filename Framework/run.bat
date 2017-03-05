@@ -1,0 +1,1 @@
+git pull & ant clean & ant compileAndRun
