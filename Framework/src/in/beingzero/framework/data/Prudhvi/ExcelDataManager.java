@@ -11,6 +11,7 @@ public class ExcelDataManager implements IDataManager
 {
 	//./src/in/beingzero/framework/Data/Prudhvi/Data.xlsx'
 	String strExcelSheetPath="D://Data.xlsx";
+	private XSSFWorkbook objWb;
 	
 	//File objExcelWorkbook=new File(strExcelSheetPath);
 	public static void main(String[] args) throws Exception
@@ -39,7 +40,7 @@ public class ExcelDataManager implements IDataManager
 	
 	FileInputStream objInputStream=new FileInputStream(new File(strExcelSheetPath));
 	
-	XSSFWorkbook objWb=new XSSFWorkbook(objInputStream);
+	objWb = new XSSFWorkbook(objInputStream);
 	XSSFSheet objWs=objWb.getSheet("Sheet1");
 	
 	System.out.println(objWs.getPhysicalNumberOfRows());

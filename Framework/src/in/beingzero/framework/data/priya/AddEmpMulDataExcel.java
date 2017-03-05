@@ -7,10 +7,12 @@ public class AddEmpMulDataExcel {
 
 	@DataProvider
 	public static Object[][] loginTestData() {
+		/*
 		Object[][] tableToReturn;
 		String FirstName ;
 		String MiddleName ;
 		String LastName ;
+		*/
 		
 		IExcelDataManager edm = new AddMultEmpExcel("testdata/OHRMTestData-Priya.xlsx", "OHRM-New-Emp-Data", "NewEmpData");
 		return edm.getData();

@@ -69,6 +69,7 @@ public class ExcelHelper {
 		return getCellData(sheetName, colNumber, rowNumber);
 	}
 
+	@SuppressWarnings("deprecation")
 	public String getCellData(String sheetName, int colNumber, int rowNumber) {
 		Row r = wbk.getSheet(sheetName).getRow(rowNumber - 1);
 		if (r == null)

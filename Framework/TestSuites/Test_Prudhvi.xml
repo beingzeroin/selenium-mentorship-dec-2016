@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="OrangeHRM Functional Suite">
+  <test  name="AddEmployee Tests">
+    <classes>
+      <class name="in.being.zero.tests.Prudhvi.AddEmployeeDataDriven"/>
+      	<methods>
+      		<exclude name="AddMultipleEmployees"></exclude>
+      		<include name="AddEmployee"></include>
+      	</methods>
+      	
+    </classes>
+  </test> 
+  
+  
+  <test  name="Delete Employee Tests">
+    <classes>
+      <class name="in.being.zero.tests.Prudhvi.DeleteEmployee"/>
+      	<methods>
+      		
+      	</methods>
+      	
+    </classes>
+  </test>
+ 
+</suite> <!-- Default suite -->

@@ -14,7 +14,7 @@ public class BrowserLaunch {
 		FirefoxDriver fd = new FirefoxDriver();
 		fd.get("http://google.com");
 		Logger log = LogManager.getLogger("Test");
-		Logger log1 = LogManager.getLogger("Test.mylogger");
+		//Logger log1 = LogManager.getLogger("Test.mylogger");
 		log.info("This is an Info Message");
 	}
 	

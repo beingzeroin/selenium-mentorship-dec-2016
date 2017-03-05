@@ -11,7 +11,9 @@ public class DashBoardPage extends BasePage
 	By logOutButton=By.xpath(".//*[@id='welcome-menu']/ul/li[2]/a");
 	By PIMLink=By.id("menu_pim_viewPimModule");
 	By AddEmployeeLink=By.id("menu_pim_addEmployee");
-	//WebDriver driver;
+	By employeeListLink=By.id("menu_pim_viewEmployeeList");
+	
+	WebElement PIM=driver.findElement(PIMLink);
 	
 	public DashBoardPage()
 	{
@@ -61,7 +63,7 @@ public class DashBoardPage extends BasePage
 	public AddEmployeePage navigateToAddEmployeePage()
 	{
 	
-			WebElement PIM=driver.findElement(PIMLink);
+			
 			Actions objAction=new Actions(driver);
 			objAction.moveToElement(PIM).build().perform();
 			driver.findElement(AddEmployeeLink).click();
@@ -69,6 +71,18 @@ public class DashBoardPage extends BasePage
 		
 	
 	}
+	
+	public EmployeeListPage navigateToEmployeeListPage()
+	{
+		
+			Actions objAction=new Actions(driver);
+			objAction.moveToElement(PIM).build().perform();
+			driver.findElement(employeeListLink).click();
+			return new EmployeeListPage(driver);
+		
+	
+	}
+	
 	
 }
 

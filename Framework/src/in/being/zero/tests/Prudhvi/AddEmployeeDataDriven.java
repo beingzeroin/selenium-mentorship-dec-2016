@@ -1,6 +1,8 @@
 package in.being.zero.tests.Prudhvi;
 
+
 import org.testng.annotations.BeforeMethod;
+
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -21,7 +23,11 @@ public class AddEmployeeDataDriven {
 	{
 		LoginPage objLoginPage=new LoginPage();
 		ConfigManager objCM=new ConfigManager();
+
 		objDBPage=objLoginPage.validLogin(objCM.getProperty("userName"), objCM.getProperty("password"));
+
+		objLoginPage.validLogin(objCM.getProperty("userName"), objCM.getProperty("password"));
+
 
 	}
 	
@@ -36,6 +42,13 @@ public class AddEmployeeDataDriven {
 		AddEmployeePage objAddEmpPage=objBasePage.NavigateToAddEmployee1();
 		EmployeeListPage objEmployeeList=objAddEmpPage.addEmployee(firstName,middleName,lastName);
 		objEmployeeList.verifyPersonalDetails(firstName, middleName, lastName);
+
+		LoginPage objLoginPage=new LoginPage();
+		ConfigManager objCM=new ConfigManager();
+		DashBoardPage objDBPage=objLoginPage.validLogin(objCM.getProperty("userName"), objCM.getProperty("password"));
+		AddEmployeePage objAddEmpPage1=objDBPage.navigateToAddEmployeePage();
+		objAddEmpPage1.addEmployee(firstName,middleName,lastName);
+
 	}
 	//@Test
 	public void AddMultipleEmployees()
@@ -45,8 +58,8 @@ public class AddEmployeeDataDriven {
 		
 		for(int i=0;i<iEmployeeNo;i++)
 		{			
-			AddEmployeePage objAddEmpPage=objDBPage.navigateToAddEmployeePage();
-			EmployeeListPage obj=objAddEmpPage.addEmployee(Employees[i][0].toString(),Employees[i][1].toString(),Employees[i][2].toString());
+			AddEmployeePage objAddEmpPage2=objDBPage.navigateToAddEmployeePage();
+			EmployeeListPage obj=objAddEmpPage2.addEmployee(Employees[i][0].toString(),Employees[i][1].toString(),Employees[i][2].toString());
 		}
 		
 	}

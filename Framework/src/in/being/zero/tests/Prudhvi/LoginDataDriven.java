@@ -6,11 +6,10 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import in.beingzero.framework.data.sandeep.DataManager;
-import in.beingzero.framework.data.sandeep.ExcelDataManager;
 import in.beingzero.framework.POM.Prudhvi.DashBoardPage;
 import in.beingzero.framework.POM.Prudhvi.LoginPage;
-import in.beingzero.framework.config.Prudhvi.BrowserManager;
+import in.beingzero.framework.data.sandeep.DataManager;
+import in.beingzero.framework.data.sandeep.ExcelDataManager;
 
 public class LoginDataDriven {
 	LoginPage objLoginPage;

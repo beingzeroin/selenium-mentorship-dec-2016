@@ -22,6 +22,7 @@ public class AddMultEmpExcel implements IExcelDataManager{
 		tbnm=tbName;
 	}
 	
+	@SuppressWarnings("deprecation")
 	public Object[][] getData(String filePath, String worksheetName, String tbName, boolean hasHeader)
 	{
 		XSSFWorkbook workbook = null;
