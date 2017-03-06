@@ -17,7 +17,6 @@ import in.beingzero.framework.data.sandeep.ExcelDataManager;
 
 public class AddEmployeeDataDriven {
 	 DashBoardPage objDBPage;
-	 BasePage objBasePage;
 	@BeforeMethod
 	public void LoginTest()
 	{
@@ -25,8 +24,6 @@ public class AddEmployeeDataDriven {
 		ConfigManager objCM=new ConfigManager();
 
 		objDBPage=objLoginPage.validLogin(objCM.getProperty("userName"), objCM.getProperty("password"));
-
-		objLoginPage.validLogin(objCM.getProperty("userName"), objCM.getProperty("password"));
 
 
 	}
@@ -39,7 +36,7 @@ public class AddEmployeeDataDriven {
 		//ConfigManager objCM=new ConfigManager();
 		//DashBoardPage objDBPage=objLoginPage.validLogin(objCM.getProperty("userName"), objCM.getProperty("password"));
 		//DashBoardPage objDBPage =new DashBoardPage();
-		AddEmployeePage objAddEmpPage=objBasePage.NavigateToAddEmployee1();
+		AddEmployeePage objAddEmpPage=objDBPage.NavigateToAddEmployee1();
 		EmployeeListPage objEmployeeList=objAddEmpPage.addEmployee(firstName,middleName,lastName);
 		objEmployeeList.verifyPersonalDetails(firstName, middleName, lastName);
 
