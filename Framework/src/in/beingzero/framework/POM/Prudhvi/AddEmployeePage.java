@@ -27,14 +27,14 @@ public class AddEmployeePage extends BasePage{
 	
 	public EmployeeListPage addEmployee(String strFirstName,String strMiddleName,String strLastName)
 	{
-		driver.findElement(firstName).sendKeys(strFirstName);
-		driver.findElement(middleName).sendKeys(strMiddleName);
-		driver.findElement(lastName).sendKeys(strLastName);
-		driver.findElement(CheckLogin).click();
-		driver.findElement(userName).sendKeys(strFirstName);
-		driver.findElement(password).sendKeys(strFirstName);
-		driver.findElement(confirmPassword).sendKeys(strFirstName);
-		driver.findElement(saveButton).click();
-		return new EmployeeListPage(driver);
+		getDriver().findElement(firstName).sendKeys(strFirstName);
+		getDriver().findElement(middleName).sendKeys(strMiddleName);
+		getDriver().findElement(lastName).sendKeys(strLastName);
+		getDriver().findElement(CheckLogin).click();
+		getDriver().findElement(userName).sendKeys(strFirstName);
+		getDriver().findElement(password).sendKeys(strFirstName);
+		getDriver().findElement(confirmPassword).sendKeys(strFirstName);
+		getDriver().findElement(saveButton).click();
+		return new EmployeeListPage(getDriver());
 	}
 }

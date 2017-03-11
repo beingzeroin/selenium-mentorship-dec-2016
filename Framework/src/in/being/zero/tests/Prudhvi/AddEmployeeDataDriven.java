@@ -2,12 +2,10 @@ package in.being.zero.tests.Prudhvi;
 
 
 import org.testng.annotations.BeforeMethod;
-
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
-import in.beingzero.framework.POM.Prudhvi.AddEmployeePage;
 import in.beingzero.framework.POM.Prudhvi.BasePage;
+import in.beingzero.framework.POM.Prudhvi.AddEmployeePage;
 import in.beingzero.framework.POM.Prudhvi.DashBoardPage;
 import in.beingzero.framework.POM.Prudhvi.EmployeeListPage;
 import in.beingzero.framework.POM.Prudhvi.LoginPage;
@@ -16,13 +14,12 @@ import in.beingzero.framework.data.sandeep.DataManager;
 import in.beingzero.framework.data.sandeep.ExcelDataManager;
 
 public class AddEmployeeDataDriven {
-	 DashBoardPage objDBPage;
+	DashBoardPage objDBPage;
 	@BeforeMethod
 	public void LoginTest()
 	{
 		LoginPage objLoginPage=new LoginPage();
 		ConfigManager objCM=new ConfigManager();
-
 		objDBPage=objLoginPage.validLogin(objCM.getProperty("userName"), objCM.getProperty("password"));
 
 
@@ -32,19 +29,9 @@ public class AddEmployeeDataDriven {
 	public void AddEmployee(String firstName, String middleName, String lastName)
 	{
 		
-		//LoginPage objLoginPage=new LoginPage();
-		//ConfigManager objCM=new ConfigManager();
-		//DashBoardPage objDBPage=objLoginPage.validLogin(objCM.getProperty("userName"), objCM.getProperty("password"));
-		//DashBoardPage objDBPage =new DashBoardPage();
-		AddEmployeePage objAddEmpPage=objDBPage.NavigateToAddEmployee1();
+		AddEmployeePage objAddEmpPage=objDBPage.navigateToAddEmployeePage();
 		EmployeeListPage objEmployeeList=objAddEmpPage.addEmployee(firstName,middleName,lastName);
 		objEmployeeList.verifyPersonalDetails(firstName, middleName, lastName);
-
-		LoginPage objLoginPage=new LoginPage();
-		ConfigManager objCM=new ConfigManager();
-		DashBoardPage objDBPage=objLoginPage.validLogin(objCM.getProperty("userName"), objCM.getProperty("password"));
-		AddEmployeePage objAddEmpPage1=objDBPage.navigateToAddEmployeePage();
-		objAddEmpPage1.addEmployee(firstName,middleName,lastName);
 
 	}
 	//@Test

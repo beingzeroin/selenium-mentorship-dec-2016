@@ -39,11 +39,11 @@ public class EmployeeListPage extends BasePage {
 	public void verifyPersonalDetails(String strFirstName,String strMiddleName,String strLastName)
 	{
 		
-		Assert.assertEquals(strFirstName, driver.findElement(FirstName).getAttribute("value"));
+		Assert.assertEquals(strFirstName, getDriver().findElement(FirstName).getAttribute("value"));
 		System.out.println("First name is as expected");
-		Assert.assertEquals(strMiddleName, driver.findElement(MiddleName).getAttribute("value"));
+		Assert.assertEquals(strMiddleName, getDriver().findElement(MiddleName).getAttribute("value"));
 		System.out.println("Middle name is as expected");
-		Assert.assertEquals(strLastName, driver.findElement(LastName).getAttribute("value"));
+		Assert.assertEquals(strLastName, getDriver().findElement(LastName).getAttribute("value"));
 		System.out.println("Last name is as expected");
 		
 	}
@@ -51,11 +51,11 @@ public class EmployeeListPage extends BasePage {
 	
 	public void deleteEmployee(String strEmpId)
 	{
-		driver.findElement(searchId).sendKeys(strEmpId);
-		driver.findElement(searchBtn).click();
-		driver.findElement(chkAllBox).click();
-		driver.findElement(deleteButton).click();
-		driver.findElement(confirmDelete).click();
+		getDriver().findElement(searchId).sendKeys(strEmpId);
+		getDriver().findElement(searchBtn).click();
+		getDriver().findElement(chkAllBox).click();
+		getDriver().findElement(deleteButton).click();
+		getDriver().findElement(confirmDelete).click();
 	}
 	
 		

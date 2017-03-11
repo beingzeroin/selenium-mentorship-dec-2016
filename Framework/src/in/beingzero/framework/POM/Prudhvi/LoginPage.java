@@ -14,7 +14,7 @@ public class LoginPage extends BasePage {
 	//Test wants to launch browser
 	public LoginPage()
 	{
-		//System.out.println("Inside Constructor");
+		
 		// Inheritance by default calls constructor of superclass so if we comment it out then also it will work. 
 		super();
 		
@@ -33,26 +33,26 @@ public class LoginPage extends BasePage {
 	{
 		//boolean isPageValidOne=false;
 		//isPageValidOne=driver.findElement(LoginButton).isDisplayed();
-		return driver.findElement(LoginButton).isDisplayed();
+		return getDriver().findElement(LoginButton).isDisplayed();
 	}
 	
 	
 
 	public  DashBoardPage validLogin(String strUserName, String strPassword) {
 		
-		driver.findElement(userNameLocator).sendKeys(strUserName);
-		driver.findElement(passwordLocator).sendKeys(strPassword);
-		driver.findElement(LoginButton).click();
-		return new DashBoardPage(driver);
+		getDriver().findElement(userNameLocator).sendKeys(strUserName);
+		getDriver().findElement(passwordLocator).sendKeys(strPassword);
+		getDriver().findElement(LoginButton).click();
+		return new DashBoardPage(getDriver());
 	}
 	
 	public  String InvalidLogin(String strUserName, String strPassword) {
 		
-		driver.findElement(userNameLocator).sendKeys(strUserName);
-		driver.findElement(passwordLocator).sendKeys(strPassword);
-		driver.findElement(LoginButton).click();
-		String strWarning =driver.findElement(warningMessageSpan).getText();
-		driver.close();
+		getDriver().findElement(userNameLocator).sendKeys(strUserName);
+		getDriver().findElement(passwordLocator).sendKeys(strPassword);
+		getDriver().findElement(LoginButton).click();
+		String strWarning =getDriver().findElement(warningMessageSpan).getText();
+		getDriver().close();
 		return strWarning;
 	}
 	

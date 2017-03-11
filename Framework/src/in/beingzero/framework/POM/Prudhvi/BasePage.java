@@ -9,33 +9,51 @@ import in.beingzero.framework.config.Prudhvi.BrowserManager;
 
 public class BasePage {
 	
-	WebDriver driver;
-	
-	
+	private WebDriver driver;  
+	private static WebElement objPIMTab ;
+	private static By employeeListLink;
 	public BasePage()
 	{
 		BrowserManager objBM=new BrowserManager();
-		driver=objBM.launchBrowser();
+		setDriver(objBM.launchBrowser());
 		
 	}
 
 	//This constructor will be used when navigating from one page to another such that new page get opened in the same browser window.
 		public BasePage(WebDriver driver)
 		{
-			this.driver = driver;
+			this.setDriver(driver);
 		}
 		
 		
-		public AddEmployeePage NavigateToAddEmployee1()
+		public AddEmployeePage navigateToAddEmployeePage()
 		{
-			//By PIMLink=By.id("menu_pim_viewPimModule");
-			//By AddEmployeeLink=By.id("menu_pim_addEmployee");
-			WebElement objPIMTab=driver.findElement(By.id("menu_pim_viewPimModule"));
-			Actions objAction=new Actions(driver);
+			objPIMTab =getDriver().findElement(By.id("menu_pim_viewPimModule"));
+			Actions objAction=new Actions(getDriver());
 			objAction.moveToElement(objPIMTab).build().perform();
-			driver.findElement(By.id("menu_pim_addEmployee")).click();
-			return new AddEmployeePage(driver);
+			getDriver().findElement(By.id("menu_pim_addEmployee")).click();
+			return new AddEmployeePage(getDriver());
 		
+		}
+		
+		
+		public EmployeeListPage navigateToEmployeeListPage()
+		{
+				employeeListLink=By.id("menu_pim_viewEmployeeList");
+				Actions objAction=new Actions(getDriver());
+				objAction.moveToElement(objPIMTab).build().perform();
+				getDriver().findElement(employeeListLink).click();
+				return new EmployeeListPage(getDriver());
+			
+		
+		}
+
+		public WebDriver getDriver() {
+			return driver;
+		}
+
+		public void setDriver(WebDriver driver) {
+			this.driver = driver;
 		}
 
 

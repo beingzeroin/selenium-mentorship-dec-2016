@@ -15,7 +15,8 @@ public class BrowserManager {
 	{
 		ConfigManager objCM=new ConfigManager();
 		String strBrowserName=objCM.getProperty("browser");
-		WebDriver objDriver;
+	
+
 		if(strBrowserName.equalsIgnoreCase("CHROME"))
 		{
 			objDriver=new ChromeDriver();

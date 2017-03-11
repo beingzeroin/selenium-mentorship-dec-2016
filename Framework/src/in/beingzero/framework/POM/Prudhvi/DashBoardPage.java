@@ -11,9 +11,9 @@ public class DashBoardPage extends BasePage
 	By logOutButton=By.xpath(".//*[@id='welcome-menu']/ul/li[2]/a");
 	By PIMLink=By.id("menu_pim_viewPimModule");
 	By AddEmployeeLink=By.id("menu_pim_addEmployee");
-	By employeeListLink=By.id("menu_pim_viewEmployeeList");
 	
-	WebElement PIM=driver.findElement(PIMLink);
+	
+	WebElement PIM=getDriver().findElement(PIMLink);
 	
 	public DashBoardPage()
 	{
@@ -33,16 +33,16 @@ public class DashBoardPage extends BasePage
 	{
 		if(isLoginSuccessfull())
 		{
-			driver.findElement(welcomeLabel).click();
-			driver.findElement(logOutButton).click();	
+			getDriver().findElement(welcomeLabel).click();
+			getDriver().findElement(logOutButton).click();	
 		}
-		return new LoginPage(driver);
+		return new LoginPage(getDriver());
 	}
 	
 	public boolean isLoginSuccessfull()
 	{
 		boolean isWelcomeLabelExists=false;
-		if(driver.findElement(welcomeLabel).isDisplayed())
+		if(getDriver().findElement(welcomeLabel).isDisplayed())
 			isWelcomeLabelExists=true;
 		return isWelcomeLabelExists;
 	}
@@ -50,7 +50,7 @@ public class DashBoardPage extends BasePage
 	public String getWelcomeMessage() {
 		// TODO Auto-generated method stub
 		String strLabelMessage="";
-		WebElement objLabel=driver.findElement(welcomeLabel);
+		WebElement objLabel=getDriver().findElement(welcomeLabel);
 		if(objLabel.isDisplayed())
 		{
 			 strLabelMessage =objLabel.getText();
@@ -60,28 +60,7 @@ public class DashBoardPage extends BasePage
 		return strLabelMessage;
 	}
 	
-	public AddEmployeePage navigateToAddEmployeePage()
-	{
 	
-			
-			Actions objAction=new Actions(driver);
-			objAction.moveToElement(PIM).build().perform();
-			driver.findElement(AddEmployeeLink).click();
-			return new AddEmployeePage(driver);
-		
-	
-	}
-	
-	public EmployeeListPage navigateToEmployeeListPage()
-	{
-		
-			Actions objAction=new Actions(driver);
-			objAction.moveToElement(PIM).build().perform();
-			driver.findElement(employeeListLink).click();
-			return new EmployeeListPage(driver);
-		
-	
-	}
 	
 	
 }
