@@ -6,10 +6,10 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import in.beingzero.framework.config.Prudhvi.ConfigManager;
-import in.beingzero.framework.config.sandeep.OhrmObjectRepo;
+import in.beingzero.framework.config.Ravi.ConfigManager;
+import in.beingzero.framework.config.Ravi.OhrmObjectRepo;
 
-public class LoginTests {
+public class LoginTests extends ConfigManager {
 
 	public LoginTests() {
 		
